@@ -10,10 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_211051) do
+ActiveRecord::Schema.define(version: 2019_02_25_213544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bars", force: :cascade do |t|
+    t.string "name"
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_bars_on_event_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.integer "prep_time"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_drinks_on_category_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_drinks", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "drink_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_order_drinks_on_drink_id"
+    t.index ["order_id"], name: "index_order_drinks_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "status"
+    t.string "qr_code"
+    t.bigint "bar_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_orders_on_bar_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +82,10 @@ ActiveRecord::Schema.define(version: 2019_02_25_211051) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bars", "events"
+  add_foreign_key "drinks", "categories"
+  add_foreign_key "order_drinks", "drinks"
+  add_foreign_key "order_drinks", "orders"
+  add_foreign_key "orders", "bars"
+  add_foreign_key "orders", "users"
 end
