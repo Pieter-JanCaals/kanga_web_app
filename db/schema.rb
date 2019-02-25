@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_213544) do
+ActiveRecord::Schema.define(version: 2019_02_25_214215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bar_drinks", force: :cascade do |t|
+    t.bigint "drink_id"
+    t.bigint "bar_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bar_id"], name: "index_bar_drinks_on_bar_id"
+    t.index ["drink_id"], name: "index_bar_drinks_on_drink_id"
+  end
 
   create_table "bars", force: :cascade do |t|
     t.string "name"
@@ -82,6 +91,8 @@ ActiveRecord::Schema.define(version: 2019_02_25_213544) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bar_drinks", "bars"
+  add_foreign_key "bar_drinks", "drinks"
   add_foreign_key "bars", "events"
   add_foreign_key "drinks", "categories"
   add_foreign_key "order_drinks", "drinks"
