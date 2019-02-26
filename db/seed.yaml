@@ -28,14 +28,89 @@ categories:
   - name: "Wine"
 
 
+drinks:
+  - name: "Heineken"
+    prep_time: 1
+    category: "Beer"
 
-# drinks
+  - name: "Budweiser"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Corona"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Sapporo"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Coors Light"
+    prep_time: 1
+    category: "Beer"
 
 
+  - name: "Blue Lagoon"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "White Russian"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "Rum and Coke"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "Punch in the face"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "Bloody Mary"
+    prep_time: 2
+    category: "Cocktail"
 
 
+  - name: "Tequila"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Rum"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Vodka"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Amaretto"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Sour Puss"
+    prep_time: 1
+    category: "Shot"
 
 
+  - name: "Gazela Vinho Verde"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Josh Cellars Chardonnay"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Dreaming Tree Sauvignon Blanc"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Chloe Rosé"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Apothic Crush Smooth Red Blend"
+    prep_time: 1
+    category: "Wine"
 # bars
 
 
