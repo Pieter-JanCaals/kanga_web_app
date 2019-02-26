@@ -30,7 +30,7 @@ seed["events"].each do |event|
     name: event["name"],
     longitude: event["longitude"],
     latitude: event["latitude"],
-    address: event["address"]
+    address: event["address"],
     start_date: event["start_date"],
     end_date: event["end_date"]
     )

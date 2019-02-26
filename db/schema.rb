@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_170847) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "addres"
+    t.string "address"
   end
 
   create_table "order_drinks", force: :cascade do |t|
