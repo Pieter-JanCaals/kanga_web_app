@@ -43,6 +43,7 @@ seed["events"].each do |event|
     longitude: event["longitude"],
     latitude: event["latitude"],
     address: event["address"],
+    remote_photo_url: event["photo"],
     start_date: event["start_date"],
     end_date: event["end_date"]
     )
@@ -116,3 +117,7 @@ message_done
 
 # -- All done! --
 puts "Finished!!!"
+
+
+
+remote_photo_url: "public/igloofest.jpg"

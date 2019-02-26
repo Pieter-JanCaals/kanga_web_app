@@ -5,6 +5,7 @@ events:
     address: "Rue de la Commune E, Montréal, QC"
     start_date: "2020-01-16 19:30:00 -0500"
     end_date: "2020-02-01 00:30:00 -0500"
+    photo: "public/igloofest.jpg"
 
   - name: "Montreal Jazz Fest"
     longitude: -73.567199
@@ -12,6 +13,7 @@ events:
     address: "400 Boulevard de Maisonneuve Ouest, Montreal, QC"
     start_date: "2019-06-27 17:00:00 -0500"
     end_date: "2019-07-06 00:30:00 -0500"
+    photo: "public/jazzfest.jpg"
 
   - name: "Le Wagon Montreal Demo Day - Winter Batch"
     longitude: -73.594971
@@ -19,6 +21,7 @@ events:
     address: "5333 Casgrain Ave #102, Montreal, QC H2T 1X3"
     start_date: "2019-03-08 18:00:00 -0500"
     end_date: "2019-03-08 20:00:00 -0500"
+    photo: "public/demoday.jpg"
 
 
 categories:
@@ -62,7 +65,7 @@ drinks:
     prep_time: 2
     category: "Cocktail"
 
-  - name: "Punch in the face"
+  - name: "Punch in the Face"
     prep_time: 2
     category: "Cocktail"
 
