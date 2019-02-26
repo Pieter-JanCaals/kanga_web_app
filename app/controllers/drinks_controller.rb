@@ -1,10 +1,10 @@
 class DrinksController < ApplicationController
   def index
-    event = Event.find(params[:id])
+    event = Event.find(params[:event_id])
     bar = closest_bar(event)
-    if params[:category].is_set?
-      category = Category.find(params[:category])
-      @drinks = bar.drinks.where(category: category)
+    if params[:category].present?
+      @category = Category.find(params[:category])
+      @drinks = bar.drinks.where(category: @category)
     else
       @drinks = popular_drinks(bar.drinks)
     end

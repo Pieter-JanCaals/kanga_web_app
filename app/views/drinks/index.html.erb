@@ -1,5 +1,4 @@
-<h1>Drinks</h1>
-<p>Find me in app/views/drinks/index.html.erb</p>
+<h1><%= @category.nil? ? "Drinks" : @category.name %></h1>
 
 <%= link_to "Launch modal" %>
 <%= link_to "Pay", order_path(1), class: "btn btn-primary" %>
@@ -10,3 +9,10 @@
 <button class="hidden-btn"style="display: none">Cocktails</button>
 <button class="hidden-btn"style="display: none">Shots</button>
 <button class="hidden-btn"style="display: none">Wine</button>
+
+<% @drinks.each do |drink| %>
+  <div>
+    <%= drink.name %>
+    <%= drink.category.name %>
+  </div>
+<% end %>
