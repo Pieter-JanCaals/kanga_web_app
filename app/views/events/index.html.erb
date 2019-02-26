@@ -2,3 +2,9 @@
 <p>Find me in app/views/events/index.html.erb</p>
 
 <%= link_to "Drinks", event_drinks_path(1), class: "btn btn-primary" %>
+
+<div class="insert container class here">
+  <% @events.each do |event| %>
+    <%= link_to image_tag event.photo, event_drinks_path(1), class: "insert event card class here"=%>
+  <% end %>
+</div>
