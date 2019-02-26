@@ -1,0 +1,121 @@
+events:
+  - name: "Igloofest"
+    longitude: -73.548390
+    latitude: 45.507579
+    address: "Rue de la Commune E, Montréal, QC"
+    start_date: "2020-01-16 19:30:00 -0500"
+    end_date: "2020-02-01 00:30:00 -0500"
+
+  - name: "Montreal Jazz Fest"
+    longitude: -73.5653119
+    latitude: 45.508005
+    address: "400 Boulevard de Maisonneuve Ouest, Montreal, QC"
+    start_date: "2019-06-27 17:00:00 -0500"
+    end_date: "2019-07-06 00:30:00 -0500"
+
+  - name: "Le Wagon Montreal Demo Day"
+    longitude: -73.594971
+    latitude: 45.526910
+    address: "5333 Casgrain Ave #102, Montreal, QC H2T 1X3"
+    start_date: "2019-03-08 18:00:00 -0500"
+    end_date: "2019-03-08 20:00:00 -0500"
+
+
+categories:
+  - name: "Beer"
+  - name: "Cocktail"
+  - name: "Shot"
+  - name: "Wine"
+
+
+drinks:
+  - name: "Heineken"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Budweiser"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Corona"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Sapporo"
+    prep_time: 1
+    category: "Beer"
+
+  - name: "Coors Light"
+    prep_time: 1
+    category: "Beer"
+
+
+  - name: "Blue Lagoon"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "White Russian"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "Rum and Coke"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "Punch in the face"
+    prep_time: 2
+    category: "Cocktail"
+
+  - name: "Bloody Mary"
+    prep_time: 2
+    category: "Cocktail"
+
+
+  - name: "Tequila"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Rum"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Vodka"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Amaretto"
+    prep_time: 1
+    category: "Shot"
+
+  - name: "Sour Puss"
+    prep_time: 1
+    category: "Shot"
+
+
+  - name: "Gazela Vinho Verde"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Josh Cellars Chardonnay"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Dreaming Tree Sauvignon Blanc"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Chloe Rosé"
+    prep_time: 1
+    category: "Wine"
+
+  - name: "Apothic Crush Smooth Red Blend"
+    prep_time: 1
+    category: "Wine"
+# bars
+
+
+
+
+# users
+
+
