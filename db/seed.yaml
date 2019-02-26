@@ -7,13 +7,13 @@ events:
     end_date: "2020-02-01 00:30:00 -0500"
 
   - name: "Montreal Jazz Fest"
-    longitude: -73.5653119
-    latitude: 45.508005
+    longitude: -73.567199
+    latitude: 45.507410
     address: "400 Boulevard de Maisonneuve Ouest, Montreal, QC"
     start_date: "2019-06-27 17:00:00 -0500"
     end_date: "2019-07-06 00:30:00 -0500"
 
-  - name: "Le Wagon Montreal Demo Day"
+  - name: "Le Wagon Montreal Demo Day - Winter Batch"
     longitude: -73.594971
     latitude: 45.526910
     address: "5333 Casgrain Ave #102, Montreal, QC H2T 1X3"
@@ -111,11 +111,48 @@ drinks:
   - name: "Apothic Crush Smooth Red Blend"
     prep_time: 1
     category: "Wine"
-# bars
 
 
+bars:
+  - name: "Bar Coors Light"
+    longitude: -73.5483691
+    latitude: 45.5074849
+    event: "Igloofest"
+
+  - name: "Bar Sapporo"
+    longitude: -73.5485559
+    latitude: 45.5071901
+    event: "Igloofest"
+
+  - name: "Bar Corona"
+    longitude: -73.5495755
+    latitude: 45.5072433
+    event: "Igloofest"
+
+  - name: "Bar Budweiser"
+    longitude: -73.566833
+    latitude: 45.507003
+    event: "Montreal Jazz Fest"
+
+  - name: "Bar Heineken"
+    longitude: -73.567364
+    latitude: 45.507394
+    event: "Montreal Jazz Fest"
+
+  - name: "Bar Amaretto"
+    longitude: -73.567850
+    latitude: 45.507878
+    event: "Montreal Jazz Fest"
+
+  - name: "The Lunch Counter"
+    longitude: -73.594971
+    latitude: 45.526910
+    event: "Le Wagon Montreal Demo Day - Winter Batch"
 
 
-# users
+users:
+  - email: "user1@kanga.life"
+    password: "lewagon"
 
-
+  - email: "user2@kanga.life"
+    password: "lewagon"
