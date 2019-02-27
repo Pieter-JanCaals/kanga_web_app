@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_order
+
   def show
   end
 
@@ -9,5 +11,11 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_order
+    @order = Order.find(params[:id])
   end
 end
