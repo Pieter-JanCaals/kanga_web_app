@@ -5,4 +5,8 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def closest_bar
+    bars.first
+  end
 end

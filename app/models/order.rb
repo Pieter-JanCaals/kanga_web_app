@@ -9,7 +9,7 @@ class Order < ApplicationRecord
                                   message: "%{value} is not a valid status" }
 
   def eta
-    order_drinks.map(&:eta).sum
+    drinks.map(&:prep_time).sum
   end
 
   def price_no_tip
