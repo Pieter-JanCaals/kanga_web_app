@@ -9,11 +9,22 @@ class Order < ApplicationRecord
                                   message: "%{value} is not a valid status" }
 
   def eta
-    drinks.map(&:prep_time).sum
-    # order_drinks.map { |order_drink| order}
+    order_drinks.map(&:eta).sum
   end
 
   def price_no_tip
-    drinks.map(&:price).sum
+    order_drinks.map(&:price).sum
+  end
+
+  def self.pending
+    where(status: "pending")
+  end
+
+  def self.confirmed
+    where(status: "confirmed")
+  end
+
+  def self.completed
+    where(status: "completed")
   end
 end
