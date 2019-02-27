@@ -1,1 +1,2 @@
 document.getElementById("drink-list").innerHTML = "<%= j render('drinks', drinks: @drinks, order: @order) %>";
+document.getElementById('drink-title').innerText = "<%= j @category.name unless @category.nil? %>"
