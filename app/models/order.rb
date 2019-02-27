@@ -4,4 +4,6 @@ class Order < ApplicationRecord
 
   has_many :order_drinks
   has_many :drinks, through: :order_drinks
+
+  monetize :price_cents
 end

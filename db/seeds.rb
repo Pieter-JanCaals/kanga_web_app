@@ -69,6 +69,7 @@ seed["drinks"].each do |drink|
   temp_drink = Drink.create!(
     name: drink["name"],
     prep_time: drink["prep_time"],
+    price_cents: drink["price"],
     category: categories_hash[drink["category"]]
     )
   drinks_hash[drink["name"]] = temp_drink
@@ -118,6 +119,3 @@ message_done
 # -- All done! --
 puts "Finished!!!"
 
-
-
-remote_photo_url: "public/igloofest.jpg"

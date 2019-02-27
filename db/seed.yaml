@@ -21,7 +21,7 @@ events:
     address: "5333 Casgrain Ave #102, Montreal, QC H2T 1X3"
     start_date: "2019-03-08 18:00:00 -0500"
     end_date: "2019-03-08 20:00:00 -0500"
-    photo: "public/demoday.jpg"
+    photo: "public/demoday.jpeg"
 
 
 categories:
@@ -35,85 +35,105 @@ drinks:
   - name: "Heineken"
     prep_time: 1
     category: "Beer"
+    price: 1000
 
   - name: "Budweiser"
     prep_time: 1
     category: "Beer"
+    price: 1000
 
   - name: "Corona"
     prep_time: 1
     category: "Beer"
+    price: 1000
 
   - name: "Sapporo"
     prep_time: 1
     category: "Beer"
+    price: 1000
 
   - name: "Coors Light"
     prep_time: 1
     category: "Beer"
+    price: 1000
 
 
   - name: "Blue Lagoon"
     prep_time: 2
     category: "Cocktail"
+    price: 1000
 
   - name: "White Russian"
     prep_time: 2
     category: "Cocktail"
+    price: 1000
 
   - name: "Rum and Coke"
     prep_time: 2
     category: "Cocktail"
+    price: 1000
 
   - name: "Punch in the Face"
     prep_time: 2
     category: "Cocktail"
+    price: 1000
 
   - name: "Bloody Mary"
     prep_time: 2
     category: "Cocktail"
+    price: 1000
 
 
   - name: "Tequila"
     prep_time: 1
     category: "Shot"
+    price: 1000
 
   - name: "Rum"
     prep_time: 1
     category: "Shot"
+    price: 1000
 
   - name: "Vodka"
     prep_time: 1
     category: "Shot"
+    price: 1000
 
   - name: "Amaretto"
     prep_time: 1
     category: "Shot"
+    price: 1000
 
   - name: "Sour Puss"
     prep_time: 1
     category: "Shot"
+    price: 1000
 
 
   - name: "Gazela Vinho Verde"
     prep_time: 1
     category: "Wine"
+    price: 1000
 
   - name: "Josh Cellars Chardonnay"
     prep_time: 1
     category: "Wine"
+    price: 1000
 
   - name: "Dreaming Tree Sauvignon Blanc"
     prep_time: 1
     category: "Wine"
+    price: 1000
 
   - name: "Chloe Rosé"
     prep_time: 1
     category: "Wine"
+    price: 1000
 
   - name: "Apothic Crush Smooth Red Blend"
     prep_time: 1
     category: "Wine"
+    price: 1000
 
 
 bars:
