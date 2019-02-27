@@ -1,17 +1,20 @@
 <% drinks.each do |drink| %>
-  <%= link_to new_order_drink_path(order, drink), method: :post do %>
-    <div>
+  <div class="drink">
+    <div class="drink-content">
       <%= drink.name %>
       <%= drink.category.name %>
     </div>
-  <% end %>
-  <% order_drinks = order.order_drinks.where(drink: drink) %>
-  <% if order_drinks.length > 0 %>
-    <div>
-      <p><%= order_drinks.length %></p>
+    <% order_drinks = order.order_drinks.where(drink: drink) %>
+    <% if order_drinks.length > 0 %>
+      <div>
+        <p>Total = <%= order_drinks.length %></p>
+      </div>
+    <% end %>
+    <div class="hidden-order-btns", style="display: none">
+      <p>-</p>
+      <input id="order-amount" type="number" value="0" name="order-amount">
+      <p>+</p>
+      <%= link_to "Add", new_order_drink_path(order, drink), method: :post, remote: true %>
     </div>
-    <div>
-      <%= link_to "-", destroy_order_drink_path(order, order_drinks.first), method: :delete %>
-    </div>
-  <% end %>
+  </div>
 <% end %>

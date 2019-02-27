@@ -3,6 +3,9 @@ class OrderDrinksController < ApplicationController
     @order = Order.find(params[:order_id])
     OrderDrink.create(order: @order, drink: Drink.find(params[:drink_id]))
 
+    # respond_to do |format|
+    #   format.js { render 'drinks/index' }
+    # end
     redirect_to event_drinks_path(@order.bar.event)
   end
 
