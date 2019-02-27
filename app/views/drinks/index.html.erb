@@ -5,14 +5,18 @@
 <%= link_to "ETA", event_path(1), class: "btn btn-primary" %>
 
 <button id="category_btn">Categories</button>
-<button class="hidden-btn"style="display: none">Beers</button>
-<button class="hidden-btn"style="display: none">Cocktails</button>
-<button class="hidden-btn"style="display: none">Shots</button>
-<button class="hidden-btn"style="display: none">Wine</button>
-
-<% @drinks.each do |drink| %>
-  <div>
-    <%= drink.name %>
-    <%= drink.category.name %>
-  </div>
+<%= link_to "Popular drinks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
+<% @categories.each do |category| %>
+  <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none" %>
 <% end %>
+
+<div id="drink-list">
+  <% unless params[:category].present? %>
+    <% @drinks.each do |drink| %>
+      <div>
+        <%= drink.name %>
+        <%= drink.category.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

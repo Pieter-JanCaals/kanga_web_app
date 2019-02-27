@@ -1,9 +1,10 @@
 const initDrinkCategoryButton = () => {
   const categoryBtn = document.getElementById('category_btn');
+  const hiddenBtns = document.querySelectorAll(".hidden-btn");
 
   if (categoryBtn) {
     categoryBtn.addEventListener("click", () => {
-      document.querySelectorAll(".hidden-btn").forEach((element) => {
+      hiddenBtns.forEach((element) => {
         if (element.style.display === "block") {
           element.style.display = "none";
         } else {
@@ -11,7 +12,23 @@ const initDrinkCategoryButton = () => {
         }
       })
     });
+
+    hiddenBtns.forEach((element) => {
+      element.addEventListener("click", () => {
+        hiddenBtns.forEach((element) => {
+          if (element.style.display === "block") {
+            element.style.display = "none";
+          } else {
+            element.style.display = "block"
+          }
+        });
+      })
+    })
   }
 }
 
 export { initDrinkCategoryButton }
+
+/*
+  4) get request with ajax
+*/
