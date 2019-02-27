@@ -43,6 +43,7 @@ seed["events"].each do |event|
     longitude: event["longitude"],
     latitude: event["latitude"],
     address: event["address"],
+    remote_photo_url: event["photo"],
     start_date: event["start_date"],
     end_date: event["end_date"]
     )
@@ -68,6 +69,7 @@ seed["drinks"].each do |drink|
   temp_drink = Drink.create!(
     name: drink["name"],
     prep_time: drink["prep_time"],
+    price_cents: drink["price"],
     category: categories_hash[drink["category"]]
     )
   drinks_hash[drink["name"]] = temp_drink
@@ -116,3 +118,4 @@ message_done
 
 # -- All done! --
 puts "Finished!!!"
+
