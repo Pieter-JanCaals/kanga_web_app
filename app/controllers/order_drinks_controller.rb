@@ -5,4 +5,9 @@ class OrderDrinksController < ApplicationController
 
     redirect_to event_drinks_path(@order.bar.event)
   end
+
+  def destroy
+    OrderDrink.find(params[:order_drink_id]).destroy
+    redirect_to event_drinks_path(Order.find(params[:order_id]).bar.event)
+  end
 end

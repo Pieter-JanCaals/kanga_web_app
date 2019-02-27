@@ -5,4 +5,13 @@
       <%= drink.category.name %>
     </div>
   <% end %>
+  <% order_drinks = order.order_drinks.where(drink: drink) %>
+  <% if order_drinks.length > 0 %>
+    <div>
+      <p><%= order_drinks.length %></p>
+    </div>
+    <div>
+      <%= link_to "-", destroy_order_drink_path(order, order_drinks.first), method: :delete %>
+    </div>
+  <% end %>
 <% end %>
