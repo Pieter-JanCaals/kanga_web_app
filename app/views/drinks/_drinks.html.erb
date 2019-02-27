@@ -1,6 +1,8 @@
 <% drinks.each do |drink| %>
-  <div>
-    <%= drink.name %>
-    <%= drink.category.name %>
-  </div>
+  <%= link_to new_order_drink_path(order, drink), method: :post do %>
+    <div>
+      <%= drink.name %>
+      <%= drink.category.name %>
+    </div>
+  <% end %>
 <% end %>

@@ -10,6 +10,8 @@ class DrinksController < ApplicationController
       @drinks = popular_drinks(bar.drinks)
     end
 
+    @order = Order.find_by(user: current_user, status: "pending") || new_order(bar)
+
     respond_to do |format|
       format.html
       format.js
@@ -26,5 +28,9 @@ class DrinksController < ApplicationController
   def popular_drinks(drinks)
     # logic to determine popular drinks
     drinks
+  end
+
+  def new_order(bar)
+    Order.create(user: current_user, bar: bar, status: 'pending', qr_code: "qr_code")
   end
 end

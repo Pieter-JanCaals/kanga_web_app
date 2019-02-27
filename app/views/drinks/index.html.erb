@@ -12,11 +12,6 @@
 
 <div id="drink-list">
   <% unless params[:category].present? %>
-    <% @drinks.each do |drink| %>
-      <div>
-        <%= drink.name %>
-        <%= drink.category.name %>
-      </div>
-    <% end %>
+    <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
   <% end %>
 </div>
