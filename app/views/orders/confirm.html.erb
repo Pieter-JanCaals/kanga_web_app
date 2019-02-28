@@ -1,0 +1,19 @@
+<%= render 'shared/navbar', header:"Confirmation", event: nil %>
+<div class="main_container confirm">
+  <div class="confirm-title-box">
+    <h1>Confirmation</h1>
+    <div class="text_center">
+      <h2>Your Order has been sent!</h2>
+      <%= link_to "View Order", review_order_path(@order) %>
+    </div>
+  </div>
+  <div class="confirm-map-box">
+    <h2>Pick Up Your Order Here</h2>
+    <p>We will let you know when your order is ready</p>
+    <div id="order-map"></div>
+    <p>Present this QR code upon pick up</p>
+    <%= image_tag 'qr' %>
+  </div>
+</div>
+
+<!-- All css in stylesheets/pages/_confirm.scss -->
