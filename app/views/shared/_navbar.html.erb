@@ -4,7 +4,7 @@
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
-  <h4 class="navbar-headers"><%= @event.name %></h4>
+  <h4 class="navbar-headers"><%= event.nil? ? header : event.name %></h4>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

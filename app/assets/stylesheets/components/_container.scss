@@ -1,0 +1,39 @@
+.main_container{
+ padding-top:35px;
+ height: 100vh;
+ background-image: linear-gradient(rgba(14,21,85,0.8), rgba(78,17,132,0.8));
+}
+
+.splash_container{
+  height:100vh;
+  text-align: center;
+  color: white;
+  }
+
+  .splash_info{
+  margin: 0 auto ;
+  position:absolute;
+  top:0;
+  padding-top:130px;
+  }
+    .splash_info h1{
+    font-size:70px ;
+    font-weight: 300;
+    }
+
+    .splash_info h6{
+    font-size:30px ;
+    font-weight: 300;
+    }
+
+  .splash_kanga{
+    width: 65%;
+    padding-top: 75px;
+  }
+
+.temp_bg{
+  width:100vw;
+  height:100vh;
+  position:relative;
+
+}
