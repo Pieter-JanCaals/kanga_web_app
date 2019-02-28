@@ -14,7 +14,9 @@ end
 print "Cleaning database..."
 Event.destroy_all
 Category.destroy_all
+OrderDrink.destroy_all
 Drink.destroy_all
+Order.destroy_all
 Bar.destroy_all
 User.destroy_all
 BarDrink.destroy_all
