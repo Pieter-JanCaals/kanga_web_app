@@ -1,5 +1,12 @@
-<h1>Splash</h1>
-<p>Find me in app/views/pages/splash.html.erb</p>
+<%= link_to events_path do  %>
+  <div class="splash_container">
+  <%=image_tag "tempbg.png", class: "temp_bg"%>
 
-<%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
-<%= link_to "Events", events_path, class: "btn btn-primary" %>
+    <div class="splash_info">
+      <h1>KANGA</h1>
+      <h6>Jump Ahead</h6>
+      <%=image_tag "kangalife.png", class: "splash_kanga"%>
+    </div>
+  </div>
+<% end %>
+<!-- All this styling can be found in the assets/stylesheets/components/container.scss-->
