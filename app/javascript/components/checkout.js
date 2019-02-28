@@ -37,7 +37,5 @@ const initTipCounter = () => {
 };
 
 export { initTipCounter }
-export { recalculateGrandTotal }
-export { recalculateTipTotal }
 
 // .toFixed(2)
