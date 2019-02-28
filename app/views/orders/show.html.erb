@@ -1,12 +1,10 @@
+<%= render 'shared/navbar', event: nil, header: "Order" %>
 <%= link_to event_drinks_path(@order.bar.event) do %>
    <%= icon('fas', 'arrow-left') %>
 <% end %>
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
 
 <% if @order.status == "confirmed" %>
   <%= render "order_confirmed" %>
 <% else %>
   <%= render "order_checkout" %>
 <% end %>
-
