@@ -24,11 +24,9 @@
 
 
 <%= simple_form_for @order do |f| %>
-  <h5>Tip</h5>
-  <p>-</p>
-  <%= f.input :tip %>
-  <p>+</p>
-  <h3>TOTAL <%= humanized_money_with_symbol(@order.grand_total) %> </h3>
+<%= render "shared/plus_minus_form", input: :tip, f: f %>
+<span>$</span>
+  <h3 id="grand-total"><%= humanized_money_with_symbol(@order.grand_total) %> </h3>
 
   <%= f.button :submit, "ORDER" %>
 <% end %>
@@ -36,3 +34,4 @@
 <%= link_to "ORDER", order_path(@order), class: "btn btn-primary" %>
 
 
+<%= javascript_pack_tag 'checkout' %>

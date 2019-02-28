@@ -13,9 +13,10 @@
     <div class="hidden-order-btns", style="display: none">
       <p class="drink-close-btn">X</p>
       <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
-        <p class="drink-minus-btn">-</p>
-        <%= f.input :amount, class: "order-amount", type: "number", name: "order-amount", readonly: true %>
-        <p class="drink-plus-btn">+</p>
+        <%= render "shared/plus_minus_form", input: :amount, f: f %>
+
+
+
         <%= f.submit "Add", class: "order-submit" %>
       <% end %>
     </div>

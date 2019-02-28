@@ -29,7 +29,7 @@ class Order < ApplicationRecord
   end
 
   def grand_total
-    total_with_tax * (15.to_f / 100 + 1)
+    total_with_tax
   end
 
   def self.pending
