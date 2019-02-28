@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-
+  get 'events/:event_id/drinks/api', to: 'drinks#api_drinks_by_category'
 
 end
