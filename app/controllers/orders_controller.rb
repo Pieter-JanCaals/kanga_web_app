@@ -14,6 +14,14 @@ class OrdersController < ApplicationController
   def destroy
   end
 
+  def confirm
+    @event = @order.bar.event
+  end
+
+  def review
+
+  end
+
   private
 
   def set_order

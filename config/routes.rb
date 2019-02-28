@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
+  get 'orders/:id/review', to: 'orders#review', as: 'review_order'
+
 end
