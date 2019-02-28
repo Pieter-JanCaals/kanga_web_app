@@ -12,8 +12,24 @@ class Order < ApplicationRecord
     drinks.map(&:prep_time).sum
   end
 
-  def price_no_tip
+  def current_tax_rate
+    14.976
+  end
+
+  def total_no_tax
     order_drinks.map(&:price).sum
+  end
+
+  def tax
+    total_no_tax * (current_tax_rate / 100)
+  end
+
+  def total_with_tax
+    total_no_tax + tax
+  end
+
+  def grand_total
+    total_with_tax * (15.to_f / 100 + 1)
   end
 
   def self.pending
