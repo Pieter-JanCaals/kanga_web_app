@@ -11,16 +11,32 @@ const addMarkersToMap = (map, markers) => {
     const element = document.createElement('div');
     element.className = 'marker';
     element.style.backgroundImage = `url(${marker.image_url})`;
+    element.style.backgroundRepeat = 'no-repeat';
     element.style.backgroundSize = 'contain';
     element.style.width = '70px';
     element.style.height = '70px';
 
     new mapboxgl.Marker(element)
     .setLngLat([marker.lng, marker.lat])
-    .setPopup(new mapboxgl.Popup({ offset: 25, closeOnClick: false }) // add popups
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
     .setHTML(marker.infoWindow))
     .addTo(map);
   })
+}
+
+const addUserToMap = (map) => {
+  if (navigator.geolocation) {
+    const popup = new mapboxgl.Popup().setHTML("<div>You are here!</div>");
+    navigator.geolocation.getCurrentPosition((position) => {
+      new mapboxgl.Marker()
+      .setLngLat([position.coords.longitude, position.coords.latitude])
+      .setPopup(popup)
+      .addTo(map);
+      console.log("user added to map")
+    });
+  } else {
+    alert("Geolocation is not supported by this browser.")
+  }
 }
 
 const initMapbox = () => {
@@ -37,7 +53,7 @@ const initMapbox = () => {
     });
     markers.shift();
 
-    console.log(markers)
+    addUserToMap(map);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
   }
