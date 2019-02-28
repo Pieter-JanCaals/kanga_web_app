@@ -1,13 +1,17 @@
-<h1>Events</h1>
-
-<% @events.each do |event| %>
-  <%= link_to event_drinks_path(event.id) do %>
+<%= render 'shared/navbar', event: nil, header: "Events Near You" %>
+<div class="main_container">
+  <% @events.each do |event| %>
     <div>
-      <h2><%= event.name %></h2>
-      <p>At: <strong><%= event.address %></strong></p>
-      <p>From: <strong><%= event.start_date %></strong></p>
-      <p>Until: <strong><%= event.end_date %></strong></p>
+      <%= link_to event_drinks_path(event.id) do %>
+        <div>
+          <h2><%= event.name %></h2>
+          <p>At: <strong><%= event.address %></strong></p>
+          <p>From: <strong><%= event.start_date %></strong></p>
+          <p>Until: <strong><%= event.end_date %></strong></p>
+        </div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</div>
+
 
