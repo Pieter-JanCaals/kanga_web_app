@@ -1,4 +1,4 @@
-<h1 id="drink-title"><%= @category.nil? ? "Drinks" : @category.name %></h1>
+<h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
 
 <%= link_to "Pay", order_path(@order), class: "btn btn-primary" %>
 <%= link_to "ETA", event_path(1), class: "btn btn-primary" %>
@@ -14,3 +14,5 @@
     <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
   <% end %>
 </div>
+
+

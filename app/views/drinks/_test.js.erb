@@ -1,0 +1,89 @@
+const toggleDisplay = (element) => {
+  if (element.style.display === "block") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "block"
+  }
+}
+
+const initDrinkCategoryButton = () => {
+  console.log("test2")
+  // category
+  const categoryBtn = document.getElementById('category_btn');
+  const hiddenBtns = document.querySelectorAll(".hidden-btn");
+
+  // drinks
+  const drinks = document.querySelectorAll('.drink-content');
+  const closeBtns = document.querySelectorAll('.drink-close-btn');
+  const plusBtns = document.querySelectorAll('.drink-plus-btn');
+  const minusBtns = document.querySelectorAll('.drink-minus-btn');
+
+  // category
+  if (categoryBtn) {
+    categoryBtn.addEventListener("click", () => {
+      hiddenBtns.forEach((element) => {
+        if (element.style.display === "block") {
+          element.style.display = "none";
+        } else {
+          element.style.display = "block"
+        }
+      })
+    });
+
+    hiddenBtns.forEach((element) => {
+      element.addEventListener("click", () => {
+        hiddenBtns.forEach((element) => {
+          if (element.style.display === "block") {
+            element.style.display = "none";
+          } else {
+            element.style.display = "block"
+          }
+        });
+      })
+    })
+  }
+
+  // drinks
+  if (drinks) {
+    drinks.forEach((drink) => {
+      drink.addEventListener("click", () => {
+        console.log("test3")
+        toggleDisplay(drink.parentElement.querySelector('.hidden-order-btns'));
+      });
+    })
+  }
+
+  if (closeBtns) {
+    closeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        toggleDisplay(btn.parentElement);
+      })
+    })
+  }
+
+  if (plusBtns) {
+    plusBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.previousElementSibling.querySelector('input').stepUp(1);
+      })
+    })
+  }
+
+  if (minusBtns) {
+    minusBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.nextElementSibling.querySelector('input').stepDown(1);
+        console.log(btn.nextElementSibling)
+      })
+    })
+  }
+}
+
+initDrinkCategoryButton();
+
+
+const etaBtn = document.getElementById('eta-btn')
+etaBtn.addEventListener("click", () => {
+  initDrinkCategoryButton();
+})
+
