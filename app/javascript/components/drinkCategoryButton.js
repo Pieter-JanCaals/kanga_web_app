@@ -109,7 +109,7 @@ const handleClick = (event) => {
       break;
     case "order-submit":
       hideOrderBtns();
-      let category = document.getElementById('drink-title').innerText;
+      const category = document.getElementById('drink-title').innerText;
       const res = category.toLowerCase();
       document.querySelectorAll('.hidden-btn').forEach((btn) => {
         if (btn.innerText.toLowerCase() === category.toLowerCase()) {
