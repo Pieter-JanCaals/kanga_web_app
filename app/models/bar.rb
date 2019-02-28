@@ -3,4 +3,8 @@ class Bar < ApplicationRecord
   has_many :orders
   has_many :bar_drinks, dependent: :destroy
   has_many :drinks, through: :bar_drinks
+
+  def eta
+    orders.where(status: "pending").map(&:eta).sum
+  end
 end
