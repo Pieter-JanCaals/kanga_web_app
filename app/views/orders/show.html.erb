@@ -20,14 +20,18 @@
 
 <h5>Total <%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
 <h5>Taxes <%= humanized_money_with_symbol(@order.tax) %></h5>
-<h5>Tip</h5>
-<p>-</p>
-<h5>15%</h5>
-<p>+</p>
 
 
-<h3>TOTAL <%= humanized_money_with_symbol(@order.grand_total) %> </h3>
 
+<%= simple_form_for @order do |f| %>
+  <h5>Tip</h5>
+  <p>-</p>
+  <%= f.input :tip %>
+  <p>+</p>
+  <h3>TOTAL <%= humanized_money_with_symbol(@order.grand_total) %> </h3>
+
+  <%= f.button :submit, "ORDER" %>
+<% end %>
 
 <%= link_to "ORDER", order_path(@order), class: "btn btn-primary" %>
 
