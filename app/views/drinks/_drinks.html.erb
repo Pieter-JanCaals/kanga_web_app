@@ -2,8 +2,10 @@
   <% order_drink = OrderDrink.find_by(order: order, drink: drink) || OrderDrink.new %>
   <div class="drink">
     <div class="drink-content">
-      <%= drink.name %>
-      <%= drink.category.name %>
+      <div class="card">
+        <%= drink.name %>
+        <%= drink.category.name %>
+      </div>
     </div>
     <% if order_drink.amount > 0 %>
       <div>
@@ -11,13 +13,19 @@
       </div>
     <% end %>
     <div class="hidden-order-btns", style="display: none">
-      <p class="drink-close-btn">X</p>
-      <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
-        <p class="drink-minus-btn">-</p>
-        <%= f.input :amount, class: "order-amount", type: "number", name: "order-amount", readonly: true %>
-        <p class="drink-plus-btn">+</p>
-        <%= f.submit "Add", class: "order-submit" %>
-      <% end %>
+      <div class="card">
+        <div class="inner-card">
+        <p class="drink-close-btn">X</p>
+        <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
+        <div class="card-minus">
+          <p class="drink-minus-btn">-</p>
+          <%= f.input :amount, class: "order-amount", type: "number", name: "order-amount", readonly: true %>
+          <p class="drink-plus-btn">+</p>
+
+        </div>
+          <%= f.submit "Add", class: "order-submit" %>
+        <% end %>
+    </div>
     </div>
   </div>
 <% end %>
