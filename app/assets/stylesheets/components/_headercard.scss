@@ -1,0 +1,23 @@
+.header_card {
+  min-height: 80px;
+  padding: 1px 30px 15px 15px;
+  justify-content: center;
+  align-items: center;
+  background: #1A1C20;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  color: white;
+}
+
+.header_title{
+  color: $header;
+}
+
+.card_sub_header{
+  color: #808080;
+  border-bottom: solid 2px $header;
+}
+
+#drink-title{
+  font-weight: 300;
+}

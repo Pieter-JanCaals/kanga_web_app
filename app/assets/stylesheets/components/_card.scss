@@ -51,9 +51,21 @@
       margin-right: 40px;
     }
 
-
   }
 }
+
+
+.drink_order_number{
+  width:30px;
+  height: 30px;
+  background-color: $header;
+  border: solid 1px white;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+}
+
+
 .drink-minus-btn{
   color:#4e1184;
   display:flex;
