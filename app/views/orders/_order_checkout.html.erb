@@ -1,18 +1,43 @@
-<div class="gradient">
-  <div class="eta-bar card">
-    <div class="eta-left">
-      <h5>ETA</h5>
-      <h5><%= @order.bar.eta %> min</h5>
+
+<!-- <div class="gradient"> -->
+
+  <%= link_to event_path(@event) do %>
+    <div class="map_card card">
+      <div class="col-sm-3"  style="border-right: solid 1px grey">
+        <p>ETA</p>
+        <p class="eta_btn"><%= @order.eta %>min</p>
+      </div>
+      <div class="col-sm-6">
+        <p>Location</p>
+        <p><%= @order.bar.name %></p>
+      </div>
+      <div class="col-sm-3">
+        <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+      </div>
     </div>
-    <div class="bar-right">
-      <h4>Your order will be at:</h4>
-      <p><%= @order.bar.name %><p>
+  <% end %>
+
+
+
+
+  <div class="confirm">
+    <div class="confirm-title-box">
+      <h1>Confirmation</h1>
+      <div class="text_center">
+        <h2>Your Order has been sent!</h2>
+        <div id="order-link">
+          <%= link_to "View Order", review_order_path(@order) %>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="confirm-order card">
-    <div class="checkout-confirm-left">
-      <h4>Check Out</h4>
+
+
+
+  <div class="card">
+    <div class="confirm-title-box">
+      <h1>Check Out</h1>
       <p>Please confirm your order</p>
     </div>
     <div class="add-item-right">
