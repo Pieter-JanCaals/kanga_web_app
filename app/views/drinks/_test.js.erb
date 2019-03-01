@@ -7,7 +7,7 @@ const toggleDisplay = (element) => {
 }
 
 const initDrinkCategoryButton = () => {
-  console.log("test2")
+  console.debug("test2")
   // category
   const categoryBtn = document.getElementById('category_btn');
   const hiddenBtns = document.querySelectorAll(".hidden-btn");
@@ -47,7 +47,7 @@ const initDrinkCategoryButton = () => {
   if (drinks) {
     drinks.forEach((drink) => {
       drink.addEventListener("click", () => {
-        console.log("test3")
+        console.debug("test3")
         toggleDisplay(drink.parentElement.querySelector('.hidden-order-btns'));
       });
     })
@@ -73,7 +73,7 @@ const initDrinkCategoryButton = () => {
     minusBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         btn.nextElementSibling.querySelector('input').stepDown(1);
-        console.log(btn.nextElementSibling)
+        console.debug(btn.nextElementSibling)
       })
     })
   }

@@ -1,0 +1,27 @@
+@import "compass";
+
+.shake {
+  @include animation(shake .3s 2 alternate);
+}
+
+.glyphicon-shopping-cart {
+  position: relative;
+}
+.cart-run {
+  @include animation(cart-run .6s);
+}
+.glow {
+  @include animation(glow .6s);
+}
+@include keyframes(shake) {
+  33% {transform: rotate(30deg);}
+  66% {transform: rotate(-30deg);}
+}
+@include keyframes(cart-run) {
+  from {left:-30px; opacity:0}
+  to {left:0; opacity:1}
+}
+
+.badge {
+  color: black !important;
+}
