@@ -8,8 +8,7 @@
           <p><%= event.start_date.strftime("%b, %d") %></p>
           <p><%= event.end_date.strftime("%b, %d") %></p>
           <div class="text_center">
-            <%= cl_image_tag event.logo, height: 70 %>
-            <h6><%= event.address %></h6>
+            <%= cl_image_tag event.logo, height: 100 %>
           </div>
       <% end %>
       </div>
