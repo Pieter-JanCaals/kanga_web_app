@@ -6,6 +6,7 @@ events:
     start_date: "2020-01-16 19:30:00 -0500"
     end_date: "2020-02-01 00:30:00 -0500"
     photo: "public/igloofest.jpg"
+    logo: "app/assets/images/igloo_logo.png"
 
   - name: "Montreal Jazz Fest"
     longitude: -73.567199
@@ -14,6 +15,7 @@ events:
     start_date: "2019-06-27 17:00:00 -0500"
     end_date: "2019-07-06 00:30:00 -0500"
     photo: "public/jazzfest.jpg"
+    logo: "app/assets/images/jazz_logo.png"
 
   - name: "Le Wagon Montreal Demo Day - Winter Batch"
     longitude: -73.594971
@@ -22,6 +24,7 @@ events:
     start_date: "2019-03-08 18:00:00 -0500"
     end_date: "2019-03-08 20:00:00 -0500"
     photo: "public/demoday.jpeg"
+    logo: "app/assets/images/lewagon.png"
 
 
 categories:

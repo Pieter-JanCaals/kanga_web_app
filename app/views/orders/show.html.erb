@@ -3,36 +3,8 @@
    <%= icon('fas', 'arrow-left') %>
 <% end %>
 
-<div class="main_container">
-  <h1>Orders#show</h1>
-  <p>Find me in app/views/orders/show.html.erb</p>
-
-  <h4>Your order will be at:</h4>
-  <p><%= @order.bar.name %><p>
-  <h5>ETA: <%= @order.bar.eta %> min</h5>
-
-  <h1>Check Out</h1>
-  <p>Please confirm your order</p>
-  <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
-  <br>
-  <ul>
-    <% @order.order_drinks.each do |order_drink| %>
-     <li><%= order_drink.amount %> <%= order_drink.drink.name %> <%= humanized_money_with_symbol(order_drink.price) %></li>
-    <% end %>
-  </ul>
-
-  <h5>Total <%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-  <h5>Taxes <%= humanized_money_with_symbol(@order.tax) %></h5>
-  <h5>Tip</h5>
-  <p>-</p>
-  <h5>15%</h5>
-  <p>+</p>
-
-
-  <h3>TOTAL <%= humanized_money_with_symbol(@order.grand_total) %> </h3>
-
-
-  <%= link_to "ORDER", order_path(@order), class: "btn btn-primary" %>
-</div>
-
-
+<% if @order.status == "confirmed" %>
+  <%= render "order_confirmed" %>
+<% else %>
+  <%= render "order_checkout" %>
+<% end %>

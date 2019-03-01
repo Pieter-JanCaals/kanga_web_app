@@ -2,21 +2,24 @@
 
 <div class="main_container">
 
-    <div class="map_card card">
-      <div class="col-sm-3"  style="border-right: solid 1px grey">
-        <p>ETA</p>
-        <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
-        <p><strong class="eta_btn">15</strong>min</p>
+    <%= link_to event_path(@event) do %>
+      <div class="map_card card">
+        <div class="col-sm-3"  style="border-right: solid 1px grey">
+          <p>ETA</p>
+          <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
+          <p><strong class="eta_btn">15</strong>min</p>
+        </div>
+        <div class="col-sm-6">
+          <p>Location</p>
+          <!--<p><%= @order.bar_id %></p>-->
+          <p>East Wing, The Blues Bar</p>
+        </div>
+        <div class="col-sm-3">
+          <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <p>Location</p>
-        <!--<p><%= @order.bar_id %></p>-->
-        <p>East Wing, The Blues Bar</p>
-      </div>
-      <div class="col-sm-3">
-        <%= image_tag "ping.png", height: 50, class: "map_ping" %>
-      </div>
-    </div>
+    <% end %>
+  <%= link_to "Pay", order_path(@order), class: "btn btn-primary" %>
 
 
   <div class="card">
