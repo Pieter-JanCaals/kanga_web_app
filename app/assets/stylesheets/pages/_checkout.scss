@@ -1,40 +1,54 @@
 .card {
-  background-color: rgba(10, 10, 10, 0.8);
-  border-radius: 4px;
-  box-sizing: border-box;
+
+  &.checkout-subtotal-tax-tip {
+  display: block !important;
+  }
+
+  &.checkout-grand-total {
+  display: block !important;
+  text-align: center;
+  }
+
+  span {
+    margin-right: 0px;
+  }
 }
 
-.eta-bar {
-  display: flex;
-  justify-content: space-between;
-}
-
-.confirm-order {
-  position: relative;
-}
-
-.checkout-confirm {
-}
-
-.add-item-right {
-  color: $action;
-  position: absolute;
-  top: 5%;
-  right: 20px;
-}
-
-ul {
+.ul-no-style {
   list-style-type: none;
+  padding-left: 0px;
 }
 
-.item-list {
-  display: flex;
-  align-items: center;
+.nopadding {
+   padding: 0 !important;
 }
+// .eta-bar {
+//   display: flex;
+//   justify-content: space-between;
+// }
 
-.text-white {
-  color: white;
-}
+// .confirm-order {
+//   position: relative;
+// }
+
+// .checkout-confirm {
+// }
+
+// .add-item-right {
+//   color: $action;
+//   position: absolute;
+//   top: 5%;
+//   right: 20px;
+// }
+
+// .item-list {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .text-white {
+//   color: white;
+// }
 
 
 // for testing purpose only

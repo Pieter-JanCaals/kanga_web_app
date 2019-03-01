@@ -12,11 +12,12 @@ let tipTotal = Math.round((initTotalValue * (parseFloat(tipPercent) / 100)) * 10
 // -- Then, a buch of stuff happens... --
 const recalculateTipTotal = () => {
   tipTotal = Math.round((initTotalValue * (parseFloat(tipPercent) / 100)) * 100) / 100;
-  tipAmount.innerHTML = tipTotal
+  tipAmount.innerHTML = `$${tipTotal}`;
 };
 
 const recalculateGrandTotal = () => {
-  grandTotal.innerHTML = Math.round((initTotalValue + tipTotal) * 100) / 100;
+  const grandTotalValue = Math.round((initTotalValue + tipTotal) * 100) / 100;
+  grandTotal.innerHTML = `$${grandTotalValue}`;
 };
 
 const initTipCounter = () => {
