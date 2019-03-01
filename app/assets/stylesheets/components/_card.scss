@@ -2,7 +2,7 @@
   min-height: 80px;
   padding-top:5px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: #1A1C20;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
@@ -25,12 +25,7 @@
   width:100%;
   float:left;
   color: white;
-  .drink-close-btn {
-    color:grey;
-    margin-left:-20px;
-    margin-top:-20px;
-    margin-right: auto;
-  }
+
   form {
     display: flex;
     margin:auto;
@@ -67,13 +62,13 @@
 
 
 .drink-minus-btn{
-  color:#4e1184;
+  color:#c4c4c4;
   display:flex;
   align-items: center;
   height:40px;
   width:40px;
   justify-content: center;
-  border:2px solid #4e1184;
+  border:2px solid #c4c4c4;
   border-radius:50%;
   margin-top: auto;
   margin-bottom:auto;
@@ -82,13 +77,13 @@
 }
 
 .drink-plus-btn{
-  color:#4e1184;
+  color:#c4c4c4;
   display:flex;
   align-items: center;
   justify-content: center;
   height:40px;
   width:40px;
-  border:2px solid #4e1184;
+  border:2px solid #c4c4c4;
   border-radius:50%;
   margin-top: auto;
   margin-bottom:auto;
