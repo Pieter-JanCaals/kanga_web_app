@@ -1,29 +1,119 @@
-<h4>Your order will be at:</h4>
-<p><%= @order.bar.name %><p>
-<h5>ETA: <%= @order.bar.eta %> min</h5>
 
-<h1>Check Out</h1>
-<p>Please confirm your order</p>
-<%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
-<br>
-<ul>
-  <% @order.order_drinks.each do |order_drink| %>
-   <li><%= order_drink.amount %> <%= order_drink.drink.name %> <%= humanized_money_with_symbol(order_drink.price) %></li>
+<!-- <div class="gradient"> -->
+
+  <%= link_to event_path(@event) do %>
+    <div class="map_card card">
+      <div class="col-sm-3"  style="border-right: solid 1px grey">
+        <p>ETA</p>
+        <p class="eta_btn"><%= @order.eta %>min</p>
+      </div>
+      <div class="col-sm-6">
+        <p>Location</p>
+        <p><%= @order.bar.name %></p>
+      </div>
+      <div class="col-sm-3">
+        <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+      </div>
+    </div>
   <% end %>
-</ul>
-
-<h5>Total <%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-<h5>Taxes <%= humanized_money_with_symbol(@order.tax) %></h5>
 
 
 
-<%= simple_form_for @order do |f| %>
-<%= render "shared/plus_minus_form", input: :tip, f: f %>
-<p>Tip Amount</p>
-  <h5 id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
-  <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
 
-  <%= f.button :submit, "ORDER" %>
-<% end %>
+  <div class="confirm">
+    <div class="confirm-title-box">
+      <h1>Check Out</h1>
+      <div class="text_center">
+        <h2>Please confirm your order</h2>
+        <div id="order-link">
+          <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= javascript_pack_tag 'checkout' %>
+
+    <ul class="ul-no-style">
+      <% @order.order_drinks.each do |order_drink| %>
+      <div class="card">
+        <li>
+          <span class="item-list-right"><%= order_drink.amount %></span>
+          <span class="item-list-center"><%= order_drink.drink.name %></span>
+          <span class="item-list-left"><%= humanized_money_with_symbol(order_drink.price) %></span>
+        </li>
+      </div>
+      <% end %>
+    </ul>
+
+  <%= simple_form_for @order do |f| %>
+  <div class="card checkout-subtotal-tax-tip">
+    <div class="row">
+      <div class="col-xs-6"></div>
+      <div class="col-xs-3">
+        <h5>TOTAL</h5>
+      </div>
+      <div class="col-xs-3 nopadding">
+        <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6"></div>
+      <div class="col-xs-3">
+        <h5>TAXES</h5>
+      </div>
+      <div class="col-xs-3 nopadding">
+        <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6"></div>
+      <div class="col-xs-3">
+        <h5>TIP</h5>
+      </div>
+      <div class="col-xs-3 nopadding">
+        <h5 class="pr-0" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-3"></div>
+      <div class="col-xs-7">
+        <div class="checkout-tip">
+          <%= render "shared/plus_minus_form", input: :tip, f: f %></div>
+      </div>
+      <div class="col-xs-2"></div>
+    </div>
+  </div>
+
+<br>
+
+  <div class="card checkout-grand-total">
+    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_no_tax * (@order.tip.to_f / 100 + 1)) %></h3>
+
+    <%= f.button :submit, "ORDER", class: "btn-primary" %>
+  <% end %>
+  </div>
+
+  <%= javascript_pack_tag 'checkout' %>
+</div>
+
+<!-- for tresting purpuose only -->
+
+<!-- <div class="message">
+  <div class="message-name">
+    <h3>Gab Dehan</h3>
+    <p>10/07/17</p>
+  </div>
+  <div class="message-body">
+    <p><strong>I am not sure yet!</strong></p>
+    <p>
+      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+    <p class="price">€345</p>
+  </div>
+</div>
+ -->

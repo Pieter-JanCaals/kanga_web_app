@@ -2,11 +2,14 @@
 <%= link_to event_drinks_path(@order.bar.event) do %>
    <%= icon('fas', 'arrow-left') %>
 <% end %>
+<div class="main_container <%= @order.status == 'confirmed' ? 'confirm' : '' %>">
 
-<% if @order.status == "confirmed" %>
-  <%= render "order_confirmed", markers: @markers %>
-<% else %>
-  <%= render "order_checkout" %>
-<% end %>
+  <% if @order.status == "confirmed" %>
+    <%= render "order_confirmed", markers: @markers %>
+  <% else %>
+    <%= render "order_checkout" %>
+  <% end %>
 
-<% javascript_pack_tag 'mapbox' %>
+</div>
+
+  <% javascript_pack_tag 'mapbox' %>
