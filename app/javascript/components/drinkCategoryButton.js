@@ -93,13 +93,14 @@ const initDrinkCategoryButton = () => {
 const drinkList = document.getElementById('drink-list')
 
 const handleClick = (event) => {
+  console.log(event.target)
   switch (event.target.className) {
-    case "drink-content":
-      hideOrderBtns();
-      toggleDisplay(event.target.parentElement.querySelector('.hidden-order-btns'));
+    case "card":
+      console.log()
+      toggleDisplay(event.target.parentElement.parentElement.querySelector('.hidden-order-btns'));
       break;
     case "drink-close-btn":
-      toggleDisplay(event.target.parentElement);
+      toggleDisplay(event.target.parentElement.parentElement.parentElement);
       break;
     case "drink-minus-btn":
       event.target.nextElementSibling.querySelector('input').stepDown(1);
