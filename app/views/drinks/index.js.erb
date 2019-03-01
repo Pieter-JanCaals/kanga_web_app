@@ -12,6 +12,6 @@ document.getElementById('drink-title').innerText = "<%= j @category.nil? ? 'Popu
 // }, 0);
 // let $cartQty = total;
 
-document.querySelector("#shopping-cart-btn .badge").innerText = "<%= @cart_quantity %>";
+document.querySelector("#shopping-cart-btn .badge").innerText = "<%= @current_order.order_drinks.sum(:amount) %>";
 
 window.initializeCartAnimation();
