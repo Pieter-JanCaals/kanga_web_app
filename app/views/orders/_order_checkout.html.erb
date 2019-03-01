@@ -1,29 +1,70 @@
-<h4>Your order will be at:</h4>
-<p><%= @order.bar.name %><p>
-<h5>ETA: <%= @order.bar.eta %> min</h5>
+<div class="gradient">
+  <div class="eta-bar card">
+    <div class="eta-left">
+      <h5>ETA</h5>
+      <h5><%= @order.bar.eta %> min</h5>
+    </div>
+    <div class="bar-right">
+      <h4>Your order will be at:</h4>
+      <p><%= @order.bar.name %><p>
+    </div>
+  </div>
 
-<h1>Check Out</h1>
-<p>Please confirm your order</p>
-<%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
-<br>
-<ul>
-  <% @order.order_drinks.each do |order_drink| %>
-   <li><%= order_drink.amount %> <%= order_drink.drink.name %> <%= humanized_money_with_symbol(order_drink.price) %></li>
+  <div class="confirm-order card">
+    <div class="checkout-confirm-left">
+      <h4>Check Out</h4>
+      <p>Please confirm your order</p>
+    </div>
+    <div class="add-item-right">
+    <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
+    </div>
+  </div>
+  <br>
+  <div class="item-list">
+    <ul>
+      <% @order.order_drinks.each do |order_drink| %>
+        <li class="text-white">
+          <span class="item-list-right"><%= order_drink.amount %></span>
+          <span class="item-list-center"><%= order_drink.drink.name %></span>
+          <span class="item-list-left"><%= humanized_money_with_symbol(order_drink.price) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <h5>Total <%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+  <h5>Taxes <%= humanized_money_with_symbol(@order.tax) %></h5>
+
+
+
+  <%= simple_form_for @order do |f| %>
+  <%= render "shared/plus_minus_form", input: :tip, f: f %>
+  <p>Tip Amount</p>
+    <h5 id="tip-amount"></h5>
+    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
+
+    <%= f.button :submit, "ORDER" %>
   <% end %>
-</ul>
 
-<h5>Total <%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-<h5>Taxes <%= humanized_money_with_symbol(@order.tax) %></h5>
+  <%= javascript_pack_tag 'checkout' %>
+</div>
 
+<!-- for resting purpuose only -->
 
-
-<%= simple_form_for @order do |f| %>
-<%= render "shared/plus_minus_form", input: :tip, f: f %>
-<p>Tip Amount</p>
-  <h5 id="tip-amount"></h5>
-  <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
-
-  <%= f.button :submit, "ORDER" %>
-<% end %>
-
-<%= javascript_pack_tag 'checkout' %>
+<!-- <div class="message">
+  <div class="message-name">
+    <h3>Gab Dehan</h3>
+    <p>10/07/17</p>
+  </div>
+  <div class="message-body">
+    <p><strong>I am not sure yet!</strong></p>
+    <p>
+      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+    <p class="price">€345</p>
+  </div>
+</div>
+ -->
