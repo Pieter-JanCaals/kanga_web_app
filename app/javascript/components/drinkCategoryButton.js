@@ -40,6 +40,7 @@ const initDrinkCategoryButton = () => {
   // category
   if (categoryBtn) {
     categoryBtn.addEventListener("click", () => {
+      console.log("clicked")
       hiddenBtns.forEach((element) => {
         if (element.style.display === "block") {
           element.style.display = "none";
@@ -91,15 +92,23 @@ const initDrinkCategoryButton = () => {
   // }
 }
 const drinkList = document.getElementById('drink-list')
+const hiddenBtns = document.querySelectorAll(".hidden-btn");
+hiddenBtns.forEach((element) => {
+  element.addEventListener("click", () => {
+    hideCategoryBtns();
+  })
+})
+
 
 const handleClick = (event) => {
+  console.log(event.target)
   switch (event.target.className) {
-    case "drink-content":
-      hideOrderBtns();
-      toggleDisplay(event.target.parentElement.querySelector('.hidden-order-btns'));
+    case "card":
+      console.log()
+      toggleDisplay(event.target.parentElement.parentElement.querySelector('.hidden-order-btns'));
       break;
     case "drink-close-btn":
-      toggleDisplay(event.target.parentElement);
+      toggleDisplay(event.target.parentElement.parentElement.parentElement);
       break;
     case "drink-minus-btn":
       event.target.nextElementSibling.querySelector('input').stepDown(1);
@@ -116,6 +125,15 @@ const handleClick = (event) => {
           btn.click();
         }
       });
+      break;
+    case "category-btn":
+      hiddenBtns.forEach((element) => {
+        if (element.style.display === "block") {
+          element.style.display = "none";
+        } else {
+          element.style.display = "block"
+        }
+      })
 
       // const xhttp = new XMLHttpRequest();
       // xhttp.onreadystatechange = function () {

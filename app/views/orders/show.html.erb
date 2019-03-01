@@ -4,7 +4,9 @@
 <% end %>
 
 <% if @order.status == "confirmed" %>
-  <%= render "order_confirmed" %>
+  <%= render "order_confirmed", markers: @markers %>
 <% else %>
   <%= render "order_checkout" %>
 <% end %>
+
+<% javascript_pack_tag 'mapbox' %>

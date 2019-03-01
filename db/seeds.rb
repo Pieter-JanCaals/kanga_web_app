@@ -46,6 +46,7 @@ seed["events"].each do |event|
     latitude: event["latitude"],
     address: event["address"],
     remote_photo_url: event["photo"],
+    remote_logo_url: event["logo"],
     start_date: event["start_date"],
     end_date: event["end_date"]
     )
