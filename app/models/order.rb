@@ -28,6 +28,10 @@ class Order < ApplicationRecord
     total_no_tax + tax
   end
 
+  def tip_amount
+    total_with_tax * (tip.to_f / 100)
+  end
+
   def grand_total
     total_with_tax * (tip.to_f / 100 + 1)
   end

@@ -65,8 +65,8 @@
   <%= simple_form_for @order do |f| %>
   <%= render "shared/plus_minus_form", input: :tip, f: f %>
   <p>Tip Amount</p>
-    <h5 id="tip-amount"></h5>
-    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
+    <h5 id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.grand_total) %></h3>
 
     <%= f.button :submit, "ORDER" %>
   <% end %>
