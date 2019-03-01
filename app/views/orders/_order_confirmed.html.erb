@@ -13,7 +13,11 @@
     <h2>Pick Up Your Order Here</h2>
     <p>We will let you know when your order is ready</p>
     <div class="text_center">
-      <div id="order-map"></div>
+      <div
+      id="map"
+      data-markers="<%= markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
       <p>Present this QR code upon pick up</p>
       <div id="qr_code">
         <%= raw @qr.as_html %>
@@ -21,5 +25,7 @@
     </div>
   </div>
 </div>
+
+<% javascript_pack_tag 'mapbox' %>
 
 

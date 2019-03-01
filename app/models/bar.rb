@@ -7,4 +7,13 @@ class Bar < ApplicationRecord
   def eta
     orders.where(status: "pending").map(&:eta).sum
   end
+
+  def coordinates
+    {
+      lng: longitude,
+      lat: latitude,
+      infoWindow: name,
+      image_url: helpers.asset_url('logo.png')
+    }
+  end
 end

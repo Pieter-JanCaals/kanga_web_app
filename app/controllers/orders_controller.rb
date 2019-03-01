@@ -3,6 +3,16 @@ class OrdersController < ApplicationController
 
   def show
     @qr = RQRCode::QRCode.new(@order.qr_code, size: 2, level: :h)
+    bar = @event.closest_bar
+    @markers =
+      [
+        { lng: @event.longitude, lat: @event.latitude },
+        {
+          lng: bar.longitude, lat: bar.latitude,
+          infoWindow: render_to_string(partial: "events/infowindow", locals: { bar: bar }),
+          image_url: helpers.asset_url('logo.png')
+        }
+      ]
   end
 
   def edit
@@ -16,14 +26,6 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-  end
-
-  def confirm
-    @event = @order.bar.event
-  end
-
-  def review
-
   end
 
   private
