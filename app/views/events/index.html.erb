@@ -1,15 +1,18 @@
 <%= render 'shared/navbar', event: nil, header: "Events Near You" %>
+
 <div class="main_container">
   <% @events.each do |event| %>
-    <div>
-      <%= link_to event_drinks_path(event.id) do %>
-        <div>
-          <h2><%= event.name %></h2>
-          <p>At: <strong><%= event.address %></strong></p>
-          <p>From: <strong><%= event.start_date %></strong></p>
-          <p>Until: <strong><%= event.end_date %></strong></p>
-        </div>
+    <div style="background-image:url(<%= event.photo unless event.nil? %>)" class="event_cards">
+        <%= link_to event_drinks_path(event.id) do %>
+      <div class="gradient">
+          <p><%= event.start_date.strftime("%b, %d") %></p>
+          <p><%= event.end_date.strftime("%b, %d") %></p>
+          <div class="text_center">
+            <%= image_tag "igloo_logo.png", height: 70 %>
+            <h6><%= event.address %></h6>
+          </div>
       <% end %>
+      </div>
     </div>
   <% end %>
 </div>
