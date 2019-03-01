@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 100, maxZoom: 100 })
+  map.fitBounds(bounds, { padding: 70, maxZoom: 25 })
 }
 
 const addMarkersToMap = (map, markers) => {
@@ -45,6 +45,7 @@ const initMapbox = () => {
   let markers = JSON.parse(mapElement.dataset.markers);
 
   if (mapElement) {
+    console.log("map found")
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',

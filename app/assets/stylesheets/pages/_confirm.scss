@@ -1,0 +1,58 @@
+.confirm {
+  // padding: $padding;
+
+  h1 {
+    color: $header;
+    font-size: 32px;
+    border-bottom: 1px solid $header;
+    margin-top: 0;
+    margin-right: 30%;
+    margin-bottom: 20px;
+  }
+  h2 {
+    color: white;
+    font-size: 29px;
+    font-weight: normal;
+    margin-bottom: 16px;
+    margin-top: 0px;
+  }
+}
+
+.confirm-title-box {
+  margin-top: 35px;
+  background: $dark;
+  padding: 25px 10px 5px 3px;
+  border-radius: 5px;
+
+  a {
+    margin-top: 20px;
+    text-decoration: none;
+    color: $gray;
+    font-size: 20px;
+  }
+}
+
+.confirm-map-box {
+  background: $dark;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+
+  p {
+    color: $gray;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+}
+
+#qr_code {
+  margin-bottom: 15px;
+
+  table {
+    margin: 0 auto;
+  }
+}
+
+#order-link {
+  margin-top: 20px;
+}

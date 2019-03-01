@@ -10,4 +10,12 @@ class Event < ApplicationRecord
   def closest_bar
     bars.first
   end
+
+  def coordinates
+    coordinates = [{ lng: longitude, lat: latitude }]
+    pry
+    coordinates << closest_bar.coordinates
+    coordinates << bars.map(&:coordinates)
+    coordinates.uniq
+  end
 end
