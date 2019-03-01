@@ -5,7 +5,7 @@ class Bar < ApplicationRecord
   has_many :drinks, through: :bar_drinks
 
   def eta
-    orders.where(status: "pending").map(&:eta).sum
+    orders.where(status: "confirmed").map(&:eta).sum
   end
 
   def coordinates
