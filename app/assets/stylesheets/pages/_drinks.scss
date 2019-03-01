@@ -15,17 +15,6 @@
   font-size:30px;
   }
 
-.header_cards{
-  margin-top:35px;
-  color: $header;
-}
-
-#drink-title{
-  border-bottom: solid 2px $header;
-  width:100%;
-  font-weight: 300;
-}
-
 .category_buttons{
   background-color: $action;
   width:90px;
@@ -36,6 +25,7 @@
   bottom:20px;
   right:10px;
   text-align: center;
+  z-index: 800;
 }
 
 .order-submit{

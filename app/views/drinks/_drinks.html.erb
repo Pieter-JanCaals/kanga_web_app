@@ -3,19 +3,28 @@
   <div class="drink">
     <div class="drink-content">
       <div class="card">
-        <%= drink.name %>
-        <%= drink.category.name %>
+
+        <div class="col-sm-3">
+          <% if order_drink.amount > 0 %>
+            <div>
+              <p class="drink_order_number"><%= order_drink.amount %></p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-6">
+          <%= drink.name %>
+        </div>
+
+        <div class="col-sm-3">
+          <%= humanized_money_with_symbol(drink.price_cents / 100) %>
+        </div>
       </div>
     </div>
-    <% if order_drink.amount > 0 %>
-      <div>
-        <p>Total = <%= order_drink.amount %></p>
-      </div>
-    <% end %>
+
     <div class="hidden-order-btns", style="display: none">
       <div class="card">
         <div class="inner-card">
-          <p class="drink-close-btn">X</p>
           <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
             <%= render "shared/plus_minus_form", input: :amount, f: f %>
             <%= f.submit "Add", class: "order-submit add-item" %>
@@ -26,4 +35,5 @@
   </div>
 <% end %>
 
+<%= link_to "Pay", order_path(@order), class: "btn btn-success" %>
 <%= javascript_pack_tag 'drinks' %>

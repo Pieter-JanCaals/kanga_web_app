@@ -1,8 +1,9 @@
 import mapboxgl from 'mapbox-gl';
 
-const fitMapToMarkers = (map, markers) => {
+const fitMapToMarkers = (map, markers, coorUser) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  bounds.extend([ coorUser.lng - 0.00009, coorUser.lat ]);
   map.fitBounds(bounds, { padding: 70, maxZoom: 25 })
 }
 
@@ -24,12 +25,12 @@ const addMarkersToMap = (map, markers) => {
   })
 }
 
-const addUserToMap = (map) => {
+const addUserToMap = (map, coordinates) => {
   if (navigator.geolocation) {
     const popup = new mapboxgl.Popup().setHTML("<div>You are here!</div>");
     navigator.geolocation.getCurrentPosition((position) => {
       new mapboxgl.Marker()
-      .setLngLat([position.coords.longitude, position.coords.latitude])
+      .setLngLat([coordinates.lng - 0.00009, coordinates.lat])
       .setPopup(popup)
       .addTo(map);
       console.debug("user added to map")
@@ -49,14 +50,14 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/mapbox/satellite-streets-v9',
       center: [markers[0].lng, markers[0].lat]
     });
-    markers.shift();
+    const coorUser = markers.shift();
 
-    addUserToMap(map);
+    addUserToMap(map, coorUser);
     addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
+    fitMapToMarkers(map, markers, coorUser);
   }
 };
 

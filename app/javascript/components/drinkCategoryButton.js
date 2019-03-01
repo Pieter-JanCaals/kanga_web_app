@@ -103,6 +103,9 @@ hiddenBtns.forEach((element) => {
 const handleClick = (event) => {
   console.debug(event.target)
   switch (event.target.className) {
+    case "col-sm-6":
+      toggleDisplay(event.target.parentElement.parentElement.parentElement.querySelector('.hidden-order-btns'));
+      break;
     case "card":
       console.debug()
       toggleDisplay(event.target.parentElement.parentElement.querySelector('.hidden-order-btns'));
