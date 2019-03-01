@@ -1,0 +1,90 @@
+.card {
+  min-height: 80px;
+  padding-top:5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1A1C20;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 2px;
+  color: white;
+  // position: relative;
+}
+.inner-card {
+  max-height: 80px;
+  // padding: 2px 24px;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-between;
+  // align-items: center;
+  background: #1A1C20;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  // margin: auto;
+  width:100%;
+  float:left;
+  color: white;
+  .drink-close-btn {
+    color:grey;
+    margin-left:-20px;
+    margin-top:-20px;
+    margin-right: auto;
+  }
+  form {
+    display: flex;
+    margin:auto;
+    width:100%;
+    .card-minus{
+
+      margin-left:auto;
+      margin-right: auto;
+      display: flex;
+      width: 100%;
+    }
+    input {
+      max-width:40px;
+      margin-right: 2px;
+      margin-left: auto;
+    }
+    label {
+      margin-right: 40px;
+    }
+
+
+  }
+}
+.drink-minus-btn{
+  color:#4e1184;
+  display:flex;
+  align-items: center;
+  height:40px;
+  width:40px;
+  justify-content: center;
+  border:2px solid #4e1184;
+  border-radius:50%;
+  margin-top: auto;
+  margin-bottom:auto;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.drink-plus-btn{
+  color:#4e1184;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:40px;
+  width:40px;
+  border:2px solid #4e1184;
+  border-radius:50%;
+  margin-top: auto;
+  margin-bottom:auto;
+  margin-left: 50px;
+  margin-right: auto;
+}
+.order_drink_amount{
+  // display:block;
+  width: 50px;
+  font-size: 16px;
+}

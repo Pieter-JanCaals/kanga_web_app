@@ -1,22 +1,55 @@
 <%= render 'shared/navbar', event: @event, header: nil %>
 
 <div class="main_container">
-  <h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
 
-  <%= link_to "Pay", order_path(@order), class: "btn btn-primary" %>
-  <%= link_to "ETA", event_path(@event), class: "btn btn-primary" %>
-
-  <button id="category_btn">Categories</button>
-  <%= link_to "Popular drinks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
-  <% @categories.each do |category| %>
-    <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none" %>
-  <% end %>
-
-  <div id="drink-list">
-    <% unless params[:category].present? %>
-      <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
+    <%= link_to event_path(@event) do %>
+      <div class="map_card card">
+        <div class="col-sm-3"  style="border-right: solid 1px grey">
+          <p>ETA</p>
+          <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
+          <p><strong class="eta_btn">15</strong>min</p>
+        </div>
+        <div class="col-sm-6">
+          <p>Location</p>
+          <!--<p><%= @order.bar_id %></p>-->
+          <p>East Wing, The Blues Bar</p>
+        </div>
+        <div class="col-sm-3">
+          <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+        </div>
+      </div>
     <% end %>
+  <%= link_to "Pay", order_path(@order), class: "btn btn-primary" %>
+
+
+  <div class="card">
+    <div class="header_cards"><h1 id="drink-title"><%= @category.nil? ? "Top Picks" : @category.name %></h1></div>
+    <div style="color: #808080"><p>Tap Drink To Order</p></div>
   </div>
+
+  <div class="category_buttons">
+    <button id="category_btn"><%= image_tag "search.png", height: 35 %></button>
+    <%= link_to "Top Picks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
+    <ul>
+    <% @categories.each do |category| %>
+     <li class="ind_button"> <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " %>
+     </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="drink_listing">
+    <div id="drink-list">
+      <% unless params[:category].present? %>
+        <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
+      <% end %>
+    </div>
+  </div>
+
+
+    <%= link_to "Pay", order_path(@order), class: "btn btn-primary" %>
 </div>
+
+<!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->
 
 
