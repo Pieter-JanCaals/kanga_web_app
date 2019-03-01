@@ -40,6 +40,7 @@ const initDrinkCategoryButton = () => {
   // category
   if (categoryBtn) {
     categoryBtn.addEventListener("click", () => {
+      console.log("clicked")
       hiddenBtns.forEach((element) => {
         if (element.style.display === "block") {
           element.style.display = "none";
@@ -91,6 +92,13 @@ const initDrinkCategoryButton = () => {
   // }
 }
 const drinkList = document.getElementById('drink-list')
+const hiddenBtns = document.querySelectorAll(".hidden-btn");
+hiddenBtns.forEach((element) => {
+  element.addEventListener("click", () => {
+    hideCategoryBtns();
+  })
+})
+
 
 const handleClick = (event) => {
   console.log(event.target)
@@ -117,6 +125,15 @@ const handleClick = (event) => {
           btn.click();
         }
       });
+      break;
+    case "category-btn":
+      hiddenBtns.forEach((element) => {
+        if (element.style.display === "block") {
+          element.style.display = "none";
+        } else {
+          element.style.display = "block"
+        }
+      })
 
       // const xhttp = new XMLHttpRequest();
       // xhttp.onreadystatechange = function () {

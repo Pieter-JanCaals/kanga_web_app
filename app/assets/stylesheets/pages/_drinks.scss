@@ -1,0 +1,73 @@
+.map_card{
+  margin-top:15px;
+  border: solid 1px $action;
+  border-left: solid 15px $action;
+  color: #808080;
+  margin-bottom:25px;
+}
+
+  .map_ping{
+
+  }
+
+  .eta_btn{
+  color: $action;
+  font-size:30px;
+  }
+
+.header_cards{
+  margin-top:35px;
+  color: $header;
+}
+
+#drink-title{
+  border-bottom: solid 2px $header;
+  width:100%;
+  font-weight: 300;
+}
+
+.category_buttons{
+  background-color: $action;
+  width:90px;
+  height:90px;
+  border-radius:45px;
+  padding:10px;
+  position: fixed;
+  bottom:20px;
+  right:10px;
+  text-align: center;
+}
+
+.order-submit{
+  color: $action;
+  font-size: 18px;
+}
+
+.hidden-btn{
+  background-color: $action;
+  width:90px;
+  height:90px;
+  border-radius:45px;
+  padding:10px;
+  position: fixed;
+  bottom: 20px;
+  right:10px;
+  animation: 200ms linear btnMove;
+  animation-fill-mode: forwards;
+}
+
+@keyframes btnMove {
+  from{
+    bottom: 20px;
+    right:10px;
+    animation-timing-function: ease-out;
+  }
+  to{
+    margin-bottom:400px;
+  }
+}
+
+.drink_listing{
+
+}
+
