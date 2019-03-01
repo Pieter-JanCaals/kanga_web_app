@@ -26,18 +26,18 @@ const addMarkersToMap = (map, markers) => {
 }
 
 const addUserToMap = (map, coordinates) => {
-  if (navigator.geolocation) {
+  // if (navigator.geolocation) {
     const popup = new mapboxgl.Popup().setHTML("<div>You are here!</div>");
-    navigator.geolocation.getCurrentPosition((position) => {
+    // navigator.geolocation.getCurrentPosition((position) => {
       new mapboxgl.Marker()
       .setLngLat([coordinates.lng - 0.00009, coordinates.lat])
       .setPopup(popup)
       .addTo(map);
       console.debug("user added to map")
-    });
-  } else {
-    alert("Geolocation is not supported by this browser.")
-  }
+    // });
+  // } else {
+  //   alert("Geolocation is not supported by this browser.")
+  // }
 }
 
 const initMapbox = () => {
