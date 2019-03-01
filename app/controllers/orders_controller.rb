@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, :set_event
 
   def show
-    @qr = RQRCode::QRCode.new(@order.qr_code, size: 4, level: :h)
+    @qr = RQRCode::QRCode.new(@order.qr_code, size: 2, level: :h)
   end
 
   def edit

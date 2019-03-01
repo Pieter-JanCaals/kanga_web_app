@@ -10,9 +10,14 @@
   <div class="confirm-map-box">
     <h2>Pick Up Your Order Here</h2>
     <p>We will let you know when your order is ready</p>
-    <div id="order-map"></div>
-    <p>Present this QR code upon pick up</p>
-    <%= image_tag 'qr' %>
+    <div class="text_center">
+      <div id="order-map"></div>
+      <p>Present this QR code upon pick up</p>
+      <%= raw @qr.as_html %>
+      <!-- <div id="qr_code">
+        <%= image_tag 'qr' %>
+      </div> -->
+    </div>
   </div>
 </div>
 
