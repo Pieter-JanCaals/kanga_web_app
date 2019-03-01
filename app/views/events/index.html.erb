@@ -1,6 +1,6 @@
 <%= render 'shared/navbar', event: nil, header: "Events Near You" %>
 
-<div class="main_container">
+<div class="main_container_events">
   <% @events.each do |event| %>
     <div style="background-image:url(<%= cl_image_path event.photo unless event.nil? %>)" class="event_cards">
         <%= link_to event_drinks_path(event.id) do %>

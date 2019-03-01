@@ -3,15 +3,15 @@
   <div class="drink">
     <div class="drink-content">
       <div class="card">
+        <% if order_drink.amount > 0 %>
+          <div>
+            <p class="drink_order_number"><%= order_drink.amount %></p>
+          </div>
+        <% end %>
         <%= drink.name %>
         <%= drink.category.name %>
       </div>
     </div>
-    <% if order_drink.amount > 0 %>
-      <div>
-        <p>Total = <%= order_drink.amount %></p>
-      </div>
-    <% end %>
     <div class="hidden-order-btns", style="display: none">
       <div class="card">
         <div class="inner-card">
