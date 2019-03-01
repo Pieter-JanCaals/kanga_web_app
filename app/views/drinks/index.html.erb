@@ -23,7 +23,7 @@
 
   <div class="header_card">
     <div class="header_title">
-      <h1 id="drink-title"><%= @category.nil? ? "Top Picks" : @category.name %></h1>
+      <h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
     </div>
     <div class="card_sub_header">
       <p>Tap Drink To Order</p>
@@ -33,7 +33,7 @@
 
   <div class="category_buttons">
     <button id="category_btn"><%= image_tag "search.png", height: 35 %></button>
-      <%= link_to "Top Picks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
+      <%= link_to "Popular Drinks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
       <% @categories.each do |category| %>
       <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " %>
     <% end %>
@@ -49,7 +49,6 @@
   </div>
 
 </div>
-
 <!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->
 
 
