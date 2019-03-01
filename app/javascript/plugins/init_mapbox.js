@@ -32,7 +32,7 @@ const addUserToMap = (map) => {
       .setLngLat([position.coords.longitude, position.coords.latitude])
       .setPopup(popup)
       .addTo(map);
-      console.log("user added to map")
+      console.debug("user added to map")
     });
   } else {
     alert("Geolocation is not supported by this browser.")
@@ -45,7 +45,7 @@ const initMapbox = () => {
   let markers = JSON.parse(mapElement.dataset.markers);
 
   if (mapElement) {
-    console.log("map found")
+    console.debug("map found")
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',

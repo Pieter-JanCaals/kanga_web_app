@@ -18,7 +18,7 @@
           <p class="drink-close-btn">X</p>
           <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
             <%= render "shared/plus_minus_form", input: :amount, f: f %>
-            <%= f.submit "Add", class: "order-submit" %>
+            <%= f.submit "Add", class: "order-submit add-item" %>
           <% end %>
         </div>
       </div>

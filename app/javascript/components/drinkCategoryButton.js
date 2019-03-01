@@ -40,7 +40,7 @@ const initDrinkCategoryButton = () => {
   // category
   if (categoryBtn) {
     categoryBtn.addEventListener("click", () => {
-      console.log("clicked")
+      console.debug("clicked")
       hiddenBtns.forEach((element) => {
         if (element.style.display === "block") {
           element.style.display = "none";
@@ -86,7 +86,7 @@ const initDrinkCategoryButton = () => {
   //   minusBtns.forEach((btn) => {
   //     btn.addEventListener("click", () => {
   //       btn.nextElementSibling.querySelector('input').stepDown(1);
-  //       console.log(btn.nextElementSibling)
+  //       console.debug(btn.nextElementSibling)
   //     })
   //   })
   // }
@@ -101,10 +101,10 @@ hiddenBtns.forEach((element) => {
 
 
 const handleClick = (event) => {
-  console.log(event.target)
+  console.debug(event.target)
   switch (event.target.className) {
     case "card":
-      console.log()
+      console.debug()
       toggleDisplay(event.target.parentElement.parentElement.querySelector('.hidden-order-btns'));
       break;
     case "drink-close-btn":

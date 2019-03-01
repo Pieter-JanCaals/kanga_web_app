@@ -4,6 +4,6 @@ initDrinkCategoryButton();
 
 // const drinkList = document.getElementById('drink-list');
 // if (drinkList) {
-//   console.log("Got here!")
+//   console.debug("Got here!")
 //   drinkList.addEventListener('DOMSubtreeModified', initDrinkCategoryButton());
 // }
