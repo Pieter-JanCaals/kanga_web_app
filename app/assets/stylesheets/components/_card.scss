@@ -90,6 +90,35 @@
   margin-left: 50px;
   margin-right: auto;
 }
+
+.checkout-tip {
+  display: flex;
+
+  .drink-plus-btn {
+    color: $action;
+    border:2px solid $action;
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    margin-top: 0px;
+
+  }
+  .drink-minus-btn {
+    color: $action;
+    border:2px solid $action;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    margin-top: 0px;
+  }
+  .order-amount {
+  background-color: #1A1C20;
+  border: none;
+  width: 66px;
+  text-align: center;
+  }
+}
+
 .order_drink_amount{
   // display:block;
   width: 50px;
