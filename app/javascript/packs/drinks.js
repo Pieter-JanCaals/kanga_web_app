@@ -1,6 +1,8 @@
-import { initDrinkCategoryButton } from "../components/drinkCategoryButton"
+import { initDrinkCategoryButton } from "../components/drinkCategoryButton";
+import { initAddRemoveDrinks } from "../components/addRemoveDrinks";
 
 initDrinkCategoryButton();
+initAddRemoveDrinks();
 
 // const drinkList = document.getElementById('drink-list');
 // if (drinkList) {

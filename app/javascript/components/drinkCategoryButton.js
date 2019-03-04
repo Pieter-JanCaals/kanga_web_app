@@ -1,11 +1,3 @@
-const toggleDisplay = (element) => {
-  if (element.style.display === "block") {
-    element.style.display = "none";
-  } else {
-    element.style.display = "block"
-  }
-}
-
 const hideDisplay = (element) => {
   if (element.style.display === "block") {
     element.style.display = "none";
@@ -91,70 +83,7 @@ const initDrinkCategoryButton = () => {
   //   })
   // }
 }
-const drinkList = document.getElementById('drink-list')
-const hiddenBtns = document.querySelectorAll(".hidden-btn");
-hiddenBtns.forEach((element) => {
-  element.addEventListener("click", () => {
-    hideCategoryBtns();
-  })
-})
 
-
-const handleClick = (event) => {
-  console.debug(event.target)
-  switch (event.target.className) {
-    case "col-sm-6":
-      toggleDisplay(event.target.parentElement.parentElement.parentElement.querySelector('.hidden-order-btns'));
-      break;
-    case "card":
-      console.debug()
-      toggleDisplay(event.target.parentElement.parentElement.querySelector('.hidden-order-btns'));
-      break;
-    case "drink-close-btn":
-      toggleDisplay(event.target.parentElement.parentElement.parentElement);
-      break;
-    case "drink-minus-btn":
-      event.target.nextElementSibling.querySelector('input').stepDown(1);
-      break;
-    case "drink-plus-btn":
-      event.target.previousElementSibling.querySelector('input').stepUp(1);
-      break;
-    case "order-submit":
-      hideOrderBtns();
-      const category = document.getElementById('drink-title').innerText;
-      const res = category.toLowerCase();
-      document.querySelectorAll('.hidden-btn').forEach((btn) => {
-        if (btn.innerText.toLowerCase() === category.toLowerCase()) {
-          btn.click();
-        }
-      });
-      break;
-    case "category-btn":
-      hiddenBtns.forEach((element) => {
-        if (element.style.display === "block") {
-          element.style.display = "none";
-        } else {
-          element.style.display = "block"
-        }
-      })
-
-      // const xhttp = new XMLHttpRequest();
-      // xhttp.onreadystatechange = function () {
-      //   if (this.readyState == 4 && this.status == 200) {
-      //     const temp = document.createElement("div");
-      //     temp.innerHTML = this.response;
-      //     drinkList.innerHTML = temp.querySelector('#drink-list').innerHTML;
-      //   }
-      // }
-      // xhttp.open("get", window.location.href + "?category='7'", true);
-      // xhttp.send();
-      break;
-  }
-}
-
-drinkList.addEventListener("click", (event) => {
-  handleClick(event);
-})
 
 
 export { initDrinkCategoryButton }
