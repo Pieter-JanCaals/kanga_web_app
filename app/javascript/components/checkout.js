@@ -1,4 +1,4 @@
-// import { dinero } from 'dinero.js';
+// -- These functions require Dinero.js to work properky --
 import Dinero from 'dinero.js';
 
 // -- Initialize DOM elements --
@@ -8,43 +8,57 @@ const minus = document.querySelector(".drink-minus-btn");
 const plus = document.querySelector(".drink-plus-btn");
 
 // -- Initialize frequently used variables --
-// const initTotalValue = Math.round(parseFloat(document.querySelector("#grand-total").innerHTML.substr(1)) * 100) / 100;
-// const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.substr(1)) * 100 } )
-// const initTotalValue = Dinero({ amount: 1000 });
-// console.log(initTotalValue.toFormat());
-// let tipPercent = 15;
-// let tipTotal = Math.round((initTotalValue * (parseFloat(tipPercent) / 100)) * 100) / 100;
+const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.substr(1)) * 100 } );
+let tipPercent = 15;
+let tipAmountValue = initTotalValue.percentage(tipPercent);
 
-// -- Then, a buch of stuff happens... --
-// const recalculateTipTotal = () => {
-//   tipTotal = Math.round((initTotalValue * (parseFloat(tipPercent) / 100)) * 100) / 100;
-//   tipAmount.innerHTML = `$${tipTotal}`;
-// };
+// -- Updates tip amount and grand total on page load --
+document.addEventListener('DOMContentLoaded', function() {
+    recalculateTipAmountValue();
+    recalculateGrandTotal();
+}, false);
 
-// const recalculateGrandTotal = () => {
-//   const grandTotalValue = Math.round((initTotalValue + tipTotal) * 100) / 100;
-//   grandTotal.innerHTML = `$${grandTotalValue}`;
-// };
+// -- Updates DOM elements with proper decimal formatting --
+const updateDOMInnerHTML = (value, domElement) => {
+  if (value.hasSubUnits()) {
+    domElement.innerHTML = value.toFormat();
+  } else {
+    domElement.innerHTML = value.toFormat('$0');
+  };
+};
 
+// -- Recalculates the tip amount and calls the update DOM function --
+const recalculateTipAmountValue = () => {
+  tipAmountValue = initTotalValue.percentage(tipPercent);
+  updateDOMInnerHTML(tipAmountValue, tipAmount);
+};
+
+// -- Recalculates the grand total and calls the update DOM function --
+const recalculateGrandTotal = () => {
+  const grandTotalValue = initTotalValue.add(tipAmountValue);
+  updateDOMInnerHTML(grandTotalValue, grandTotal);
+};
+
+// -- Tracks the plus and minus buttons and triggers the corresponding actions --
 const initTipCounter = () => {
+  // -- Minus button: --
   minus.addEventListener("click",() => {
     if(tipPercent !== 0) {
       minus.nextElementSibling.querySelector('input').stepDown(5);
       tipPercent -= 5;
-// console.log(initTotalValue.toFormat());
-      // recalculateTipTotal();
-      // recalculateGrandTotal();
+      recalculateTipAmountValue();
+      recalculateGrandTotal();
     };
   })
+
+  // -- Plus button: --
   plus.addEventListener("click",() => {
     plus.previousElementSibling.querySelector('input').stepUp(5);
-    tipPercent += 5
-// console.log(initTotalValue.toFormat());
-    // recalculateTipTotal();
-    // recalculateGrandTotal();
+    tipPercent += 5;
+    recalculateTipAmountValue();
+    recalculateGrandTotal();
   })
 };
 
-// export { initTipCounter }
-
-// .toFixed(2)
+// -- Export the require function to make AJAX work --
+export { initTipCounter };
