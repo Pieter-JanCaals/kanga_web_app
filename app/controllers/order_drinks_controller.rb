@@ -7,14 +7,12 @@ class OrderDrinksController < ApplicationController
     order_drink.drink = drink
     order_drink.save!
     redirect_to event_drinks_path(order.bar.event)
-
   end
 
   def update
     order = Order.find(params[:order_id])
     order_drink = OrderDrink.find(params[:id])
-    order_drink.amount = params[:order_drink][:amount]
-    order_drink.save!
+    order_drink.update!(order_drink_params)
     redirect_to event_drinks_path(order.bar.event)
   end
 
@@ -26,6 +24,6 @@ class OrderDrinksController < ApplicationController
   private
 
   def order_drink_params
-    params.require(:order_drink).permit[:amount]
+    params.require(:order_drink).permit[:amount, :user]
   end
 end
