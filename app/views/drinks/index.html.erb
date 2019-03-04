@@ -1,54 +1,87 @@
 <%= render 'shared/navbar', event: @event, header: nil %>
 
 <div class="main_container">
-
-    <%= link_to event_path(@event) do %>
-      <div class="map_card card">
-        <div class="col-sm-3"  style="border-right: solid 1px grey">
-          <p>ETA</p>
-          <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
-          <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
-        </div>
-        <div class="col-sm-6" style="padding-right: 50px">
-          <p>Location</p>
-          <!--<p><%= @order.bar_id %></p>-->
-          <p><%= @event.closest_bar.name %></p>
-        </div>
-        <div class="col-sm-3">
-          <%= image_tag "ping.png", height: 50, class: "map_ping" %>
-        </div>
+    <div class="scroll-cont">
+      <div class="flip-card-content">
+        <section id="flip-card" class="flip-card theme-action" data-color="#BA68C8">
+          <div class="flip-card__map">
+            <div class="flip-card__map__inner" id="map"
+              style="width: 100%; height: 100%"
+              data-markers="<%= @bars.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          </div>
+          <section class="flip-card__part flip-card__part-1">
+            <div class="flip-card__part__inner">
+              <header class="flip-card__header">
+                <div class="flip-card__header__close-btn"></div>
+              </header>
+            </div>
+          </section>
+          <section class="flip-card__part flip-card__part-2">
+            <div class="flip-card__part__side m--back">
+              <%#= link_to event_path(@event) do %>
+              <div class="map_card card" style="margin: 0;">
+                <div class="col-sm-3"  style="border-right: solid 1px grey">
+                  <p>ETA</p>
+                  <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
+                  <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
+                </div>
+                <div class="col-sm-6" style="padding-right: 50px">
+                  <p>Location</p>
+                  <!--<p><%= @order.bar_id %></p>-->
+                  <p><%= @event.closest_bar.name %></p>
+                </div>
+                <div class="col-sm-3">
+                  <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+                </div>
+              </div>
+              <%# end %>
+            </div>
+            <div class="flip-card__part__side m--front">
+              div 1
+              <section class="flip-card__part flip-card__part-3">
+                <!-- <div class="flip-card__part__side m--back">div 2</div> -->
+                <div class="flip-card__part__side m--front">
+                  div 3
+                </div>
+              </section>
+            </div>
+          </section>
+        </section>
       </div>
-    <% end %>
 
 
-  <div class="header_card">
-    <div class="header_title">
-      <h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
+    <div class="header_card">
+      <div class="header_title">
+        <h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
+      </div>
+      <div class="card_sub_header">
+        <p>Tap Drink To Order</p>
+      </div>
     </div>
-    <div class="card_sub_header">
-      <p>Tap Drink To Order</p>
-    </div>
-  </div>
 
 
-  <div class="category_buttons">
-    <button id="category_btn"><%= image_tag "search.png", height: 35 %></button>
-      <%= link_to "Popular Drinks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
-      <% @categories.each do |category| %>
-      <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " %>
-    <% end %>
-
-  </div>
-
-  <div class="drink_listing">
-    <div id="drink-list">
-      <% unless params[:category].present? %>
-        <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
+    <div class="category_buttons">
+      <button id="category_btn"><%= image_tag "search.png", height: 35 %></button>
+        <%= link_to "Popular Drinks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
+        <% @categories.each do |category| %>
+        <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " %>
       <% end %>
+
+    </div>
+
+    <div class="drink_listing">
+      <div id="drink-list">
+        <% unless params[:category].present? %>
+          <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
+        <% end %>
+      </div>
     </div>
   </div>
 
 </div>
+
+<%= javascript_pack_tag 'flip_card' %>
 
 <!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->
 
