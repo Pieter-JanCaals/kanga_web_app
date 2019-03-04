@@ -4,7 +4,7 @@
     <div class="drink-content">
       <div class="card">
 
-        <div class="col-sm-3">
+        <div class="col-sm-1">
           <% if order_drink.amount > 0 %>
             <div>
               <p class="drink_order_number"><%= order_drink.amount %></p>
@@ -12,12 +12,30 @@
           <% end %>
         </div>
 
-        <div class="col-sm-6">
-          <%= drink.name %>
+        <div class="col-sm-2">
+          <div class="card_icon">
+            <% if drink.category.name == "Beer" %>
+              <i class="fas fa-beer fa-2x"></i>
+            <% elsif drink.category.name == "Wine"%>
+              <i class="fas fa-wine-glass-alt fa-2x"></i>
+            <% elsif drink.category.name == "Cocktail"%>
+              <i class="fas fa-glass-martini-alt fa-2x"></i>
+            <% elsif drink.category.name == "Shot"%>
+              <i class="fas fa-skull-crossbones fa-2x"></i>
+            <% end %>
+          </div>
         </div>
 
-        <div class="col-sm-3">
-          <%= humanized_money_with_symbol(drink.price_cents / 100) %>
+        <div class="col-md-7">
+          <div class="card_name">
+          <%= drink.name %>
+          </div>
+        </div>
+
+          <div class="card_price text-right">
+        <div class="col-sm-2">
+          <%= humanized_money_with_symbol(drink.price_cents / 100)%>
+          </div>
         </div>
       </div>
     </div>
@@ -26,7 +44,9 @@
       <div class="card_under">
         <div class="inner-card_under">
           <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
+            <div class="card_form">
             <%= render "shared/plus_minus_form", input: :amount, f: f %>
+            </div>
             <%= f.submit "Add", class: "order-submit add-item" %>
           <% end %>
         </div>
@@ -34,6 +54,5 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to "Pay", order_path(@order), class: "btn btn-success" %>
+<div class="bottom_margin"></div>
 <%= javascript_pack_tag 'drinks' %>
