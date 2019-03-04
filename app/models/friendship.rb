@@ -2,6 +2,11 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: 'User'
 
+  # When a friendship is created (or destroyed) we also want to get the
+  # friendship in the other direction. These functions will make an new
+  # friendship entry in the database with the inverse friendship.
+  # This way we can search friendships based on user_id, disregarding if the
+  # current users created the friendship or not.
   after_create :create_inverse, unless: :inverse_exists?
   after_destroy :destroy_inverse, if: :inverse_exists?
 
