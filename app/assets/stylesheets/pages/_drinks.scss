@@ -26,14 +26,22 @@
   right:10px;
   text-align: center;
   z-index: 800;
+
+  input {
+
+  }
 }
 
 .search_button_cat_wrapper{
-
+  background: none;
+  border: none;
+  text-decoration: none;
 }
 
 .search_button_cat{
-
+  background: none;
+  border: none;
+  text-decoration: none;
 }
 
 .hidden-btn{
@@ -72,6 +80,12 @@
 #cocktail{
   animation: 200ms linear btnMoveCocktail;
   animation-fill-mode: forwards;
+}
+
+#category_btn {
+  background: none;
+  border: none;
+  text-decoration: none;
 }
 
 @keyframes btnMoveWine {
