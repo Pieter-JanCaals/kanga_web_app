@@ -29,6 +29,10 @@ class OrdersController < ApplicationController
   def destroy
   end
 
+  def summary
+  end
+
+
   private
 
   def set_order
