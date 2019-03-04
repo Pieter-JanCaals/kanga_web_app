@@ -18,9 +18,19 @@
   <% end %>
 
 
+<div class="header_card">
+    <div class="header_title">
+       <h1 id="drink-title">Check Out</h1>
+    </div>
+    <div class="card_sub_header">
+        <p>Please confirm your order</p>
+    </div>
+    <div id="order-link">
+          <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
+        </div>
+  </div>
 
-
-  <div class="confirm">
+  <!--<div class="confirm">
     <div class="confirm-title-box">
       <h1>Check Out</h1>
       <div class="text_center">
@@ -30,7 +40,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 
 
     <ul class="ul-no-style">
@@ -91,7 +101,7 @@
   <div class="card checkout-grand-total">
     <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_no_tax * (@order.tip.to_f / 100 + 1)) %></h3>
 
-    <%= f.button :submit, "ORDER", class: "btn-primary" %>
+    <%= f.button :submit, "ORDER", class: "order_button" %>
   <% end %>
   </div>
 

@@ -4,10 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1A1C20;
+  background: $card;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  margin: 2px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-top: 5px;
   color: white;
   // position: relative;
 }
@@ -18,8 +19,7 @@
   // flex-direction: row;
   justify-content: space-between;
   // align-items: center;
-  background: #1A1C20;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  background: $card;
   border-radius: 4px;
   // margin: auto;
   width:100%;
@@ -124,3 +124,59 @@
   width: 50px;
   font-size: 16px;
 }
+
+
+
+// second card
+
+
+
+.card_under {
+  min-height: 80px;
+  padding-top:5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $inner-card;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: white;
+  border: solid 2px $card;
+  // position: relative;
+}
+ .inner-card_under {
+  max-height: 80px;
+  // padding: 2px 24px;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-between;
+  // align-items: center;
+  // margin: auto;
+  width:100%;
+  float:left;
+  color: white;
+
+  form {
+    display: flex;
+    margin:auto;
+    width:100%;
+    .card-minus{
+
+      margin-left:auto;
+      margin-right: auto;
+      display: flex;
+      width: 100%;
+    }
+    input {
+      max-width:40px;
+      margin-right: 2px;
+      margin-left: auto;
+    }
+    label {
+      margin-right: 40px;
+    }
+
+  }
+}
+

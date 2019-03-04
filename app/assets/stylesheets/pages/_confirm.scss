@@ -1,9 +1,9 @@
 .confirm {
   // padding: $padding;
 
-  h1 {
+  /*h1 {
     color: $header;
-    font-size: 32px;
+    //font-size: 32px;
     border-bottom: 1px solid $header;
     margin-top: 0;
     margin-right: 30%;
@@ -15,7 +15,7 @@
     font-weight: normal;
     margin-bottom: 16px;
     margin-top: 0px;
-  }
+  }*/
 }
 
 .confirm-title-box {
@@ -56,3 +56,20 @@
 #order-link {
   margin-top: 20px;
 }
+
+.order_button{
+  width: 100px;
+  height: 50px;
+  background-color: $action;
+  border: solid 4px $action;
+  border-radius:3px;
+  color:white;
+}
+
+.order_button.hover{
+  background-color: none;
+  border: solid 4px $action;
+  color: $action;
+}
+
+
