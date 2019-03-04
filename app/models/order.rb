@@ -51,4 +51,15 @@ class Order < ApplicationRecord
   def self.completed
     where(status: "completed")
   end
+
+  def shared_tip
+    tip_amount / order_drinks.map(&:id).uniq.size
+  end
+
+  # returns array of hashes with each user and the amount they have to pay
+  def close_tabs
+    tabs = Hash.new(0)
+
+    return tabs
+  end
 end

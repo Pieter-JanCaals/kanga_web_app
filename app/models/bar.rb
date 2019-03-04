@@ -16,4 +16,8 @@ class Bar < ApplicationRecord
       image_url: helpers.asset_url('logo.png')
     }
   end
+
+  def users
+    orders.
+  end
 end

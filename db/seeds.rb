@@ -131,12 +131,13 @@ bars_hash.each do |bar_key, bar_value|
       bar: bar_value,
       tip: 15
       )
-    id += 1
     OrderDrink.create!(
       order: temp_order,
       drink: drinks_hash.values.sample,
-      amount: 5
+      amount: 5,
+      user: (users_hash.values)[id]
       )
+    id += 1
   end
 end
 message_done

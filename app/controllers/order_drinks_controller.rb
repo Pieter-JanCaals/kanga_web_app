@@ -5,6 +5,7 @@ class OrderDrinksController < ApplicationController
     order_drink = OrderDrink.new(amount: params[:order_drink][:amount])
     order_drink.order = order
     order_drink.drink = drink
+    order_drink.user = current_user
     order_drink.save!
     redirect_to event_drinks_path(order.bar.event)
   end

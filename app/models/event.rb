@@ -18,4 +18,15 @@ class Event < ApplicationRecord
     coordinates << bars.map(&:coordinates)
     coordinates.uniq
   end
+
+  def close_tabs
+    bars.each do |bar|
+      tab = bar.close_tabs
+      tab.each { |k, v| tabs[k] += v }
+    end
+    binding.pry
+    tabs.each do |k, v|
+      puts "#{User.find(k).name} has to pay #{v}"
+    end
+  end
 end

@@ -10,4 +10,8 @@ class OrderDrink < ApplicationRecord
   def price
     drink.price * amount
   end
+
+  def close_tab
+    (drink.price * amount) + order.shared_tip
+  end
 end
