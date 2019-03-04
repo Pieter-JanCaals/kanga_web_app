@@ -62,27 +62,27 @@ drinks:
 
 
   - name: "Blue Lagoon"
-    prep_time: 2
+    prep_time: 1
     category: "Cocktail"
     price: 1000
 
   - name: "White Russian"
-    prep_time: 2
+    prep_time: 1
     category: "Cocktail"
     price: 1000
 
   - name: "Rum and Coke"
-    prep_time: 2
+    prep_time: 1
     category: "Cocktail"
     price: 1000
 
   - name: "Punch in the Face"
-    prep_time: 2
+    prep_time: 1
     category: "Cocktail"
     price: 1000
 
   - name: "Bloody Mary"
-    prep_time: 2
+    prep_time: 1
     category: "Cocktail"
     price: 1000
 
@@ -181,4 +181,13 @@ users:
     password: "lewagon"
 
   - email: "user2@kanga.life"
+    password: "lewagon"
+
+  - email: "user3@kanga.life"
+    password: "lewagon"
+
+  - email: "user4@kanga.life"
+    password: "lewagon"
+
+  - email: "user5@kanga.life"
     password: "lewagon"
