@@ -1,8 +1,8 @@
 // -- Initialize DOM elements --
 const tipAmount = document.querySelector("#tip-amount");
 const grandTotal = document.querySelector("#grand-total");
-const minus = document.querySelector(".drink-minus-btn");
-const plus = document.querySelector(".drink-plus-btn");
+const minus = document.querySelector(".checkout-tip .drink-minus-btn");
+const plus = document.querySelector(".checkout-tip .drink-plus-btn");
 
 // -- Initialize frequently used variables --
 const initTotalValue = Math.round(parseFloat(document.querySelector("#grand-total").innerHTML.substr(1)) * 100) / 100;
