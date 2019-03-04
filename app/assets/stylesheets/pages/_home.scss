@@ -1,6 +1,13 @@
 // Specific CSS for your home-page
 body{
-  background-repeat: none;
-  background-position: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
+
+.bottom_margin{
+  height: 150px;
+}
+
+
