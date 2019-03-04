@@ -122,7 +122,9 @@
   <br>
 
   <div class="card checkout-grand-total">
-    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_no_tax * (@order.tip.to_f / 100 + 1)) %></h3>
+
+    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
+
     <%= f.button :submit, "ORDER", class: "order_button" %>
   </div>
 <% end %>
