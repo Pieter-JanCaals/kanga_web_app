@@ -1,34 +1,34 @@
 
 <!-- <div class="gradient"> -->
 
-  <%= link_to event_path(@event) do %>
-    <div class="map_card card">
-      <div class="col-sm-3"  style="border-right: solid 1px grey">
-        <p>ETA</p>
-        <p class="eta_btn"><%= @order.eta %>min</p>
-      </div>
-      <div class="col-sm-6">
-        <p>Location</p>
-        <p><%= @order.bar.name %></p>
-      </div>
-      <div class="col-sm-3">
-        <%= image_tag "ping.png", height: 50, class: "map_ping" %>
-      </div>
+<%= link_to event_path(@event) do %>
+  <div class="map_card card">
+    <div class="col-sm-3"  style="border-right: solid 1px grey">
+      <p>ETA</p>
+      <p class="eta_btn"><%= @order.eta %>min</p>
     </div>
-  <% end %>
+    <div class="col-sm-6">
+      <p>Location</p>
+      <p><%= @order.bar.name %></p>
+    </div>
+    <div class="col-sm-3">
+      <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+    </div>
+  </div>
+<% end %>
 
 
 <div class="header_card">
-    <div class="header_title">
-       <h1 id="drink-title">Check Out</h1>
-    </div>
-    <div class="card_sub_header">
-        <p>Please confirm your order</p>
-    </div>
-    <div id="order-link">
-          <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
-        </div>
+  <div class="header_title">
+    <h1 id="drink-title">Check Out</h1>
   </div>
+  <div class="card_sub_header">
+    <p>Please confirm your order</p>
+  </div>
+  <div id="order-link">
+    <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
+  </div>
+</div>
 
   <!--<div class="confirm">
     <div class="confirm-title-box">
@@ -42,20 +42,41 @@
     </div>
   </div>-->
 
+<div class="drink_listing">
+  <div id="drink-list">
+    <% unless params[:category].present? %>
+      <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order} %>
+    <% end %>
+  </div>
+</div>
 
-    <ul class="ul-no-style">
-      <% @order.order_drinks.each do |order_drink| %>
-      <div class="card">
-        <li>
-          <span class="item-list-right"><%= order_drink.amount %></span>
-          <span class="item-list-center"><%= order_drink.drink.name %></span>
-          <span class="item-list-left"><%= humanized_money_with_symbol(order_drink.price) %></span>
-        </li>
+
+<% if false %>
+<ul id="drink-list" class="ul-no-style">
+  <% @order.order_drinks.each do |order_drink| %>
+    <div class="card">
+      <li>
+        <span class="item-list-right"><%= order_drink.amount %></span>
+        <span class="item-list-center"><%= order_drink.drink.name %></span>
+        <span class="item-list-left"><%= humanized_money_with_symbol(order_drink.price) %></span>
+      </li>
+    </div>
+
+    <div class="hidden-order-btns", style="display: none">
+      <div class="card_under">
+        <div class="inner-card_under">
+          <%= simple_form_for order_drink, remote: true do |f| %>
+            <%= render "shared/plus_minus_form", input: :amount, f: f %>
+            <%= f.submit "Add", class: "order-submit add-item" %>
+          <% end %>
+        </div>
       </div>
-      <% end %>
-    </ul>
+    </div>
+  <% end %>
+</ul>
+<% end %>
 
-  <%= simple_form_for @order do |f| %>
+<%= simple_form_for @order do |f| %>
   <div class="card checkout-subtotal-tax-tip">
     <div class="row">
       <div class="col-xs-6"></div>
@@ -66,6 +87,7 @@
         <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-6"></div>
       <div class="col-xs-3">
@@ -75,6 +97,7 @@
         <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-6"></div>
       <div class="col-xs-3">
@@ -85,28 +108,29 @@
       </div>
     </div>
 
-
     <div class="row">
       <div class="col-xs-3"></div>
       <div class="col-xs-7">
         <div class="checkout-tip">
-          <%= render "shared/plus_minus_form", input: :tip, f: f %></div>
+          <%= render "shared/plus_minus_form", input: :tip, f: f %>
+        </div>
       </div>
       <div class="col-xs-2"></div>
     </div>
   </div>
 
-<br>
+  <br>
 
   <div class="card checkout-grand-total">
+
     <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
 
     <%= f.button :submit, "ORDER", class: "order_button" %>
-  <% end %>
   </div>
+<% end %>
 
-  <%= javascript_pack_tag 'checkout' %>
-</div>
+<%= javascript_pack_tag 'checkout' %>
+<%= javascript_pack_tag 'drinks' %>
 
 <!-- for tresting purpuose only -->
 

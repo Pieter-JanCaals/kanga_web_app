@@ -45,6 +45,7 @@
       <% unless params[:category].present? %>
         <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
       <% end %>
+      <%= link_to "Pay", order_path(@order), class: "btn btn-success" %>
     </div>
   </div>
 

@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   def show
     @qr = RQRCode::QRCode.new(@order.qr_code, size: 2, level: :h)
     bar = @event.closest_bar
+    @drinks = @order.drinks
     @markers =
       [
         { lng: @event.longitude, lat: @event.latitude },

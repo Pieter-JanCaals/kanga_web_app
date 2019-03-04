@@ -6,16 +6,21 @@ class OrderDrinksController < ApplicationController
     order_drink.order = order
     order_drink.drink = drink
     order_drink.save!
-    redirect_to event_drinks_path(order.bar.event)
 
+    @drinks = Drink.all
   end
 
   def update
-    order = Order.find(params[:order_id])
     order_drink = OrderDrink.find(params[:id])
+    order = order_drink.order
     order_drink.amount = params[:order_drink][:amount]
     order_drink.save!
-    redirect_to event_drinks_path(order.bar.event)
+
+    if request_from_checkout?
+      @drinks = order.drinks
+    else
+      @drinks = Drink.all
+    end
   end
 
   def delete
@@ -27,5 +32,9 @@ class OrderDrinksController < ApplicationController
 
   def order_drink_params
     params.require(:order_drink).permit[:amount]
+  end
+
+  def request_from_checkout?
+    request.referrer.match /\/orders\/\d+$/
   end
 end

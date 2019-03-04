@@ -4,8 +4,8 @@ import Dinero from 'dinero.js';
 // -- Initialize DOM elements --
 const tipAmount = document.querySelector("#tip-amount");
 const grandTotal = document.querySelector("#grand-total");
-const minus = document.querySelector(".drink-minus-btn");
-const plus = document.querySelector(".drink-plus-btn");
+const minus = document.querySelector(".checkout-tip .drink-minus-btn");
+const plus = document.querySelector(".checkout-tip .drink-plus-btn");
 
 // -- Initialize frequently used variables --
 const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.substr(1)) * 100 } );
