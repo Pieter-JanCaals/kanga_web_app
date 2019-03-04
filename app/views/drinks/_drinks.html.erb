@@ -23,8 +23,8 @@
     </div>
 
     <div class="hidden-order-btns", style="display: none">
-      <div class="card">
-        <div class="inner-card">
+      <div class="card_under">
+        <div class="inner-card_under">
           <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>
             <%= render "shared/plus_minus_form", input: :amount, f: f %>
             <%= f.submit "Add", class: "order-submit add-item" %>
