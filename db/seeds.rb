@@ -119,6 +119,31 @@ end
 message_done
 
 
+# -- Creating orders --
+message_creating("orders")
+bars_hash.each do |bar_key, bar_value|
+  id = 2
+  3.times do
+    temp_order = Order.create!(
+      status: "confirmed",
+      user: (users_hash.values)[id],
+      qr_code: DateTime.now.strftime('%Q'),
+      bar: bar_value,
+      tip: 15
+      )
+    id += 1
+    OrderDrink.create!(
+      order: temp_order,
+      drink: drinks_hash.values.sample,
+      amount: 5
+      )
+  end
+end
+message_done
+
+
 # -- All done! --
 puts "Finished!!!"
 
+
+#
