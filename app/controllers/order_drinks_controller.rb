@@ -7,13 +7,7 @@ class OrderDrinksController < ApplicationController
     order_drink.drink = drink
     order_drink.save!
 
-    if params[:category].present?
-      @title = Category.find(params[:category]).name
-      @drinks = Drink.where(category_id: params[:category])
-    else
-      @title = "Popular Drinks"
-      @drinks = Drink.all
-    end
+    set_title_and_drinks
   end
 
   def update
@@ -26,13 +20,7 @@ class OrderDrinksController < ApplicationController
       @title = "Checkout"
       @drinks = order.drinks
     else
-      if params[:category].present?
-        @title = Category.find(params[:category]).name
-        @drinks = Drink.where(category_id: params[:category])
-      else
-        @title = "Popular Drinks"
-        @drinks = Drink.all
-      end
+      set_title_and_drinks
     end
   end
 
@@ -42,6 +30,16 @@ class OrderDrinksController < ApplicationController
   end
 
   private
+
+  def set_title_and_drinks
+    if params[:category].present?
+      @title = Category.find(params[:category]).name
+      @drinks = Drink.where(category_id: params[:category])
+    else
+      @title = "Popular Drinks"
+      @drinks = Drink.all
+    end
+  end
 
   def order_drink_params
     params.require(:order_drink).permit[:amount]

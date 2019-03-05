@@ -50,7 +50,11 @@
             <%# if params[:category].present? %>
               <input type="hidden" name="category" value="<%= params[:category] %>">
             <%# end %>
-            <%= f.submit "Add", class: "order-submit add-item" %>
+            <% if order_drink.amount == 0 %>
+              <%= f.submit "Add", class: "order-submit add-item" %>
+            <% else %>
+              <%= f.submit "Edit", class: "order-submit add-item" %>
+            <% end %>
           <% end %>
         </div>
       </div>
