@@ -56,10 +56,20 @@ class Order < ApplicationRecord
     tip_amount / order_drinks.map(&:id).uniq.size
   end
 
-  # returns array of hashes with each user and the amount they have to pay
+  # returns a hash with the key = the id of the user and the value = the total amount
+  # the user has to pay for this order
   def close_tabs
-    tabs = Hash.new(0)
+    if status == "pending"
+      # destroy order
+    else
+      tabs_per_user = Hash.new(0)
+      array = order_drinks.map(&:close_tab)
+      array.each do |element|
+        element.each { |k, v| tabs_per_user[k] += v }
+      end
 
-    return tabs
+      # set status to paid
+      return tabs_per_user
+    end
   end
 end

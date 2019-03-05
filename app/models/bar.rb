@@ -17,7 +17,14 @@ class Bar < ApplicationRecord
     }
   end
 
-  def users
-    orders.
+  def close_tabs
+    tabs_per_user = Hash.new(0)
+
+    array = orders.map(&:close_tabs)
+    array.each do |element|
+      element.each { |k, v| tabs_per_user[k] += v }
+    end
+
+    return tabs_per_user
   end
 end

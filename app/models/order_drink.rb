@@ -12,6 +12,7 @@ class OrderDrink < ApplicationRecord
   end
 
   def close_tab
-    (drink.price * amount) + order.shared_tip
+    Hash[user.id, (drink.price * amount) + order.shared_tip]
+    # { user.id.to_s.to_sym => (drink.price * amount) + order.shared_tip }
   end
 end

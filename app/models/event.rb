@@ -13,20 +13,19 @@ class Event < ApplicationRecord
 
   def coordinates
     coordinates = [{ lng: longitude, lat: latitude }]
-    pry
     coordinates << closest_bar.coordinates
     coordinates << bars.map(&:coordinates)
     coordinates.uniq
   end
 
   def close_tabs
-    bars.each do |bar|
-      tab = bar.close_tabs
-      tab.each { |k, v| tabs[k] += v }
+    tabs_per_user = Hash.new(0)
+
+    array = bars.map(&:close_tabs)
+    array.each do |element|
+      element.each { |k, v| tabs_per_user[k] += v }
     end
-    binding.pry
-    tabs.each do |k, v|
-      puts "#{User.find(k).name} has to pay #{v}"
-    end
+
+    tabs_per_user.each { |k, v| puts "#{User.find(k).email} has to pay #{v}" }
   end
 end

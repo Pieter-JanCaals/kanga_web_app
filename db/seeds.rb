@@ -137,6 +137,18 @@ bars_hash.each do |bar_key, bar_value|
       amount: 5,
       user: (users_hash.values)[id]
       )
+    OrderDrink.create!(
+      order: temp_order,
+      drink: drinks_hash.values.sample,
+      amount: 3,
+      user: (users_hash.values)[id]
+      )
+    OrderDrink.create!(
+      order: temp_order,
+      drink: drinks_hash.values.sample,
+      amount: 2,
+      user: (users_hash.values)[id - 1]
+      )
     id += 1
   end
 end
