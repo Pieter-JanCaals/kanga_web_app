@@ -29,6 +29,12 @@ class OrdersController < ApplicationController
   def destroy
   end
 
+  def complete
+    @order.status = "completed"
+    @order.save
+    redirect_to event_drinks_path(@event)
+  end
+
   private
 
   def set_order
