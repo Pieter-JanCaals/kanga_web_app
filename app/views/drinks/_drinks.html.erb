@@ -47,6 +47,9 @@
             <div class="card_form">
             <%= render "shared/plus_minus_form", input: :amount, f: f %>
             </div>
+            <%# if params[:category].present? %>
+              <input type="hidden" name="category" value="<%= params[:category] %>">
+            <%# end %>
             <%= f.submit "Add", class: "order-submit add-item" %>
           <% end %>
         </div>

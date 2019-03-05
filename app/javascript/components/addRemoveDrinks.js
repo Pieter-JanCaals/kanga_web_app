@@ -49,6 +49,7 @@ const toggleDisplay = (element) => {
 }
 
 const initAddRemoveDrinks = () => {
+  console.log("called")
   const drinkList = document.getElementById('drink-list');
   const hiddenBtns = document.querySelectorAll(".hidden-btn");
 
