@@ -16,17 +16,17 @@ class OrdersController < ApplicationController
       ]
   end
 
-  def edit
-  end
-
   def update
     @order.status = "confirmed"
     @order.qr_code = DateTime.now.strftime('%Q')
     @order.update(order_params)
     redirect_to order_path(@order) if @order.save
   end
-
-  def destroy
+  
+  def complete
+    @order.status = "completed"
+    @order.save
+    redirect_to event_drinks_path(@event)
   end
 
   private

@@ -24,6 +24,7 @@ const initDrinkCategoryButton = () => {
   const hiddenBtns = document.querySelectorAll(".hidden-btn");
 
   // drinks
+  const mainContainer = document.querySelector('.grey_main_body');
   const drinks = document.querySelectorAll('.drink-content');
   const closeBtns = document.querySelectorAll('.drink-close-btn');
   const plusBtns = document.querySelectorAll('.drink-plus-btn');
@@ -32,7 +33,7 @@ const initDrinkCategoryButton = () => {
   // category
   if (categoryBtn) {
     categoryBtn.addEventListener("click", () => {
-      console.debug("clicked")
+
       hiddenBtns.forEach((element) => {
         if (element.style.display === "block") {
           element.style.display = "none";
@@ -40,11 +41,19 @@ const initDrinkCategoryButton = () => {
           element.style.display = "block"
         }
       })
+
+      if (mainContainer.classList.contains('greybody')){
+        mainContainer.classList.remove('greybody');
+      }
+      else {
+        mainContainer.classList.add('greybody');
+      }
     });
 
     hiddenBtns.forEach((element) => {
       element.addEventListener("click", () => {
         hideCategoryBtns();
+        mainContainer.classList.remove('greybody');
       })
     })
   }

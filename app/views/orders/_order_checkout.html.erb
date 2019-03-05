@@ -50,32 +50,6 @@
   </div>
 </div>
 
-
-<% if false %>
-<ul id="drink-list" class="ul-no-style">
-  <% @order.order_drinks.each do |order_drink| %>
-    <div class="card">
-      <li>
-        <span class="item-list-right"><%= order_drink.amount %></span>
-        <span class="item-list-center"><%= order_drink.drink.name %></span>
-        <span class="item-list-left"><%= humanized_money_with_symbol(order_drink.price) %></span>
-      </li>
-    </div>
-
-    <div class="hidden-order-btns", style="display: none">
-      <div class="card_under">
-        <div class="inner-card_under">
-          <%= simple_form_for order_drink, remote: true do |f| %>
-            <%= render "shared/plus_minus_form", input: :amount, f: f %>
-            <%= f.submit "Add", class: "order-submit add-item" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</ul>
-<% end %>
-
 <%= simple_form_for @order do |f| %>
   <div class="card checkout-subtotal-tax-tip">
     <div class="container">
