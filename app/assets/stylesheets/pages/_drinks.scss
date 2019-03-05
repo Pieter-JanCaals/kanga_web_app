@@ -16,128 +16,207 @@
   }
 
 .category_buttons{
-  background-color: $action;
-  width:90px;
-  height:90px;
-  border-radius:45px;
-  padding:20px;
+  //width:90px;
+  //height:90px;
+  //border-radius:50%;
+  padding:25px 20px 20px 20px;
   position: fixed;
   bottom:20px;
-  right:10px;
+  right:20px;
+  margin-top:5px;
   text-align: center;
   z-index: 800;
+}
 
-  input {
-
-  }
+// search png
+/*#category_btn {
+  background: none;
+  border: none;
+  text-decoration: none;
 }
 
 .search_button_cat_wrapper{
   background: none;
   border: none;
   text-decoration: none;
+}*/
+
+// contains the ind buttons
+.search_button_cat{
+  background-color: $action;
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  padding:10px;
+  box-shadow: 0 0 4px #999;
 }
 
-.search_button_cat{
-  background: none;
-  border: none;
-  text-decoration: none;
-}
 
 .hidden-btn{
-  background-color: $action;
-  width:80px;
-  height:80px;
-  border-radius:40px;
-  padding:10px;
   position: fixed;
   bottom: 20px;
-  right:10px;
+  right:20px;
   color: white;
 }
 
 
-#top{
+.top{
+  opacity:0;
   animation: 200ms linear btnMoveTop;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
-#beer{
+.beer{
+  opacity:0;
   animation: 200ms linear btnMoveBeer;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
-#wine{
+.wine{
+  opacity:0;
   animation: 200ms linear btnMoveWine;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
-#shot{
+.shot{
+  opacity:0;
   animation: 200ms linear btnMoveShot;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
-#cocktail{
+.cocktail{
+  opacity:0;
   animation: 200ms linear btnMoveCocktail;
   animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
-#category_btn {
-  background: none;
-  border: none;
-  text-decoration: none;
+.move_left{
+  margin-right:85px;
+  padding-bottom:20px;
+  font-size: 300;
 }
+
+.fas{
+  text-align:center;
+  padding-top:9px;
+}
+
 
 @keyframes btnMoveWine {
   from{
     bottom: 20px;
-    right:10px;
+    right:20px;
     animation-timing-function: ease-out;
+    opacity: 0;
   }
   to{
-    bottom: 120px;
+    bottom: 130px;
+    opacity: 1;
   }
 }
 
 @keyframes btnMoveBeer {
   from{
     bottom: 20px;
-    right:10px;
+    right:20px;
     animation-timing-function: ease-out;
+    transition-opacity:0;
   }
   to{
-    bottom: 220px;
+    bottom: 230px;
+    opacity:1;
   }
 }
 @keyframes btnMoveShot {
   from{
     bottom: 20px;
-    right:10px;
+    right:20px;
     animation-timing-function: ease-out;
+    opacity: 0;
   }
   to{
-    bottom: 320px;
+    bottom: 330px;
+    opacity:1;
   }
 }
 @keyframes btnMoveCocktail {
   from{
     bottom: 20px;
-    right:10px;
+    right:20px;
     animation-timing-function: ease-out;
+    opacity: 0;
   }
   to{
-    bottom: 420px;
+    bottom: 430px;
+    opacity:1;
   }
 }
 @keyframes btnMoveTop {
   from{
     bottom: 20px;
-    right:10px;
+    right:20px;
     animation-timing-function: ease-out;
+    opacity: 0;
   }
   to{
-    bottom: 520px;
+    bottom: 530px;
+    opacity:1;
   }
 }
+
+
+
+/* Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.3s;
+}
+.ripple:hover {
+  background: $action radial-gradient(circle, transparent 1%,$action 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #f779a6;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.ripple_button {
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #fc3f83;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+  border-radius:50%;
+  padding:25px;
+  position: fixed;
+  bottom:20px;
+  right:10px;
+  width:90px;
+  height:90px;
+}
+
+.greybody {
+  background-color: rgba(45, 45, 45, 0.5) !important;
+  z-index: 700;
+  position: absolute;
+  top:0;
+  bottom:0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.4s ease;
+}
+
+
+
+
+
 
 

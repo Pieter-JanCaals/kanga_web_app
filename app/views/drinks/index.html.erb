@@ -1,6 +1,6 @@
 <%= render 'shared/navbar', event: @event, header: nil %>
-
-<div class="main_container">
+<div class="grey_main_body"></div>
+<div class=" main_container">
 
     <%= link_to event_path(@event) do %>
       <div class="map_card card">
@@ -32,24 +32,53 @@
 
 
   <div class="category_buttons">
-    <button id="category_btn"><%= image_tag "search.png", height: 35 %></button>
-      <%= link_to "Popular Drinks", event_drinks_path(@event), class: "hidden-btn fas fa-star fa-2x", id: "top", style: "display:none", remote: true %>
-      <div class="search_button_cat_wrapper">
-      <% @categories.each do |category| %>
-        <% if category.name == "Beer" %>
-          <button class="search_button_cat"><%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-beer fa-2x hidden-btn", id: "beer", style: "display:none " %></button>
 
-        <% elsif category.name == "Wine"%>
-          <button class="search_button_cat"> <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-wine-glass-alt fa-2x hidden-btn", id: "wine", style: "display:none" %></button>
+      <button id="category_btn" class="ripple ripple_button"><%= image_tag "search.png", height: 40 %></button>
 
-        <% elsif category.name == "Cocktail"%>
-          <button class="search_button_cat" id="cocktail"><%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-glass-martini-alt fa-2x hidden-btn", id: "cocktail", style: "display:none " %></button>
 
-        <% elsif category.name == "Shot"%>
-          <button class="search_button_cat" id="shot"> <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-skull-crossbones fa-2x hidden-btn", id: "shot", style: "display:none " %></button>
+
+     <%= link_to event_drinks_path(@event, category: nil), remote: true, class: "hidden-btn", style: "display:none " do %>
+          <div class="search_button_cat hidden-btn top" style="display:none">
+            <div class="hidden-btn top move_left"><%="Popular Drinks" %></div>
+            <i class="fas fa-star fa-2x"></i>
+          </div>
+        <% end %>
+
+    <% @categories.each do |category| %>
+      <%if category.name == "Beer"%>
+        <%= link_to event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " do %>
+          <div class="search_button_cat hidden-btn beer" style="display:none">
+            <div class="hidden-btn beer move_left"><%= category.name %></div>
+            <i class="fas fa-beer fa-2x"></i>
+          </div>
+        <% end %>
+
+
+      <% elsif category.name == "Wine"%>
+        <%= link_to event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " do %>
+          <div class="search_button_cat hidden-btn wine" style="display:none">
+            <div class="hidden-btn wine move_left"><%= category.name %></div>
+            <i class="fas fa-glass-martini-alt fa-2x"></i>
+          </div>
+        <% end %>
+
+      <% elsif category.name == "Cocktail"%>
+        <%= link_to event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " do %>
+          <div class="search_button_cat hidden-btn cocktail" style="display:none">
+            <div class="hidden-btn cocktail move_left"><%= category.name %></div>
+            <i class="fas fa-glass-martini-alt fa-2x"></i>
+          </div>
+        <% end %>
+
+      <% elsif category.name == "Shot"%>
+        <%= link_to event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " do %>
+          <div class="search_button_cat hidden-btn shot" style="display:none">
+            <div class="hidden-btn shot move_left"><%= category.name %></div>
+            <i class="fas fa-skull-crossbones fa-2x"></i>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-    </div>
   </div>
 
   <div class="drink_listing">
@@ -63,7 +92,6 @@
 
   <div class="bottom_margin"></div>
 </div>
-
 
 <!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->
 

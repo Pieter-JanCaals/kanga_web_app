@@ -53,12 +53,6 @@ const initAddRemoveDrinks = () => {
   const drinkList = document.getElementById('drink-list');
   const hiddenBtns = document.querySelectorAll(".hidden-btn");
 
-  hiddenBtns.forEach((element) => {
-    element.addEventListener("click", () => {
-      hideCategoryBtns();
-    });
-  });
-
   drinkList.addEventListener("click", (event) => {
     handleClick(event);
   });
