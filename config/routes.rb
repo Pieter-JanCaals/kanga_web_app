@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :order_drinks, only: [:update, :destroy]
 
   get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
-  get 'orders/:id/review', to: 'orders#review', as: 'review_order'
   get 'orders/:id/summary', to: 'orders#summary', as: 'summary_order'
+  get 'notification', to: 'pages#notification', as: 'notification'
+
 end

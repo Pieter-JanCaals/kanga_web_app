@@ -78,44 +78,52 @@
 
 <%= simple_form_for @order do |f| %>
   <div class="card checkout-subtotal-tax-tip">
-    <div class="row">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-3">
-        <h5>TOTAL</h5>
-      </div>
-      <div class="col-xs-3 nopadding">
-        <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-3">
-        <h5>TAXES</h5>
-      </div>
-      <div class="col-xs-3 nopadding">
-        <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-3">
-        <h5>TIP</h5>
-      </div>
-      <div class="col-xs-3 nopadding">
-        <h5 class="pr-0" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-3"></div>
-      <div class="col-xs-7">
-        <div class="checkout-tip">
-          <%= render "shared/plus_minus_form", input: :tip, f: f %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-3">
+          <h5>TOTAL</h5>
+        </div>
+        <div class="col-xs-3">
+          <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
         </div>
       </div>
-      <div class="col-xs-2"></div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-3">
+          <h5>TAXES</h5>
+        </div>
+        <div class="col-xs-3">
+          <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-3">
+          <h5>TIP</h5>
+        </div>
+        <div class="col-xs-3">
+          <h5 class="pr-0" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-7">
+          <div class="checkout-tip">
+            <%= render "shared/plus_minus_form", input: :tip, f: f %>
+          </div>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
     </div>
   </div>
 
@@ -129,25 +137,6 @@
   </div>
 <% end %>
 
+<div class="bottom_margin"></div>
 <%= javascript_pack_tag 'checkout' %>
-<%= javascript_pack_tag 'drinks' %>
-
-<!-- for tresting purpuose only -->
-
-<!-- <div class="message">
-  <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>10/07/17</p>
-  </div>
-  <div class="message-body">
-    <p><strong>I am not sure yet!</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <div class="message-status">
-    <p class="status pending">Pending</p>
-    <p class="price">€345</p>
-  </div>
-</div>
- -->
+<%#= javascript_pack_tag 'drinks' %>

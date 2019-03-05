@@ -133,7 +133,7 @@ drinks:
     category: "Wine"
     price: 1000
 
-  - name: "Apothic Crush Smooth Red Blend"
+  - name: "Apothic Crush Red Blend"
     prep_time: 1
     category: "Wine"
     price: 1000

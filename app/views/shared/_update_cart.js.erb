@@ -2,4 +2,4 @@ document.querySelector("#shopping-cart-btn .badge").innerText = "<%= @current_or
 window.initializeCartAnimation();
 
 document.getElementById("drink-list").innerHTML = "<%= j render('/drinks/drinks', drinks: @drinks, order: @current_order) %>";
-document.getElementById('drink-title').innerText = "<%= j @category.nil? ? 'Popular Drinks' : @category.name %>"
+document.getElementById('drink-title').innerText = "<%= j @title %>"

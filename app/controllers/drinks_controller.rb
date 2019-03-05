@@ -4,9 +4,10 @@ class DrinksController < ApplicationController
     bar = closest_bar(@event)
     @categories = bar.drinks.map(&:category).uniq
     if params[:category].present?
-      @category = Category.find(params[:category])
-      @drinks = bar.drinks.where(category: @category)
+      @title = Category.find(params[:category]).name
+      @drinks = bar.drinks.where(category_id: params[:category])
     else
+      @title = "Popular Drinks"
       @drinks = popular_drinks(bar.drinks)
     end
 

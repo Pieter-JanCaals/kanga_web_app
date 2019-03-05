@@ -7,7 +7,13 @@ class OrderDrinksController < ApplicationController
     order_drink.drink = drink
     order_drink.save!
 
-    @drinks = Drink.all
+    if params[:category].present?
+      @title = Category.find(params[:category]).name
+      @drinks = Drink.where(category_id: params[:category])
+    else
+      @title = "Popular Drinks"
+      @drinks = Drink.all
+    end
   end
 
   def update
@@ -17,9 +23,16 @@ class OrderDrinksController < ApplicationController
     order_drink.save!
 
     if request_from_checkout?
+      @title = "Checkout"
       @drinks = order.drinks
     else
-      @drinks = Drink.all
+      if params[:category].present?
+        @title = Category.find(params[:category]).name
+        @drinks = Drink.where(category_id: params[:category])
+      else
+        @title = "Popular Drinks"
+        @drinks = Drink.all
+      end
     end
   end
 

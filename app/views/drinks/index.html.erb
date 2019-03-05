@@ -5,7 +5,7 @@
     <%= link_to event_path(@event) do %>
       <div class="map_card card">
         <div class="col-sm-3"  style="border-right: solid 1px grey">
-          <p>ETA</p>
+          <p>Ready In</p>
           <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
           <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
         </div>
@@ -33,11 +33,23 @@
 
   <div class="category_buttons">
     <button id="category_btn"><%= image_tag "search.png", height: 35 %></button>
-      <%= link_to "Popular Drinks", event_drinks_path(@event), class: "hidden-btn", style: "display:none", remote: true %>
+      <%= link_to "Popular Drinks", event_drinks_path(@event), class: "hidden-btn fas fa-star fa-2x", id: "top", style: "display:none", remote: true %>
+      <div class="search_button_cat_wrapper">
       <% @categories.each do |category| %>
-      <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "hidden-btn", style: "display:none " %>
-    <% end %>
+        <% if category.name == "Beer" %>
+          <button class="search_button_cat"><%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-beer fa-2x hidden-btn", id: "beer", style: "display:none " %></button>
 
+        <% elsif category.name == "Wine"%>
+          <button class="search_button_cat"> <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-wine-glass-alt fa-2x hidden-btn", id: "wine", style: "display:none" %></button>
+
+        <% elsif category.name == "Cocktail"%>
+          <button class="search_button_cat" id="cocktail"><%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-glass-martini-alt fa-2x hidden-btn", id: "cocktail", style: "display:none " %></button>
+
+        <% elsif category.name == "Shot"%>
+          <button class="search_button_cat" id="shot"> <%= link_to category.name, event_drinks_path(@event, category: category), remote: true, class: "fas fa-skull-crossbones fa-2x hidden-btn", id: "shot", style: "display:none " %></button>
+      <% end %>
+    <% end %>
+    </div>
   </div>
 
   <div class="drink_listing">
@@ -49,7 +61,9 @@
     </div>
   </div>
 
+  <div class="bottom_margin"></div>
 </div>
+
 
 <!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->
 

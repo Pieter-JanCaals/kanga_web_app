@@ -20,44 +20,124 @@
   width:90px;
   height:90px;
   border-radius:45px;
-  padding:10px;
+  padding:20px;
   position: fixed;
   bottom:20px;
   right:10px;
   text-align: center;
   z-index: 800;
+
+  input {
+
+  }
 }
 
-.order-submit{
-  color: $action;
-  font-size: 18px;
+.search_button_cat_wrapper{
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+
+.search_button_cat{
+  background: none;
+  border: none;
+  text-decoration: none;
 }
 
 .hidden-btn{
   background-color: $action;
-  width:90px;
-  height:90px;
-  border-radius:45px;
+  width:80px;
+  height:80px;
+  border-radius:40px;
   padding:10px;
   position: fixed;
   bottom: 20px;
   right:10px;
-  animation: 200ms linear btnMove;
+  color: white;
+}
+
+
+#top{
+  animation: 200ms linear btnMoveTop;
   animation-fill-mode: forwards;
 }
 
-@keyframes btnMove {
+#beer{
+  animation: 200ms linear btnMoveBeer;
+  animation-fill-mode: forwards;
+}
+
+#wine{
+  animation: 200ms linear btnMoveWine;
+  animation-fill-mode: forwards;
+}
+
+#shot{
+  animation: 200ms linear btnMoveShot;
+  animation-fill-mode: forwards;
+}
+
+#cocktail{
+  animation: 200ms linear btnMoveCocktail;
+  animation-fill-mode: forwards;
+}
+
+#category_btn {
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+
+@keyframes btnMoveWine {
   from{
     bottom: 20px;
     right:10px;
     animation-timing-function: ease-out;
   }
   to{
-    margin-bottom:400px;
+    bottom: 120px;
   }
 }
 
-.drink_listing{
-
+@keyframes btnMoveBeer {
+  from{
+    bottom: 20px;
+    right:10px;
+    animation-timing-function: ease-out;
+  }
+  to{
+    bottom: 220px;
+  }
 }
+@keyframes btnMoveShot {
+  from{
+    bottom: 20px;
+    right:10px;
+    animation-timing-function: ease-out;
+  }
+  to{
+    bottom: 320px;
+  }
+}
+@keyframes btnMoveCocktail {
+  from{
+    bottom: 20px;
+    right:10px;
+    animation-timing-function: ease-out;
+  }
+  to{
+    bottom: 420px;
+  }
+}
+@keyframes btnMoveTop {
+  from{
+    bottom: 20px;
+    right:10px;
+    animation-timing-function: ease-out;
+  }
+  to{
+    bottom: 520px;
+  }
+}
+
 
