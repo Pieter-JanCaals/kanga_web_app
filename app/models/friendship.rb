@@ -8,7 +8,7 @@ class Friendship < ApplicationRecord
   # This way we can search friendships based on user_id, disregarding if the
   # current users created the friendship or not.
   after_create :create_inverse, unless: :inverse_exists?
-  after_destroy :destroy_inverse, if: :inverse_exists?
+  after_destroy :destroy_inverses, if: :inverse_exists?
 
   private
 

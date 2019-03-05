@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
   get 'orders/:id/review', to: 'orders#review', as: 'review_order'
 
+  get 'orders/:id/split_tab', to: 'orders#split_tab', as: 'split_tab'
+  post 'orders/:id/confirm_split_tab', to: 'orders#confirm_split_tab', as: 'confirm_split_tab'
+
 end

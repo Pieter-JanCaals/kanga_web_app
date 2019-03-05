@@ -18,6 +18,7 @@ Drink.destroy_all
 Order.destroy_all
 Bar.destroy_all
 Category.destroy_all
+Friendship.destroy_all
 User.destroy_all
 Event.destroy_all
 message_done
@@ -137,20 +138,16 @@ bars_hash.each do |bar_key, bar_value|
       amount: 5,
       user: (users_hash.values)[id]
       )
-    OrderDrink.create!(
-      order: temp_order,
-      drink: drinks_hash.values.sample,
-      amount: 3,
-      user: (users_hash.values)[id]
-      )
-    OrderDrink.create!(
-      order: temp_order,
-      drink: drinks_hash.values.sample,
-      amount: 2,
-      user: (users_hash.values)[id - 1]
-      )
     id += 1
   end
+end
+message_done
+
+message_creating("friendships")
+users = users_hash.values.map(&:id)
+10.times do
+  sample = users.sample(2)
+  Friendship.create!(user_id: sample[0], friend_id: sample[1]) unless Friendship.find_by(user_id: sample[0], friend_id: sample[1])
 end
 message_done
 

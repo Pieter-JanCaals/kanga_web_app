@@ -28,6 +28,14 @@ class OrdersController < ApplicationController
   def destroy
   end
 
+  def split_tab
+    @order_drinks = @order.order_drinks
+    @friends = current_user.friends
+  end
+
+  def confirm_split_tab
+  end
+
   private
 
   def set_order
@@ -40,5 +48,12 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:tip)
+  end
+
+  def drinks_by_user_id
+    keys = params.keys
+    2.times { keys.shift }
+    4.times { keys.pop }
+    return keys
   end
 end

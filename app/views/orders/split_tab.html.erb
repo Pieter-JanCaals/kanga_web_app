@@ -1,0 +1,26 @@
+<%= render 'shared/navbar', event: nil, header: "Split tab" %>
+
+<div class="main_container">
+  <%= simple_form_for Order.new, url: confirm_split_tab_path(@order), method: :post do |f|  %>
+    <ul>
+      <% @friends.each do |friend| %>
+        <li>
+          <%= friend.email %>
+          <ul>
+            <li>
+              <% order_drink = @order_drinks.sample %>
+              <%= order_drink.drink.name %>
+              <input type="number" name="<%= order_drink.drink.name %>-<%= friend.id %>" min="1" max="<%= order_drink.amount %>">
+            </li>
+            <li>
+              <% order_drink = @order_drinks.sample %>
+              <%= order_drink.drink.name %>
+              <input type="number" name="<%= order_drink.drink.name %>-<%= friend.id %>" min="1" max="<%= order_drink.amount %>">
+            </li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+    <%= f.submit %>
+  <% end %>
+</div>
