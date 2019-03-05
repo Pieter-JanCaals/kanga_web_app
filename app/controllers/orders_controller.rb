@@ -22,6 +22,12 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     redirect_to order_path(@order) if @order.save
   end
+  
+  def complete
+    @order.status = "completed"
+    @order.save
+    redirect_to event_drinks_path(@event)
+  end
 
   private
 
