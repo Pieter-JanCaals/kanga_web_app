@@ -34,6 +34,23 @@ class OrdersController < ApplicationController
   end
 
   def confirm_split_tab
+    keys = drinks_by_user_id
+    keys.each do |key|
+      drink = Drink.find_by(name: key.split(/-\d*/))
+      user = User.find(key.match(/-\d*/).to_s.delete("-").to_i)
+      amount = params[key].to_i
+      OrderDrink.create!(drink: drink, user: user, order: @order, amount: amount)
+    end
+
+    drinks_hash = Hash.new(0)
+    new_order_drinks = @order.order_drinks.where.not(user: current_user)
+    new_order_drinks.each { |order_drink| drinks_hash[order_drink.drink.id] += order_drink.amount }
+
+    original_order_drinks = @order.order_drinks.where(user: current_user)
+    original_order_drinks.each do |order_drink|
+      order_drink.amount -= drinks_hash[order_drink.drink.id]
+      order_drink.save!
+    end
   end
 
   private
