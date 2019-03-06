@@ -3,3 +3,10 @@ window.initializeCartAnimation();
 
 document.getElementById("drink-list").innerHTML = "<%= j render('/drinks/drinks', drinks: @drinks, order: @current_order) %>";
 document.getElementById('drink-title').innerText = "<%= j @title %>"
+
+if (document.getElementById('order_tip')) {
+
+  console.log(document.getElementById('order_tip').value)
+  console.log("<%= j humanized_money_with_symbol(@current_order.total_with_tax) %>")
+  // document.getElementById('grand-total').innerText = orderTip.value * <%= j humanized_money_with_symbol(@current_order.total_with_tax) %>
+}
