@@ -1,36 +1,9 @@
-
-<div class="header_card">
-  <div class="header_title">
-    <h1 id="drink-title">Notification</h1>
-  </div>
-  <div class="card_sub_header">
-    <p>YOUR ORDER IS READY FOR PICKUP!</p>
-  </div>
-  <div id="order-link">
-    <%= link_to "View Order" %>
-  </div>
+<div class="notification">
+  <img src="<%= image_url 'iphone_logo.png' %>" alt="notification" class="notification-icon">
+  <h6 class="notification-title">KANGA</h6>
+  <p class="notification-text"> Your order is almost ready!</p>
+  <p class="notification-time">1min ago</p>
 </div>
+<div class="notification-symbol">1</div>
+<img src="<%= image_url 'notification.png' %>" alt="notification" class="iphone">
 
-
-
-
-
-<div class="confirm-map-box">
-  <h2>Pick Up Your Order Here</h2>
-  <div id="map-container" style="width: 100%; height: 250px">
-    <div
-    id="map"
-    style="width: 100%; height: 200px"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-  </div>
-  <div class="text_center">
-    <p>Present this QR code upon pick up</p>
-    <div id="qr_code">
-      <%= raw @qr.as_html %>
-    </div>
-  </div>
-</div>
-
-<%= javascript_pack_tag 'mapbox' %>
