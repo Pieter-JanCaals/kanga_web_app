@@ -1,8 +1,7 @@
-document.querySelector("#shopping-cart-btn .badge").innerText = "<%= @current_order.order_drinks.sum(:amount) %>";
-window.initializeCartAnimation();
+document.getElementById("order_amount").innerHTML = "Confirm ( <%= j @current_order.order_drinks.sum(:amount).to_s %> <%= j 'Drink'.pluralize(@current_order.order_drinks.sum(:amount)) %> ) ";
 
 document.getElementById("drink-list").innerHTML = "<%= j render('/drinks/drinks', drinks: @drinks, order: @current_order) %>";
-document.getElementById('drink-title').innerText = "<%= j @title %>"
+document.getElementById('drink-title').innerText = "<%= j @title %>";
 
 if (document.getElementById('order_tip')) {
   document.getElementById('total-no-tax').innerText = "<%= j humanized_money_with_symbol(@current_order.total_no_tax) %>"
@@ -10,3 +9,4 @@ if (document.getElementById('order_tip')) {
   document.getElementById('tip-amount').innerText = "$" + Math.round(document.getElementById('total-no-tax').innerText.substr(1) + document.getElementById('tax').innerText.substr(1) * (document.getElementById('order_tip').value / 100)) / 100;
   document.getElementById('grand-total').innerText = "$" + Math.round("<%= j humanized_money_with_symbol(@current_order.total_with_tax) %>".substr(1) * ( 1 + (document.getElementById('order_tip').value / 100) ) * 100) / 100;
 }
+
