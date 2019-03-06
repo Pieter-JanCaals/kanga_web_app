@@ -1,2 +1,124 @@
-<h1>Order summary page</h1>
+<%= render 'shared/navbar', event: nil, header: "Order" %>
+<%= link_to event_drinks_path(@order.bar.event) do %>
+ <%= icon('fas', 'arrow-left') %>
+<% end %>
+<div class="main_container summary-main-container <%= @order.status == 'confirmed' ? 'confirm' : '' %>">
+  <div class="summary-container">
+    <div class="card no-flex">
+      <div class="header_card">
+        <div class="header_title">
+          <h2 id="drink-title">Order summary</h2>
+        </div>
+        <div class="card_sub_header date-small-text">
+          <p><%= DateTime.now.strftime("%A, %B %-d %Y at %R") %></p>
+        </div>
+      </div>
 
+      <% @order.order_drinks.each do |order_drink| %>
+        <div class="drink">
+          <div class="drink-content">
+            <div class="card grey-bottom-border">
+
+              <div class="col-sm-1">
+                <p><%= order_drink.amount %></p>
+              </div>
+
+              <div class="col-sm-2">
+              </div>
+
+              <div class="col-md-7">
+                <div class="card_name">
+                  <%= order_drink.drink.name %>
+                </div>
+              </div>
+
+              <div class="card_price text-right">
+                <div class="col-sm-2">
+                  <%= humanized_money_with_symbol(order_drink.price) %>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+
+    <div class="card checkout-subtotal-tax-tip">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-5"></div>
+          <div class="col-xs-4">
+            <h5>SUBTOTAL</h5>
+          </div>
+          <div class="col-xs-3">
+            <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-5"></div>
+          <div class="col-xs-4">
+            <h5>TAXES</h5>
+          </div>
+          <div class="col-xs-3">
+            <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-5"></div>
+          <div class="col-xs-4">
+            <h5>TIP</h5>
+          </div>
+          <div class="col-xs-3">
+            <h5 class="pr-0" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3"></div>
+          <div class="col-xs-7">
+            <div class="checkout-tip">
+            </div>
+          </div>
+          <div class="col-xs-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <br> -->
+    <div class="card checkout-grand-total">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-2"></div>
+          <h3 class="col-xs-5">TOTAL:</h3>
+          <h3 class="col-xs-3" id="grand-total"><%= humanized_money_with_symbol(@order.grand_total) %></h3>
+        </div>
+          <div class="col-xs-2"></div>
+      </div>
+    </div>
+
+    <div class="card summary-go-back">
+      <%= link_to "Back to confirmation", order_path(@order), class: "summary-go-back" %>
+    </div>
+
+  </div>
+  <!-- <div class="bottom_margin-summary"></div> -->
+</div>
+
+
+<!-- .strftime("Ordered on %A, %B %-d %Y at %R") -->
+    <!-- http://localhost:3000/orders/22/summary -->

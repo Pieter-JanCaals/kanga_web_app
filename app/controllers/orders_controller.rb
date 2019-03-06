@@ -32,7 +32,6 @@ class OrdersController < ApplicationController
   def summary
   end
 
-
   private
 
   def set_order

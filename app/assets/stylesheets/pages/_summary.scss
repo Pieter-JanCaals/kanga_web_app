@@ -1,0 +1,41 @@
+.summary-container {
+  // background: $card;
+  // background: rgba(38, 38, 38, 0.9);
+  background: rgb(38, 38, 38);
+  padding: 1px 30px 15px 15px;
+  // padding: 1px 30px 0px 15px;
+}
+
+.no-flex {
+  display: initial;
+}
+
+.grey-bottom-border {
+  border-bottom: 1px solid #808080;
+}
+
+.bottom_margin-summary {
+  height: 50px;
+}
+
+.summary-main-container {
+  height: 100%;
+}
+
+.checkout-grand-total {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.checkout-grand-total-text {
+
+}
+
+.date-small-text {
+  font-size: 18px;
+}
+
+.summary-go-back {
+  justify-content: center;
+  color: $action;
+}
