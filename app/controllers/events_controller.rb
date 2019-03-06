@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :require_pending_order, only: [:index]
   def index
     @events = Event.all
   end
