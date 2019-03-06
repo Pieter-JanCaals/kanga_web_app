@@ -1,26 +1,51 @@
 <%= render 'shared/navbar', event: nil, header: "Split tab" %>
 
 <div class="main_container">
+  <% @order_drinks.each do |order_drink| %>
+    <div class="order-drink" data-drink="<%= order_drink.drink.name %>" data-amount="<%= order_drink.amount %>" hidden></div>
+  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="button-group">
+          <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Users</button>
+          <ul class="dropdown-menu">
+            <% @friends.each do |friend| %>
+              <li><a href="#" class="small" data-value="<%= friend.id %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= friend.email %></a></li>
+            <% end %>
+            <button id="split-tab-confirm-friends">Add</button>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="split-tab-friends-list">
+
+    </div>
+  </div>
   <%= simple_form_for Order.new, url: confirm_split_tab_path(@order), method: :post do |f|  %>
-    <ul>
-      <% @friends.each do |friend| %>
+
+    <!-- <ul>
+      <%# @friends.each do |friend| %>
         <li>
-          <%= friend.email %>
+          <%#= friend.email %>
           <ul>
             <li>
-              <% order_drink = @order_drinks.sample %>
-              <%= order_drink.drink.name %>
-              <input type="number" name="<%= order_drink.drink.name %>-<%= friend.id %>" min="1" max="<%= order_drink.amount %>">
+              <%# order_drink = @order_drinks.sample %>
+              <%#= order_drink.drink.name %>
+              <input type="number" name="<%#= order_drink.drink.name %>-<%#= friend.id %>" min="1" max="<%#= order_drink.amount %>">
             </li>
             <li>
-              <% order_drink = @order_drinks.sample %>
-              <%= order_drink.drink.name %>
-              <input type="number" name="<%= order_drink.drink.name %>-<%= friend.id %>" min="1" max="<%= order_drink.amount %>">
+              <%# order_drink = @order_drinks.sample %>
+              <%#= order_drink.drink.name %>
+              <input type="number" name="<%#= order_drink.drink.name %>-<%#= friend.id %>" min="1" max="<%#= order_drink.amount %>">
             </li>
           </ul>
         </li>
-      <% end %>
-    </ul>
+      <%# end %>
+    </ul> -->
     <%= f.submit %>
   <% end %>
 </div>
+</div>
+
+<%= javascript_pack_tag 'split_bill' %>
