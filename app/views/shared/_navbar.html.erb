@@ -6,13 +6,6 @@
 
   <h4 class="navbar-headers"><%= event.nil? ? header : event.name %></h4>
 
-  <% if @current_order %>
-    <%= link_to order_path(@current_order), id: "shopping-cart-btn" do %>
-      <span class="badge"><%= @current_order.order_drinks.sum(:amount) %></span>
-      <span class="glyphicon glyphicon-shopping-cart"></span>
-    <% end %>
-  <% end %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 

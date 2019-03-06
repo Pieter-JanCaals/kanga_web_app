@@ -3,7 +3,9 @@
   border: solid 1px $action;
   border-left: solid 15px $action;
   color: #808080;
-  margin-bottom:25px;
+  position:absolute;
+  top: -70px;
+  width:395px;
 }
 
   .map_ping{
@@ -26,6 +28,11 @@
   margin-top:5px;
   text-align: center;
   z-index: 800;
+  color: $action;
+
+  .fas{
+    color: $action;
+  }
 }
 
 // search png
@@ -43,7 +50,7 @@
 
 // contains the ind buttons
 .search_button_cat{
-  background-color: $action;
+  background-color: $white;
   width:75px;
   height:75px;
   border-radius:50%;
@@ -54,9 +61,9 @@
 
 .hidden-btn{
   position: fixed;
-  bottom: 20px;
+  bottom: 75px;
   right:20px;
-  color: white;
+  color: $white;
 }
 
 
@@ -109,62 +116,62 @@
 
 @keyframes btnMoveWine {
   from{
-    bottom: 20px;
+    bottom: 75px;
     right:20px;
     animation-timing-function: ease-out;
     opacity: 0;
   }
   to{
-    bottom: 130px;
+    bottom: 180px;
     opacity: 1;
   }
 }
 
 @keyframes btnMoveBeer {
   from{
-    bottom: 20px;
+    bottom: 75px;
     right:20px;
     animation-timing-function: ease-out;
     transition-opacity:0;
   }
   to{
-    bottom: 230px;
+    bottom: 280px;
     opacity:1;
   }
 }
 @keyframes btnMoveShot {
   from{
-    bottom: 20px;
+    bottom: 75px;
     right:20px;
     animation-timing-function: ease-out;
     opacity: 0;
   }
   to{
-    bottom: 330px;
+    bottom: 380px;
     opacity:1;
   }
 }
 @keyframes btnMoveCocktail {
   from{
-    bottom: 20px;
+    bottom: 75px;
     right:20px;
     animation-timing-function: ease-out;
     opacity: 0;
   }
   to{
-    bottom: 430px;
+    bottom: 480px;
     opacity:1;
   }
 }
 @keyframes btnMoveTop {
   from{
-    bottom: 20px;
+    bottom: 75px;
     right:20px;
     animation-timing-function: ease-out;
     opacity: 0;
   }
   to{
-    bottom: 530px;
+    bottom: 580px;
     opacity:1;
   }
 }
@@ -177,7 +184,7 @@
   transition: background 0.3s;
 }
 .ripple:hover {
-  background: $action radial-gradient(circle, transparent 1%,$action 1%) center/15000%;
+  background: $white radial-gradient(circle, transparent 1%,$white 1%) center/15000%;
 }
 .ripple:active {
   background-color: #f779a6;
@@ -190,21 +197,22 @@
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
-  color: white;
-  background-color: #fc3f83;
+  color: $action;
+  background-color: $white;
   box-shadow: 0 0 4px #999;
   outline: none;
   border-radius:50%;
-  padding:25px;
+  padding:5px;
+  padding-bottom:10px;
   position: fixed;
-  bottom:20px;
+  bottom:75px;
   right:10px;
   width:90px;
   height:90px;
 }
 
 .greybody {
-  background-color: rgba(45, 45, 45, 0.5) !important;
+  background-color: rgba(45, 45, 45, 0.7) !important;
   z-index: 700;
   position: absolute;
   top:0;
