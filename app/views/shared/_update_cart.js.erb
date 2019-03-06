@@ -5,8 +5,8 @@ document.getElementById("drink-list").innerHTML = "<%= j render('/drinks/drinks'
 document.getElementById('drink-title').innerText = "<%= j @title %>"
 
 if (document.getElementById('order_tip')) {
-
-  console.log(document.getElementById('order_tip').value)
-  console.log("<%= j humanized_money_with_symbol(@current_order.total_with_tax) %>")
-  // document.getElementById('grand-total').innerText = orderTip.value * <%= j humanized_money_with_symbol(@current_order.total_with_tax) %>
+  document.getElementById('total-no-tax').innerText = "<%= j humanized_money_with_symbol(@current_order.total_no_tax) %>"
+  document.getElementById('tax').innerText = "<%= j humanized_money_with_symbol(@current_order.tax) %>"
+  document.getElementById('tip-amount').innerText = "$" + Math.round(document.getElementById('total-no-tax').innexText.substr(1) + document.getElementById('tax').innerText.substr(1) * (document.getElementById('order_tip').value / 100)) / 100;
+  document.getElementById('grand-total').innerText = "$" + Math.round("<%= j humanized_money_with_symbol(@current_order.total_with_tax) %>".substr(1) * ( 1 + (document.getElementById('order_tip').value / 100) ) * 100) / 100;
 }

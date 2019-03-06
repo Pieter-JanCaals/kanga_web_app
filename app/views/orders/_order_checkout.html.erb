@@ -59,7 +59,7 @@
           <h5>TOTAL</h5>
         </div>
         <div class="col-xs-3">
-          <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+          <h5 class="pr-0" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
           <h5>TAXES</h5>
         </div>
         <div class="col-xs-3">
-          <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
+          <h5 id="tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
         </div>
       </div>
     </div>
