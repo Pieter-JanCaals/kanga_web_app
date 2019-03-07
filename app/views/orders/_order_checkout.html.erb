@@ -1,10 +1,12 @@
-<div class="hover_on_banner">
+  <div class="hover_on_banner">
   <div class="drink_listing">
     <div id="drink-list">
+
       <% unless params[:category].present? %>
         <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order } %>
       <% end %>
     </div>
+
   </div>
 
   <div class="back-to-drinks">
@@ -68,8 +70,8 @@
       </div>
     <% end %>
   <% end %>
+  <div class="bottom_margin"></div>
 </div>
-
 
 <!-- <div class="bottom_margin"></div>
   <%#= link_to order_path(@current_order), class: "confirm_div", id: "shopping-cart-btn" do %>
