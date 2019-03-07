@@ -9,12 +9,10 @@
       <div class="map_card card">
         <div class="col-sm-3"  style="border-right: solid 1px grey">
           <p>Ready In</p>
-          <!--<p class="eta_btn"><%= @order.drinks %>min</p>-->
           <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
         </div>
         <div class="col-sm-6" style="padding-right: 50px">
           <p>Location</p>
-          <!--<p><%= @order.bar_id %></p>-->
           <p><%= @event.closest_bar.name %></p>
         </div>
         <div class="col-sm-3">
@@ -79,7 +77,7 @@
     <div class="drink_listing">
       <div id="drink-list">
         <% unless params[:category].present? %>
-          <%= render partial: 'drinks', locals: { drinks: @drinks, order: @order} %>
+          <%= render partial: 'drinks', locals: { drinks: @drinks, order: @current_order} %>
         <% end %>
       </div>
     </div>
