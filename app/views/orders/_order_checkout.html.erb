@@ -1,6 +1,6 @@
 
 <div class="drink_listing">
-  <div id="drink-list">
+  <div id="drink-list map-card">
     <% unless params[:category].present? %>
       <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order } %>
     <% end %>
