@@ -1,4 +1,4 @@
-<%= render 'shared/navbar', event: nil, header: "Order" %>
+<%= render 'shared/navbar', event: nil, header: @order.status == "confirmed" ? "Confirmation" : "Checkout" %>
 <%= link_to event_drinks_path(@order.bar.event) do %>
    <%= icon('fas', 'arrow-left') %>
 <% end %>
