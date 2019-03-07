@@ -47,3 +47,15 @@
   color: $action;
   }
 }
+
+.payment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+
+ p {
+    margin: 0px;
+    padding-left: 10px;
+  }
+}

@@ -40,11 +40,21 @@
     </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row border-bottom">
         <div class="col-xs-12">
           <div class="checkout-tip text-center">
             <%= render "shared/plus_minus_form", input: :tip, f: f %>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="payment">
+          <h5>Pay with</h5>
+
+        <div class="payment">
+             <img src="/visa.jpg" alt="Visa logo" width="50">
+            <p>**** **** **** 1881</p>
         </div>
       </div>
     </div>
@@ -59,6 +69,8 @@
     <%= f.button :submit, "ORDER", class: "order_button" %>
   </div>
 <% end %>
+
+
 
 <div class="bottom_margin"></div>
 <%= javascript_pack_tag 'checkout' %>
