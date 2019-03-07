@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :require_pending_order, only: [:show]
+  skip_before_action :require_pending_order, only: [:show, :complete]
   before_action :set_order, :set_event
 
   def show
