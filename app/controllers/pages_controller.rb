@@ -28,6 +28,7 @@ class PagesController < ApplicationController
             image_url: helpers.asset_url('logo.png')
           }
         ]
+      @event = @confirmed_order.event
     else
       redirect_to drinks_path
     end
