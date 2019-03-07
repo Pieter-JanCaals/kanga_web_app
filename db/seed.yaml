@@ -70,79 +70,79 @@ drinks:
   - name: "Blue Lagoon"
     prep_time: 1
     category: "Cocktail"
-    price: 1000
+    price: 1200
 
   - name: "White Russian"
     prep_time: 1
     category: "Cocktail"
-    price: 1000
+    price: 1200
 
   - name: "Rum and Coke"
     prep_time: 1
     category: "Cocktail"
-    price: 1000
+    price: 1200
 
   - name: "Punch in the Face"
     prep_time: 1
     category: "Cocktail"
-    price: 1000
+    price: 1200
 
   - name: "Bloody Mary"
     prep_time: 1
     category: "Cocktail"
-    price: 1000
+    price: 1200
 
 
   - name: "Tequila"
     prep_time: 1
     category: "Shot"
-    price: 1000
+    price: 700
 
   - name: "Rum"
     prep_time: 1
     category: "Shot"
-    price: 1000
+    price: 700
 
   - name: "Vodka"
     prep_time: 1
     category: "Shot"
-    price: 1000
+    price: 700
 
   - name: "Amaretto"
     prep_time: 1
     category: "Shot"
-    price: 1000
+    price: 700
 
   - name: "Sour Puss"
     prep_time: 1
     category: "Shot"
-    price: 1000
+    price: 700
 
 
   - name: "Gazela Vinho Verde"
     prep_time: 1
     category: "Wine"
-    price: 1000
+    price: 1800
 
   - name: "La Motte Chardonnay"
     prep_time: 1
     category: "Wine"
-    price: 1000
+    price: 1800
 
   - name: "Sauvignon Blanc"
     prep_time: 1
     category: "Wine"
-    price: 1000
+    price: 1800
 
   - name: "Chloe Rosé"
     prep_time: 1
     category: "Wine"
-    price: 1000
+    price: 1800
 
   - name: "Birillo Costa Toscana"
     prep_time: 1
     category: "Wine"
-    price: 1000
+    price: 1800
 
 
 bars:
