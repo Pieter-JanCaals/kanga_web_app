@@ -2,6 +2,11 @@
 
   &.checkout-subtotal-tax-tip {
   display: block !important;
+  padding: 1px 30px 15px 15px;
+  }
+
+  & h5 {
+    font-size: 16px;
   }
 
   &.checkout-grand-total {
@@ -9,13 +14,37 @@
   // display: block;
   text-align: center;
   }
+}
 
-  span {
-    margin-right: 0px;
+.border-bottom {
+  &:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 92%; /* Change this to whatever width you want. */
+    /* padding-top: 20px; This creates some space between the element and the border. */
+    border-bottom: solid 2px #932b77; /* This creates the border. Replace black with whatever color you want. */
   }
 }
 
 .ul-no-style {
   list-style-type: none;
   padding-left: 0px;
+}
+
+.no-margin-between-elements > h5 {
+  &:first-child {
+    margin-bottom: 1px;
+  }
+  &:last-child {
+    margin-top: 1px;
+  }
+}
+
+.back-to-drinks {
+  text-align: right;
+
+  & a {
+  color: $action;
+  }
 }

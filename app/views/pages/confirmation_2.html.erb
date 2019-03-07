@@ -1,39 +1,33 @@
 
 <div class="header_card">
   <div class="header_title">
-    <h1 id="drink-title">Confirmation</h1>
+    <h1 id="drink-title">Notification</h1>
   </div>
   <div class="card_sub_header">
-    <p>Your Order has been sent!</p>
+    <p>YOUR ORDER IS READY FOR PICKUP!</p>
   </div>
   <div id="order-link">
-    <%= link_to "View Order", summary_order_path(@order) %>
+    <%= link_to "View Order" %>
   </div>
 </div>
 
+
 <div class="confirm-map-box">
   <h2>Pick Up Your Order Here</h2>
-  <p>We will let you know when your order is ready</p>
   <div id="map-container" style="width: 100%; height: 250px">
     <div
     id="map"
     style="width: 100%; height: 200px"
-    data-markers="<%= markers.to_json %>"
+    data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
   </div>
   <div class="text_center">
     <p>Present this QR code upon pick up</p>
     <div id="qr_code">
-      <%= link_to notification_path do %>
       <%= raw @qr.as_html %>
-      <% end %>
     </div>
   </div>
 </div>
-  <div class="bottom_margin"></div>
 
 <%= javascript_pack_tag 'mapbox' %>
-
-<%= link_to 'Complete Order', orders_complete_path(@order), method: :post, data: { confirm: 'Are you sure?' } %>
-

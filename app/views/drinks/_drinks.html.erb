@@ -32,9 +32,15 @@
           </div>
         </div>
 
-          <div class="card_price text-right">
-        <div class="col-sm-2">
-          <%= humanized_money_with_symbol(drink.price_cents / 100)%>
+        <div class="card_price text-right">
+          <div class="col-sm-2">
+            <% if params[:id].present? %>
+              <% if current_page?(controller: "orders", action: "show") %>
+                <%= humanized_money_with_symbol(order_drink.price) %>
+              <% end %>
+            <% else %>
+              <%= humanized_money_with_symbol(drink.price) %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -50,7 +56,11 @@
             <%# if params[:category].present? %>
               <input type="hidden" name="category" value="<%= params[:category] %>">
             <%# end %>
-            <%= f.submit "Add", class: "order-submit add-item" %>
+            <% if order_drink.amount == 0 %>
+              <%= f.submit "Add", class: "order-submit add-item" %>
+            <% else %>
+              <%= f.submit "Edit", class: "order-submit add-item" %>
+            <% end %>
           <% end %>
         </div>
       </div>

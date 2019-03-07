@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get 'orders/:id/confirm', to: 'orders#confirm', as: 'confirm_order'
   get 'orders/:id/summary', to: 'orders#summary', as: 'summary_order'
   get 'notification', to: 'pages#notification', as: 'notification'
+  post 'orders/:id/complete', to: 'orders#complete', as: 'orders_complete'
 
 end

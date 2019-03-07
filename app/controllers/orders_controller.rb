@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :require_pending_order, only: [:show]
   before_action :set_order, :set_event
 
   def show
@@ -16,9 +17,6 @@ class OrdersController < ApplicationController
       ]
   end
 
-  def edit
-  end
-
   def update
     @order.status = "confirmed"
     @order.qr_code = DateTime.now.strftime('%Q')
@@ -26,7 +24,10 @@ class OrdersController < ApplicationController
     redirect_to order_path(@order) if @order.save
   end
 
-  def destroy
+  def complete
+    @order.status = "completed"
+    @order.save
+    redirect_to event_drinks_path(@event)
   end
 
   def summary

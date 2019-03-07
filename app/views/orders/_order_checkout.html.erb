@@ -1,116 +1,51 @@
 
-<!-- <div class="gradient"> -->
-
-<%= link_to event_path(@event) do %>
-  <div class="map_card card">
-    <div class="col-sm-3"  style="border-right: solid 1px grey">
-      <p>ETA</p>
-      <p class="eta_btn"><%= @bar.eta %>min</p>
-    </div>
-    <div class="col-sm-6">
-      <p>Location</p>
-      <p><%= @order.bar.name %></p>
-    </div>
-    <div class="col-sm-3">
-      <%= image_tag "ping.png", height: 50, class: "map_ping" %>
-    </div>
-  </div>
-<% end %>
-
-
-<div class="header_card">
-  <div class="header_title">
-    <h1 id="drink-title">Check Out</h1>
-  </div>
-  <div class="card_sub_header">
-    <p>Please confirm your order</p>
-  </div>
-  <div id="order-link">
-    <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
-  </div>
-</div>
-
 <div class="drink_listing">
   <div id="drink-list">
     <% unless params[:category].present? %>
-      <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order} %>
+      <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order } %>
     <% end %>
   </div>
 </div>
 
-
-<% if false %>
-<ul id="drink-list" class="ul-no-style">
-  <% @order.order_drinks.each do |order_drink| %>
-    <div class="card">
-      <li>
-        <span class="item-list-right"><%= order_drink.amount %></span>
-        <span class="item-list-center"><%= order_drink.drink.name %></span>
-        <span class="item-list-left"><%= humanized_money_with_symbol(order_drink.price) %></span>
-      </li>
-    </div>
-
-    <div class="hidden-order-btns", style="display: none">
-      <div class="card_under">
-        <div class="inner-card_under">
-          <%= simple_form_for order_drink, remote: true do |f| %>
-            <%= render "shared/plus_minus_form", input: :amount, f: f %>
-            <%= f.submit "Add", class: "order-submit add-item" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</ul>
-<% end %>
+<div class="back-to-drinks">
+  <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
+</div>
 
 <%= simple_form_for @order do |f| %>
   <div class="card checkout-subtotal-tax-tip">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-6"></div>
-        <div class="col-xs-3">
-          <h5>TOTAL</h5>
-        </div>
-        <div class="col-xs-3">
-          <h5 class="pr-0"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6"></div>
-        <div class="col-xs-3">
+      <div class="row border-bottom no-gutters">
+        <div class="col-xs-6 no-margin-between-elements">
+          <h5>SUBTOTAL</h5>
           <h5>TAXES</h5>
         </div>
-        <div class="col-xs-3">
-          <h5><%= humanized_money_with_symbol(@order.tax) %></h5>
+          <div class="d-flex justify-content-end">
+        <div class="col-xs-6 no-margin-between-elements">
+            <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+            <h5 class="text-right" id="tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-xs-6"></div>
-        <div class="col-xs-3">
+        <div class="col-xs-6">
           <h5>TIP</h5>
         </div>
-        <div class="col-xs-3">
-          <h5 class="pr-0" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+        <div class="col-xs-6">
+          <h5 class="text-right" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
         </div>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-7">
-          <div class="checkout-tip">
+        <div class="col-xs-12">
+          <div class="checkout-tip text-center">
             <%= render "shared/plus_minus_form", input: :tip, f: f %>
           </div>
         </div>
-        <div class="col-xs-2"></div>
       </div>
     </div>
   </div>

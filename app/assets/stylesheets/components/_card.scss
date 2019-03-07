@@ -13,12 +13,13 @@
   text-align:left;
   position: relative;
   color: white;
+  z-index: 200;
 }
 
 .card_name{
-   font-size:20px;
-   width: 100%;
-   padding-right: 5px;
+ font-size:20px;
+ width: 100%;
+ padding-right: 5px;
 }
 
 .drink_order_number{
@@ -36,7 +37,7 @@
 
 .card_icon{
 //border:solid 1px yellow;
-width: 100%;
+  width: 100%;
 }
 
 .card_price{
@@ -44,8 +45,6 @@ width: 100%;
   position: absolute;
   right:10px;
 }
-
-
 
 .drink-minus-btn{
   color:#c4c4c4;
@@ -81,22 +80,23 @@ width: 100%;
   display: flex;
 
   .drink-plus-btn {
-    color: $action;
-    border:2px solid $action;
+    color: #c4c4c4;
+    border:2px solid #c4c4c4;
     height: 40px;
     width: 40px;
     margin-left: 10px;
     margin-top: 0px;
-
   }
+
   .drink-minus-btn {
-    color: $action;
-    border:2px solid $action;
+    color: #c4c4c4;
+    border:2px solid #c4c4c4;
     height: 40px;
     width: 40px;
     margin-right: 10px;
     margin-top: 0px;
   }
+
   .order-amount {
   background-color: #1A1C20;
   border: none;
@@ -168,14 +168,6 @@ width: 100%;
 }
 
 .card_form{
-display:flex;
-padding:none;
+  display:flex;
+  padding:none;
 }
-
-
-
-
-
-
-
-
