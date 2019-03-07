@@ -8,7 +8,7 @@ const minus = document.querySelector(".checkout-tip .drink-minus-btn");
 const plus = document.querySelector(".checkout-tip .drink-plus-btn");
 
 // -- Initialize frequently used variables --
-const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.substr(1)) * 100 } );
+const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.substr(1) * 100)  } );
 let tipPercent = 15;
 let tipAmountValue = initTotalValue.percentage(tipPercent);
 
@@ -46,8 +46,10 @@ const initTipCounter = () => {
     if(tipPercent !== 0) {
       minus.nextElementSibling.querySelector('input').stepDown(5);
       tipPercent -= 5;
-      recalculateTipAmountValue();
-      recalculateGrandTotal();
+      if (document.querySelector("#tip-amount").innerHTML.substr(1) > 0 && document.querySelector("#grand-total").innerHTML.substr(1) > 0 ) {
+        recalculateTipAmountValue();
+        recalculateGrandTotal();
+      }
     };
   })
 
@@ -55,8 +57,10 @@ const initTipCounter = () => {
   plus.addEventListener("click",() => {
     plus.previousElementSibling.querySelector('input').stepUp(5);
     tipPercent += 5;
-    recalculateTipAmountValue();
-    recalculateGrandTotal();
+    if (document.querySelector("#tip-amount").innerHTML.substr(1) > 0 && document.querySelector("#grand-total").innerHTML.substr(1) > 0 ) {
+      recalculateTipAmountValue();
+      recalculateGrandTotal();
+    }
   })
 };
 
