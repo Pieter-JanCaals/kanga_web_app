@@ -13,6 +13,17 @@ class DrinksController < ApplicationController
 
     @current_order = Order.find_by(user: current_user, status: "pending") || new_order(bar)
 
+    @bars = [{ lng: @event.longitude, lat: @event.latitude }]
+    @event.bars.each do |bar|
+      @bars <<
+        {
+          lng: bar.longitude,
+          lat: bar.latitude,
+          infoWindow: render_to_string(partial: "events/infowindow", locals: { bar: bar }),
+          #image_url: helpers.asset_url('logo.png')
+        }
+    end
+
     respond_to do |format|
       format.html
       format.js
