@@ -1,0 +1,48 @@
+<%= render 'shared/navbar', event: nil, header: "Order" %>
+<div class="main_container">
+  <div class="banner" style="background-image:url(<%= @event.photo unless @event.nil? %>")>
+    <% unless @confirmed_order.status == "confirmed" %>
+      <%= link_to event_drinks_path(@confirmed_order.bar.event), class: "back-arrow" do %>
+         <%= icon('fas', 'arrow-left') %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="body_container">
+    <div class="map_card card">
+      <div class="col-sm-3"  style="border-right: solid 1px grey">
+        <p>Ready In</p>
+        <p><strong class="eta_btn">2 </strong>min</p>
+      </div>
+      <div class="col-sm-6" style="padding-right: 50px">
+        <p>Location</p>
+        <p><%= @event.closest_bar.name %></p>
+      </div>
+      <div class="col-sm-3">
+        <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+      </div>
+    </div>
+
+    <div class="header_title">
+      <h1 id="drink-title">We will let you know when your order is ready</h1>
+    </div>
+
+    <div class="confirm-map-box">
+      <div class="text_center">
+        <p>Present this QR code upon pick up</p>
+        <div id="qr_code">
+          <%= link_to notification_path do %>
+          <%= raw @qr.as_html %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_margin"></div>
+
+    <%= link_to 'Complete Order', orders_complete_path(@confirmed_order), method: :post %>
+  </div>
+</div>
+
+<% javascript_pack_tag 'mapbox' %>
+
+<!-- page style is stylesheets/pages/orders.scss-->

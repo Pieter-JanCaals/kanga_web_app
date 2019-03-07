@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :require_pending_order, only: [:show, :complete]
   before_action :set_order, :set_event
 
   def show
@@ -22,7 +23,7 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     redirect_to order_path(@order) if @order.save
   end
-  
+
   def complete
     @order.status = "completed"
     @order.save

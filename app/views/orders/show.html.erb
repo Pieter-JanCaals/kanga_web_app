@@ -1,16 +1,22 @@
-<%= render 'shared/navbar', event: nil, header: "Order" %>
-<%= link_to event_drinks_path(@order.bar.event) do %>
-   <%= icon('fas', 'arrow-left') %>
-<% end %>
-<div class="main_container <%= @order.status == 'confirmed' ? 'confirm' : '' %>">
+<%= render 'shared/navbar', event: nil, header: @order.status == "confirmed" ? "Confirmation" : "Checkout" %>
+<div class="main_container">
+  <div class="banner" style="background-image:url(<%= @event.photo unless @event.nil? %>")>
+    <% unless @order.status == "confirmed" %>
+      <%= link_to event_drinks_path(@order.bar.event), class: "back-arrow" do %>
+         <%= icon('fas', 'arrow-left') %>
+      <% end %>
+    <% end %>
+  </div>
 
-  <% if @order.status == "confirmed" %>
-    <%= render "order_confirmed", markers: @markers %>
-  <% else %>
-    <%= render "order_checkout" %>
-  <% end %>
-
+  <div class="body_container">
+    <% if @order.status == "confirmed" %>
+      <%= render "order_confirmed", markers: @markers %>
+    <% else %>
+      <%= render "order_checkout" %>
+    <% end %>
+  </div>
 </div>
 
-  <% javascript_pack_tag 'mapbox' %>
+<% javascript_pack_tag 'mapbox' %>
 
+<!-- page style is stylesheets/pages/orders.scss-->

@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   get 'orders/:id/review', to: 'orders#review', as: 'review_order'
   get 'notification', to: 'pages#notification', as: 'notification'
   post 'orders/:id/complete', to: 'orders#complete', as: 'orders_complete'
+  get 'pages/confirmation_2', to: 'pages#confirmation_2', as: 'confirmation_2'
 
 end

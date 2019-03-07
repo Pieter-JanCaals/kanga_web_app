@@ -32,9 +32,15 @@
           </div>
         </div>
 
-          <div class="card_price text-right">
-        <div class="col-sm-2">
-          <%= humanized_money_with_symbol(drink.price_cents / 100)%>
+        <div class="card_price text-right">
+          <div class="col-sm-2">
+            <% if params[:id].present? %>
+              <% if current_page?(controller: "orders", action: "show") %>
+                <%= humanized_money_with_symbol(order_drink.price) %>
+              <% end %>
+            <% else %>
+              <%= humanized_money_with_symbol(drink.price) %>
+            <% end %>
           </div>
         </div>
       </div>
