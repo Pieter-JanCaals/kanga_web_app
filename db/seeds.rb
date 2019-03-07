@@ -124,10 +124,12 @@ message_creating("orders")
 bars_hash.each do |bar_key, bar_value|
   id = 2
   3.times do
+    time = DateTime.now
     temp_order = Order.create!(
       status: "confirmed",
       user: (users_hash.values)[id],
-      qr_code: DateTime.now.strftime('%Q'),
+      qr_code: time.strftime('%Q'),
+      confirmed_at: time.to_s,
       bar: bar_value,
       tip: 15
       )

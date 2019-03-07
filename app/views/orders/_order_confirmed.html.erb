@@ -7,6 +7,7 @@
     <p>Location</p>
     <p><%= @event.closest_bar.name %></p>
   </div>
+
   <div class="col-sm-3">
     <%= image_tag "ping.png", height: 50, class: "map_ping" %>
   </div>
@@ -15,6 +16,8 @@
 <div class="header_title">
   <h1 id="drink-title">We will let you know when your order is ready</h1>
 </div>
+
+<%= link_to "View Order", summary_order_path(@order) %>
 
 <div class="confirm-map-box">
   <div class="text_center">
