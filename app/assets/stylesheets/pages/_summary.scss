@@ -1,0 +1,59 @@
+.summary-container {
+  background: rgb(38, 38, 38);
+  padding: 1px 30px 15px 15px;
+}
+
+.checkout-grand-total {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.summary-go-back {
+  justify-content: center;
+  color: $action;
+}
+
+.receip-container {
+  padding: 15px;
+}
+
+.receip-container-payment {
+  padding: 0px 15px;
+}
+
+.drink-summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px
+}
+
+.drink_summary_amount_name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.drink_summary_amount_name > p {
+
+  &:first-child {
+    padding-right: 5px;
+  }
+  &:last-child {
+    padding-left: 5px;
+  }
+}
+
+.border-bottom {
+  &:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 92%; /* Change this to whatever width you want. */
+    /* padding-top: 20px; This creates some space between the element and the border. */
+    border-bottom: solid 2px $gray; /* This creates the border. Replace black with whatever color you want. */
+  }
+}
+
+.summary-header-container {
+  background: rgb(38, 38, 38);
+  text-align: center;
+}

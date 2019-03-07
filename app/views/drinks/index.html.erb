@@ -5,26 +5,37 @@
   <div class="banner" style="background-image:url(<%= @event.photo unless @event.nil? %>)">
   </div>
   <div class="body_container">
-    <%= link_to event_path(@event) do %>
-      <div class="map_card card">
-        <div class="col-sm-3"  style="border-right: solid 1px grey">
-          <p>Ready In</p>
-          <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
-        </div>
-        <div class="col-sm-6" style="padding-right: 50px">
-          <p>Location</p>
-          <p><%= @event.closest_bar.name %></p>
-        </div>
-        <div class="col-sm-3">
-          <%= image_tag "ping.png", height: 50, class: "map_ping" %>
+
+      <div id="eta">
+        <div class="map_bg">
+        <div class="map_card">
+          <div class="col-sm-3">
+            <p>Wait Time</p>
+            <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
+          </div>
+          <div class="col-sm-6" style="padding-right: 50px;">
+            <p>Location</p>
+            <p style="padding-top: 10px;"><%= @event.closest_bar.name %></p>
+          </div>
+          <div class="col-sm-3">
+            <%= image_tag 'ping.png', height:50, class: 'map_ping' %>
+          </div>
         </div>
       </div>
-    <% end %>
+      </div>
+
+      <div id="map_open" class="hide">
+        <div id="map_close">
+
+        </div>
+        <div id="map" style="width: 100%; margin-top:25px; height: 300px;" data-markers="<%= @bars.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map_style">
+        </div>
+        <%= javascript_pack_tag 'mapbox' %>
+    </div>
 
     <div class="header_title">
       <h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
     </div>
-
 
     <div class="category_buttons">
 
@@ -86,13 +97,14 @@
     <%= link_to order_path(@current_order), class: "confirm_div", id: "shopping-cart-btn" do %>
       <div id="confirm_tab" class="confirm_tab <%= "grey_button" if amount.zero? %>">
         <p id="order_amount" class="confirm_button">
-          Confirm ( <%= amount %> <%= 'Drink'.pluralize(amount) %> ) </p>
+          Checkout ( <%= amount %> <%= 'Drink'.pluralize(amount) %> ) </p>
       </div>
     <% end %>
       <!--Style for sticky confirm button in container.scss-->
 
     <div class="bottom_margin"></div>
   </div>
+
 </div>
 
 <!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->

@@ -5,7 +5,7 @@ events:
     address: "Rue de la Commune E, Montréal, QC"
     start_date: "2020-01-16 19:30:00 -0500"
     end_date: "2020-02-01 00:30:00 -0500"
-    photo: "public/igloofest.jpg"
+    photo: "public/igloofestevent.jpg"
     logo: "app/assets/images/igloo_logo.png"
 
   - name: "Montreal Jazz Fest"
@@ -14,7 +14,7 @@ events:
     address: "400 Boulevard de Maisonneuve Ouest, Montreal, QC"
     start_date: "2019-06-27 17:00:00 -0500"
     end_date: "2019-07-06 00:30:00 -0500"
-    photo: "public/jazzfest.jpg"
+    photo: "public/jazzfestevent.jpg"
     logo: "app/assets/images/jazz_logo.png"
 
   - name: "Le Wagon Demo Day"

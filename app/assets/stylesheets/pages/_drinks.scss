@@ -1,21 +1,4 @@
-.map_card{
-  margin-top:15px;
-  border: solid 1px $action;
-  border-left: solid 15px $action;
-  color: #808080;
-  position:absolute;
-  top: -70px;
-  width:395px;
-}
 
-  .map_ping{
-
-  }
-
-  .eta_btn{
-  color: $action;
-  font-size:30px;
-  }
 
 .category_buttons{
   //width:90px;
@@ -221,6 +204,77 @@
   background-color: transparent;
   transition: background-color 0.4s ease;
 }
+
+
+
+
+
+
+//////////////////////////////////MAP
+
+.map_bg{
+  background-image: url('eta_map.png');
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 80px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-left: solid 15px $action;
+  color: #808080;
+  position:absolute;
+  top: -70px;
+  width:394px;
+  font-weight: 300;
+  text-align:left;
+  z-index:450;
+}
+
+.map_card{
+  padding-top: 10px;
+  color:white;
+  background-image: linear-gradient(to right,rgba(22, 22, 22, .9), rgba(22, 22, 22, 0.2));
+  display: flex;
+  width: 100%;
+}
+
+.map_ping{
+  padding-top: 10px;
+}
+
+.eta_btn{
+  color: $action;
+  font-size:30px;
+}
+
+
+.hide {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: height 400ms ease-in-out;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#map_open{
+  border-left: solid 15px $action;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: height 400ms ease-in-out;
+}
+
+#map_close{
+  transition: height 400ms ease-in-out;
+}
+
+
+
+
+
+
+
+
 
 
 

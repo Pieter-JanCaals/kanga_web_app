@@ -13,7 +13,7 @@ class EventsController < ApplicationController
           lng: bar.longitude,
           lat: bar.latitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { bar: bar }),
-          image_url: helpers.asset_url('logo.png')
+          #image_url: helpers.asset_url('logo.png')
         }
     end
   end

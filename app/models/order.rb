@@ -40,6 +40,10 @@ class Order < ApplicationRecord
     bar.event
   end
 
+  def format_confirmed_at
+    DateTime.parse(confirmed_at).strftime("%B %-d %Y at %R")
+  end
+
   def self.pending
     where(status: "pending")
   end
