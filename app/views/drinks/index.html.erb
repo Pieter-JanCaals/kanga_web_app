@@ -84,14 +84,14 @@
       </div>
     </div>
 
-        <% if @current_order %>
-          <%= link_to order_path(@current_order), class: "confirm_div", id: "shopping-cart-btn" do %>
-            <div class="confirm_tab">
-              <p id="order_amount" class="confirm_button">Confirm ( <%= @current_order.order_drinks.sum(:amount) %> <%= 'Drink'.pluralize(@current_order.order_drinks.sum(:amount)) %> ) </p>
-            </div>
-          <% end %>
-        <% end %>
-          <!--Style for sticky confirm button in container.scss-->
+    <% amount = @current_order.order_drinks.sum(:amount) || 0 %>
+    <%= link_to order_path(@current_order), class: "confirm_div", id: "shopping-cart-btn" do %>
+      <div id="confirm_tab" class="confirm_tab <%= "grey_button" if amount.zero? %>">
+        <p id="order_amount" class="confirm_button">
+          Confirm ( <%= amount %> <%= 'Drink'.pluralize(amount) %> ) </p>
+      </div>
+    <% end %>
+      <!--Style for sticky confirm button in container.scss-->
 
     <div class="bottom_margin"></div>
   </div>
