@@ -2,7 +2,7 @@
 
 <div class="main_container_events">
   <% @events.each do |event| %>
-    <div style="background-image:url(<%= cl_image_path event.photo unless event.nil? %>)" class="event_cards">
+    <div style="background-image:url(<%= cl_image_path event.photo unless event.nil? %>)" class="event_cards banner">
         <%= link_to event_drinks_path(event.id) do %>
       <div class="gradient">
           <p><%= event.start_date.strftime("%b, %d") %></p>
