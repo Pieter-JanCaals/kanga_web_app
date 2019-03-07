@@ -41,6 +41,11 @@ drinks:
     category: "Beer"
     price: 1000
 
+  - name: "Molson Ex"
+    prep_time: 1
+    category: "Beer"
+    price: 1000
+
   - name: "Heineken"
     prep_time: 1
     category: "Beer"
