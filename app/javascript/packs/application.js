@@ -25,11 +25,11 @@ if (open_map && close_map) {
      open_map.classList.toggle("hide");
      map.style.position = 'relative';
      $("#map").slideDown(400)
-  }
+    }
   else {
+     $("#map").slideUp(400)
     close_map.classList.toggle("hide");
      open_map.classList.toggle("hide");
-     $("#map").slideUp(400)
   };
  });
 }

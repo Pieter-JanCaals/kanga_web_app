@@ -261,12 +261,12 @@
   border-left: solid 15px $action;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  transition: height 400ms ease-in-out;
+  transition: height 400ms ease-in;
 }
 
-#map_close{
-  transition: height 400ms ease-in-out;
-}
+// #map_close{
+//   transition: height 400ms ease-out;
+// }
 
 
 

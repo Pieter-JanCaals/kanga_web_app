@@ -30,7 +30,7 @@
         </div>
         <div id="map" style="width: 100%; margin-top:25px; height: 300px;" data-markers="<%= @bars.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map_style">
         </div>
-    </div>
+      </div>
 
     <div class="header_title">
       <h1 id="drink-title"><%= @category.nil? ? "Popular Drinks" : @category.name %></h1>
