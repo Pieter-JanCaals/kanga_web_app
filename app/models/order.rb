@@ -41,7 +41,7 @@ class Order < ApplicationRecord
   end
 
   def format_confirmed_at
-    DateTime.parse(confirmed_at).strftime("%A, %B %-d %Y at %R")
+    DateTime.parse(confirmed_at).strftime("%B %-d %Y at %R")
   end
 
   def self.pending
