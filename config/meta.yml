@@ -1,0 +1,5 @@
+meta_product_name: "Kanga"
+meta_title: "Kanga - Jump Ahead of the Line"
+meta_description: "Kanga is there to help you make the most of your experience. Our app makes it easy to order a drink whether you are at a concert / festival / party or any exciting event, we take care of the logistics so you don’t miss out on the fun!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@kangalife"   # required for Twitter Cards
