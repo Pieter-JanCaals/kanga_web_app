@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:splash]
+  skip_before_action :require_pending_order
 
   def splash
     # -- The following line creates a new user as soon as they
