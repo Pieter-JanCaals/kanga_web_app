@@ -1,0 +1,60 @@
+.iphone {
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+.notification {
+  margin-top: 30px;
+  margin-left:8px;
+  margin-right:8px;
+  position: absolute;
+  background-color: #EAEAF4;
+  opacity: 0.97;
+  border-color: white;
+  border-radius: 8px;
+  width: 95%;
+  height:80px;
+}
+
+.notification-icon {
+  width: 35px;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-left:8px;
+
+}
+
+.notification-title {
+  color: black;
+  opacity: 0.70;
+  margin-top: -24px;
+  margin-left: 50px;
+}
+
+.notification-text{
+  font-family: Helvetica Neue;
+  color: black;
+  margin-left: 15px;
+  opacity: 0.95;
+}
+
+.notification-time {
+  color: black;
+  opacity: 0.60;
+  margin-top: -80px;
+  margin-left: 305px;
+}
+
+.notification-symbol {
+  font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: raw;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  margin-top: 215px;
+  margin-left: 276px;
+  text-align: center;
+}

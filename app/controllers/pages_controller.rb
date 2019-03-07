@@ -26,5 +26,9 @@ class PagesController < ApplicationController
     else
       redirect_to drinks_path
     end
+
+    def confirmation_2
+
+    end
   end
 end
