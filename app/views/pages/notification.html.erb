@@ -1,9 +1,11 @@
-<div class="notification">
-  <img src="<%= image_url 'iphone_logo.png' %>" alt="notification" class="notification-icon">
-  <h6 class="notification-title">KANGA</h6>
-  <p class="notification-text"> Your order is almost ready!</p>
-  <p class="notification-time">1min ago</p>
-</div>
+<%= link_to confirmation_2_path do %>
+  <div class="notification">
+    <img src="<%= image_url 'iphone_logo.png' %>" alt="notification" class="notification-icon">
+    <h6 class="notification-title">KANGA</h6>
+    <p class="notification-text"> Your order is almost ready!</p>
+    <p class="notification-time">1min ago</p>
+  </div>
+<% end %>
 <div class="notification-symbol">1</div>
 <img src="<%= image_url 'notification.png' %>" alt="notification" class="iphone">
 
