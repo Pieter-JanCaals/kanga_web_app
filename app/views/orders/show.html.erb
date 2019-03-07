@@ -1,4 +1,4 @@
-<%= render 'shared/navbar', event: nil, header: "Order" %>
+<%= render 'shared/navbar', event: nil, header: @order.status == "confirmed" ? "Confirmation" : "Checkout" %>
 <div class="main_container">
   <div class="banner" style="background-image:url(<%= @event.photo unless @event.nil? %>")>
     <% unless @order.status == "confirmed" %>
