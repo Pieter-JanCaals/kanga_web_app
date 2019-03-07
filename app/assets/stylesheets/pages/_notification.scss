@@ -9,11 +9,16 @@
   margin-right:8px;
   position: absolute;
   background-color: #EAEAF4;
-  opacity: 0.97;
+  opacity: 0.9;
   border-color: white;
   border-radius: 8px;
   width: 95%;
   height:80px;
+
+  opacity:0;
+  animation: 200ms linear messageMove;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
 .notification-icon {
@@ -57,4 +62,44 @@
   margin-top: 215px;
   margin-left: 276px;
   text-align: center;
+
+  opacity:0;
+  animation: 200ms linear iconMove;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
+
+@keyframes iconMove {
+    from{
+    animation-timing-function: ease-out;
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes messageMove{
+    from{
+  opacity: 0.2;
+  }
+
+  to{
+  margin-top: 30px;
+  margin-left:8px;
+  margin-right:8px;
+  position: absolute;
+  background-color: #EAEAF4;
+  opacity: 0.9;
+  }
+
+}
+
+
+
+
+
+
+
+
+
