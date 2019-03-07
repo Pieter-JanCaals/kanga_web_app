@@ -22,7 +22,7 @@ events:
     latitude: 45.526910
     address: "5333 Casgrain Ave #102, Montreal, QC H2T 1X3"
     start_date: "2019-03-08 18:00:00 -0500"
-    end_date: "2019-03-08 20:00:00 -0500"
+    end_date: "nil"
     photo: "public/demoday.jpeg"
     logo: "app/assets/images/lewagon.png"
 

@@ -6,7 +6,7 @@
         <%= link_to event_drinks_path(event.id) do %>
       <div class="gradient">
           <p><%= event.start_date.strftime("%b, %d") %></p>
-          <p><%= event.end_date.strftime("%b, %d") %></p>
+          <p><%= event.end_date.strftime("%b, %d") unless event.end_date.nil?  %></p>
           <div class="text_center">
             <%= cl_image_tag event.logo, height: 100 %>
           </div>
