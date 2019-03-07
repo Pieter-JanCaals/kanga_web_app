@@ -17,7 +17,7 @@ events:
     photo: "public/jazzfest.jpg"
     logo: "app/assets/images/jazz_logo.png"
 
-  - name: "Le Wagon Montreal Demo Day - Winter Batch"
+  - name: "Le Wagon Demo Day"
     longitude: -73.594971
     latitude: 45.526910
     address: "5333 Casgrain Ave #102, Montreal, QC H2T 1X3"
@@ -35,6 +35,12 @@ categories:
 
 
 drinks:
+
+  - name: "Becks"
+    prep_time: 1
+    category: "Beer"
+    price: 1000
+
   - name: "Heineken"
     prep_time: 1
     category: "Beer"
@@ -118,12 +124,12 @@ drinks:
     category: "Wine"
     price: 1000
 
-  - name: "Josh Cellars Chardonnay"
+  - name: "La Motte Chardonnay"
     prep_time: 1
     category: "Wine"
     price: 1000
 
-  - name: "Dreaming Tree Sauvignon Blanc"
+  - name: "Sauvignon Blanc"
     prep_time: 1
     category: "Wine"
     price: 1000
@@ -133,7 +139,7 @@ drinks:
     category: "Wine"
     price: 1000
 
-  - name: "Apothic Crush Red Blend"
+  - name: "Birillo Costa Toscana"
     prep_time: 1
     category: "Wine"
     price: 1000
@@ -173,7 +179,7 @@ bars:
   - name: "The Lunch Counter"
     longitude: -73.594971
     latitude: 45.526910
-    event: "Le Wagon Montreal Demo Day - Winter Batch"
+    event: "Le Wagon Demo Day"
 
 
 users:
