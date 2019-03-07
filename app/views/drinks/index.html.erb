@@ -30,7 +30,6 @@
         </div>
         <div id="map" style="width: 100%; margin-top:25px; height: 300px;" data-markers="<%= @bars.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map_style">
         </div>
-        <%= javascript_pack_tag 'mapbox' %>
     </div>
 
     <div class="header_title">
@@ -106,6 +105,7 @@
   </div>
 
 </div>
+<%= javascript_pack_tag 'mapbox' %>
 
 <!-- black cards are found at componenet/cards.scss/ page style is stylesheets/pages/drinks.scss-->
 
