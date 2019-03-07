@@ -115,8 +115,7 @@
 // second card
 
 .card_under {
-  min-height: 80px;
-  padding-top:5px;
+  min-height: 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,14 +129,15 @@
 }
  .inner-card_under {
   //min-height: 60px;
-  display: flex;
+  display: block;
   justify-content: space-between;
   width:100%;
   float:left;
   color: white;
+  padding-left:30px;
 
   form {
-    display: block;
+    display: flex;
     margin:auto;
     width:100%;
     .card-minus{
@@ -147,10 +147,10 @@
       width: 100%;
     }
     input {
-      margin-right: 2px;
+
       margin-left: auto;
       text-align:center;
-      margin-top:5px;
+
     }
     label {
       margin-right: 40px;
@@ -159,15 +159,18 @@
 }
 
 .order-submit{
-  color: $action;
+  background-color: $action;
+  color:white;
   font-size: 19px;
-  display: block;
+  display: flex;
   font-weight: 300;
-  background: none;
   border: none;
+  padding-left: 10px;
+  border-bottom-right-radius: 5px;
 }
 
 .card_form{
   display:flex;
   padding:none;
+  margin-top: 10px;
 }
