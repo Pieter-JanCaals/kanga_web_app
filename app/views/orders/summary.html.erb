@@ -10,7 +10,7 @@
           <h2 id="drink-title">Order summary</h2>
         </div>
         <div class="card_sub_header date-small-text">
-          <p><%= DateTime.now.strftime("%A, %B %-d %Y at %R") %></p>
+          <p><%= @order.format_confirmed_at %></p>
         </div>
       </div>
 
@@ -47,6 +47,70 @@
         </div>
       <% end %>
     </div>
+
+
+
+
+
+
+    <div class="card checkout-subtotal-tax-tip">
+      <div class="container">
+        <div class="row border-bottom no-gutters">
+          <div class="col-xs-6 no-margin-between-elements">
+            <h5>SUBTOTAL</h5>
+            <h5>TAXES</h5>
+          </div>
+          <div class="d-flex justify-content-end">
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+              <h5 class="text-right" id="tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <h5>TIP</h5>
+          </div>
+          <div class="col-xs-6">
+            <h5 class="text-right" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row border-bottom">
+          <div class="col-xs-12">
+            <div class="checkout-tip text-center">
+              <%= render "shared/plus_minus_form", input: :tip, f: f %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="payment">
+            <h5>Pay with</h5>
+
+          <div class="payment">
+               <img src="/visa.jpg" alt="Visa logo" width="50">
+              <p>**** **** **** 1881</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="card checkout-grand-total">
+
+      <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
+
+      <%= f.button :submit, "ORDER", class: "order_button" %>
+    </div>
+
+
 
 
 
