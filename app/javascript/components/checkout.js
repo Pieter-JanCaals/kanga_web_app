@@ -8,7 +8,7 @@ const minus = document.querySelector(".checkout-tip .drink-minus-btn");
 const plus = document.querySelector(".checkout-tip .drink-plus-btn");
 
 // -- Initialize frequently used variables --
-const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.substr(1) * 100)  } );
+const initTotalValue = Dinero( { amount: (grandTotal.innerHTML.trim().slice(5) * 100)  } );
 let tipPercent = 15;
 let tipAmountValue = initTotalValue.percentage(tipPercent);
 
@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 // -- Updates DOM elements with proper decimal formatting --
-const updateDOMInnerHTML = (value, domElement) => {
+const updateDOMInnerHTML = (value, domElement, text = "") => {
   if (value.hasSubUnits()) {
-    domElement.innerHTML = value.toFormat();
+    domElement.innerHTML = text + value.toFormat();
   } else {
-    domElement.innerHTML = value.toFormat('$0');
+    domElement.innerHTML = text + value.toFormat('$0');
   };
 };
 
@@ -36,7 +36,7 @@ const recalculateTipAmountValue = () => {
 // -- Recalculates the grand total and calls the update DOM function --
 const recalculateGrandTotal = () => {
   const grandTotalValue = initTotalValue.add(tipAmountValue);
-  updateDOMInnerHTML(grandTotalValue, grandTotal);
+  updateDOMInnerHTML(grandTotalValue, grandTotal, "Pay ");
 };
 
 // -- Tracks the plus and minus buttons and triggers the corresponding actions --
@@ -46,7 +46,7 @@ const initTipCounter = () => {
     if(tipPercent !== 0) {
       minus.nextElementSibling.querySelector('input').stepDown(5);
       tipPercent -= 5;
-      if (document.querySelector("#tip-amount").innerHTML.substr(1) > 0 && document.querySelector("#grand-total").innerHTML.substr(1) > 0 ) {
+      if (document.querySelector("#tip-amount").innerHTML.substr(1) > 0 && document.querySelector("#grand-total").innerHTML.trim().slice(5) > 0 ) {
         recalculateTipAmountValue();
         recalculateGrandTotal();
       }
@@ -57,7 +57,7 @@ const initTipCounter = () => {
   plus.addEventListener("click",() => {
     plus.previousElementSibling.querySelector('input').stepUp(5);
     tipPercent += 5;
-    if (document.querySelector("#tip-amount").innerHTML.substr(1) > 0 && document.querySelector("#grand-total").innerHTML.substr(1) > 0 ) {
+    if (document.querySelector("#tip-amount").innerHTML.substr(1) > 0 && document.querySelector("#grand-total").innerHTML.trim().slice(5) > 0 ) {
       recalculateTipAmountValue();
       recalculateGrandTotal();
     }
