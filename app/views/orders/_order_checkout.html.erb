@@ -1,77 +1,82 @@
-
-<div class="drink_listing">
-  <div id="drink-list map-card">
-    <% unless params[:category].present? %>
-      <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order } %>
-    <% end %>
+<div class="hover_on_banner">
+  <div class="drink_listing">
+    <div id="drink-list">
+      <% unless params[:category].present? %>
+        <%= render partial: 'drinks/drinks', locals: { drinks: @drinks, order: @order } %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="back-to-drinks">
-  <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
-</div>
+  <div class="back-to-drinks">
+    <%= link_to "Add Item", event_drinks_path(@order.bar.event) %>
+  </div>
 
-<%= simple_form_for @order do |f| %>
-  <div class="card checkout-subtotal-tax-tip">
-    <div class="container">
-      <div class="row border-bottom no-gutters">
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5>SUBTOTAL</h5>
-          <h5>TAXES</h5>
-        </div>
-          <div class="d-flex justify-content-end">
-        <div class="col-xs-6 no-margin-between-elements">
-            <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-            <h5 class="text-right" id="tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
+  <%= simple_form_for @order do |f| %>
+    <div class="card checkout-subtotal-tax-tip">
+      <div class="container">
+        <div class="row border-bottom no-gutters">
+          <div class="col-xs-6 no-margin-between-elements">
+            <h5>SUBTOTAL</h5>
+            <h5>TAXES</h5>
+          </div>
+            <div class="d-flex justify-content-end">
+          <div class="col-xs-6 no-margin-between-elements">
+              <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+              <h5 class="text-right" id="tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6">
-          <h5>TIP</h5>
-        </div>
-        <div class="col-xs-6">
-          <h5 class="text-right" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row border-bottom">
-        <div class="col-xs-12">
-          <div class="checkout-tip text-center">
-            <%= render "shared/plus_minus_form", input: :tip, f: f %>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <h5>TIP</h5>
+          </div>
+          <div class="col-xs-6">
+            <h5 class="text-right" id="tip-amount"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="payment">
-          <h5>Pay with</h5>
 
+      <div class="container">
+        <div class="row border-bottom">
+          <div class="col-xs-12">
+            <div class="checkout-tip text-center">
+              <%= render "shared/plus_minus_form", input: :tip, f: f %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
         <div class="payment">
-             <img src="/visa.jpg" alt="Visa logo" width="50">
-            <p>**** **** **** 1881</p>
+            <h5>Pay with</h5>
+
+          <div class="payment">
+               <img src="/visa.jpg" alt="Visa logo" width="50">
+              <p>**** **** **** 1881</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <br>
-
-  <div class="card checkout-grand-total">
-
-    <h3 id="grand-total"><%= humanized_money_with_symbol(@order.total_with_tax) %></h3>
-
-    <%= f.button :submit, "ORDER", class: "order_button" %>
-  </div>
-<% end %>
-
+    <%= f.button :button, class: "confirm-div" do %>
+      <div id="confirm_tab" class="confirm_tab">
+        <p id="grand-total" class="confirm_button">
+          Pay <%= humanized_money_with_symbol(@order.total_with_tax) %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 
-<div class="bottom_margin"></div>
+<!-- <div class="bottom_margin"></div>
+  <%#= link_to order_path(@current_order), class: "confirm_div", id: "shopping-cart-btn" do %>
+    <div id="confirm_tab" class="confirm_tab <%#= "grey_button" if amount.zero? %>">
+      <p id="order_amount" class="confirm_button">
+        Confirm ( <%#= amount %> <%#= 'Drink'.pluralize(amount) %> ) </p>
+    </div>
+  <%# end %> -->
 <%= javascript_pack_tag 'checkout' %>
 <%#= javascript_pack_tag 'drinks' %>
