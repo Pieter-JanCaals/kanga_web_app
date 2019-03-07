@@ -11,13 +11,13 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const element = document.createElement('div');
     element.className = 'marker';
-    element.style.backgroundImage = `url(${marker.image_url})`;
-    element.style.backgroundRepeat = 'no-repeat';
-    element.style.backgroundSize = 'contain';
+    //element.style.backgroundImage = `url(${marker.image_url})`;
+    //element.style.backgroundRepeat = 'no-repeat';
+    //element.style.backgroundSize = 'contain';
     element.style.width = '70px';
     element.style.height = '70px';
 
-    new mapboxgl.Marker(element)
+    new mapboxgl.Marker()// add element if you want custom marker
     .setLngLat([marker.lng, marker.lat])
     .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
     .setHTML(marker.infoWindow))
@@ -50,7 +50,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/satellite-streets-v9',
+      style: 'mapbox://styles/mapbox/light-v9',
       center: [markers[0].lng, markers[0].lat]
     });
     const coorUser = markers.shift();

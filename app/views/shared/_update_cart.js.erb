@@ -1,10 +1,12 @@
+
 if (document.getElementById("order_amount")) {
-  document.getElementById("order_amount").innerHTML = "Confirm ( <%= j @current_order.order_drinks.sum(:amount).to_s %> <%= j 'Drink'.pluralize(@current_order.order_drinks.sum(:amount)) %> ) ";
+  document.getElementById("order_amount").innerHTML = "Checkout ( <%= j @current_order.order_drinks.sum(:amount).to_s %> <%= j 'Drink'.pluralize(@current_order.order_drinks.sum(:amount)) %> ) ";
 }
 
 if (document.getElementById("drink-list")) {
   document.getElementById("drink-list").innerHTML = "<%= j render('/drinks/drinks', drinks: @drinks, order: @current_order) %>";
 }
+
 
 if (document.getElementById('drink-title')) {
   document.getElementById('drink-title').innerText = "<%= j @title %>";
