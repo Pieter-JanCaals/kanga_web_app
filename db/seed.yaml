@@ -35,7 +35,6 @@ categories:
 
 
 drinks:
-
   - name: "Becks"
     prep_time: 1
     category: "Beer"
