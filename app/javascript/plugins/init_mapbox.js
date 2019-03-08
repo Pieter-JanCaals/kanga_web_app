@@ -75,7 +75,10 @@ const initMapbox = () => {
       if (container.classList.contains('map_open')) {
         map.setCenter(coorUser);
       } else {
-        map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+        setTimeout(() => {
+          map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+          map.setZoom(16);
+        }, 800)
       }
     })
     eta.addEventListener("click", () => {
@@ -85,7 +88,10 @@ const initMapbox = () => {
       if (container.classList.contains('map_open')) {
         map.setCenter(coorUser);
       } else {
-        map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+        setTimeout(() => {
+          map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+          map.setZoom(16);
+        }, 800)
       }
     })
   }
