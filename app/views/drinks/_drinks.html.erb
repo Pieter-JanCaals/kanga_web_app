@@ -34,7 +34,6 @@
 
         <div class="card_price text-right">
           <div class="col-sm-2 <%= ((params[:id].present? && current_page?(controller: "orders", action: "show")) || (controller_name == "order_drinks" && action_name == "update")) ? "checkout-price" : "" %>">
-            <%# binding.pry %>
             <% if params[:id].present? && (current_page?(controller: "orders", action: "show") || (controller_name == "order_drinks" && action_name == "update" && request.referrer.match(/\/orders\/\d+/)))%>
               <%= humanized_money_with_symbol(order_drink.price) %>
             <% else %>
@@ -44,8 +43,6 @@
         </div>
       </div>
     </div>
-<!--  && !request.referrer.match(/\/\d+\/drinks/) -->
-<!-- || (controller_name == "order_drinks" && action_name == "update") -->
 
 <!-- order_drinks -->
 
