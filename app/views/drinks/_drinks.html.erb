@@ -33,7 +33,7 @@
         </div>
 
         <div class="card_price text-right">
-          <div class="col-sm-2">
+          <div class="col-sm-2 <%= ((params[:id].present? && current_page?(controller: "orders", action: "show")) || (controller_name == "order_drinks" && action_name == "update")) ? "checkout-price" : "" %>">
             <% if params[:id].present? %>
               <% if current_page?(controller: "orders", action: "show") %>
                 <%= humanized_money_with_symbol(order_drink.price) %>
@@ -46,7 +46,9 @@
       </div>
     </div>
 
-    <div class="hidden-order-btns", style="display: none;">
+<!-- order_drinks -->
+
+    <div class="hidden-order-btns", style="display: none">
       <div class="card_under">
         <div class="inner-card_under">
           <%= simple_form_for [order, drink, order_drink], remote: true do |f| %>

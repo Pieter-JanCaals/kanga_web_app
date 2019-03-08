@@ -8,7 +8,7 @@ class DrinksController < ApplicationController
       @drinks = bar.drinks.where(category_id: params[:category])
     else
       @title = "Popular Drinks"
-      @drinks = popular_drinks(@event.popular_drinks)
+      @drinks = @event.popular_drinks
     end
 
     @current_order = Order.find_by(user: current_user, status: "pending") || new_order(bar)
@@ -37,10 +37,10 @@ class DrinksController < ApplicationController
     event.bars.first
   end
 
-  def popular_drinks(drinks)
-    # logic to determine popular drinks
-    drinks
-  end
+  # def popular_drinks(drinks)
+  #   logic to determine popular drinks
+  #   drinks
+  # end
 
   def new_order(bar)
     Order.create(user: current_user, bar: bar, status: 'pending', qr_code: "qr_code")

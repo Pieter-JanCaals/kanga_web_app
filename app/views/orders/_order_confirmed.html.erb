@@ -31,7 +31,7 @@
 </div>
 <div class="bottom_margin"></div>
 
-<%= link_to 'Complete Order', orders_complete_path(@order), method: :post %>
+<div class="confirm_tab_secret"><%= link_to '.', orders_complete_path(@order), method: :post %></div>
 
 <%= javascript_pack_tag 'mapbox' %>
 
