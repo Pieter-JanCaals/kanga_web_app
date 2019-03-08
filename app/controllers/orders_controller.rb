@@ -8,11 +8,15 @@ class OrdersController < ApplicationController
     @drinks = @order.drinks
     @markers =
       [
-        { lng: @event.longitude, lat: @event.latitude },
+        {
+          lng: @event.longitude,
+          lat: @event.latitude,
+          image_url: helpers.asset_url('map_user_icon.png')
+        },
         {
           lng: @bar.longitude, lat: @bar.latitude,
           infoWindow: render_to_string(partial: "events/infowindow", locals: { bar: @bar }),
-          image_url: helpers.asset_url('logo.png')
+          image_url: helpers.asset_url('map_closest_bar_icon.png')
         }
       ]
   end
