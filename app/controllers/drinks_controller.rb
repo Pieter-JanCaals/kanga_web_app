@@ -11,8 +11,8 @@ class DrinksController < ApplicationController
       @drinks = @event.popular_drinks
     end
 
-    @current_order = Order.find_by(user: current_user, status: "pending") || new_order(cl_bar)
 
+    @current_order = Order.find_by(user: current_user, status: "pending") || new_order(cl_bar)
     @bars = [
       {
         lng: @event.longitude,
