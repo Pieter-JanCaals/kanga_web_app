@@ -126,7 +126,9 @@
   color: white;
   border: $card solid 2px;
   // position: relative;
+  transition: display 0.3s ease;
 }
+
  .inner-card_under {
   //min-height: 60px;
   display: block;
@@ -156,6 +158,25 @@
       margin-right: 40px;
     }
   }
+
+}
+
+.hidden-order-btns{
+  opacity:0;
+  animation: 300ms linear easeIt;
+  animation-fill-mode: forwards;
+}
+
+@keyframes easeIt{
+  from{
+    opacity:0;
+    animation-timing-function: ease-in-out;
+  }
+
+  to{
+    opacity: 1;
+  }
+
 }
 
 .order-submit{
