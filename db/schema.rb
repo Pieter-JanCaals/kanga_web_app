@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_140908) do
+ActiveRecord::Schema.define(version: 2019_03_08_120752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2019_03_07_140908) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_bars_on_event_id"
+  end
+
+  create_table "best_sellers", force: :cascade do |t|
+    t.integer "count"
+    t.bigint "drink_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["drink_id"], name: "index_best_sellers_on_drink_id"
+    t.index ["event_id"], name: "index_best_sellers_on_event_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -63,14 +73,23 @@ ActiveRecord::Schema.define(version: 2019_03_07_140908) do
     t.string "logo"
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_drinks", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "drink_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "amount", default: 0
+    t.bigint "user_id"
     t.index ["drink_id"], name: "index_order_drinks_on_drink_id"
     t.index ["order_id"], name: "index_order_drinks_on_order_id"
+    t.index ["user_id"], name: "index_order_drinks_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -101,9 +120,12 @@ ActiveRecord::Schema.define(version: 2019_03_07_140908) do
   add_foreign_key "bar_drinks", "bars"
   add_foreign_key "bar_drinks", "drinks"
   add_foreign_key "bars", "events"
+  add_foreign_key "best_sellers", "drinks"
+  add_foreign_key "best_sellers", "events"
   add_foreign_key "drinks", "categories"
   add_foreign_key "order_drinks", "drinks"
   add_foreign_key "order_drinks", "orders"
+  add_foreign_key "order_drinks", "users"
   add_foreign_key "orders", "bars"
   add_foreign_key "orders", "users"
 end

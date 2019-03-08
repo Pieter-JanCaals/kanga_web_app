@@ -76,6 +76,13 @@
   margin-right: auto;
 }
 
+.drink-plus-btn:hover{
+   animation: 200ms linear pinkBtn;
+  animation-fill-mode: forwards;
+  animation-delay: 0.1s;
+}
+
+
 .checkout-tip {
   display: flex;
 
@@ -86,6 +93,21 @@
     width: 40px;
     margin-left: 10px;
     margin-top: 0px;
+  }
+
+  @keyframes pinkBtn{
+    from{
+      color:#c4c4c4;
+      border:2px solid #c4c4c4;
+      animation-timing-function: ease-out;
+    }
+
+    to{
+    color: $action;
+    border:2px solid $action;
+    animation-timing-function: ease-out;
+
+    }
   }
 
   .drink-minus-btn {
@@ -126,7 +148,9 @@
   color: white;
   border: $card solid 2px;
   // position: relative;
+  transition: display 0.3s ease;
 }
+
  .inner-card_under {
   //min-height: 60px;
   display: block;
@@ -156,6 +180,25 @@
       margin-right: 40px;
     }
   }
+
+}
+
+.hidden-order-btns{
+  opacity:0;
+  animation: 300ms linear easeIt;
+  animation-fill-mode: forwards;
+}
+
+@keyframes easeIt{
+  from{
+    opacity:0;
+    animation-timing-function: ease-in-out;
+  }
+
+  to{
+    opacity: 1;
+  }
+
 }
 
 .order-submit{

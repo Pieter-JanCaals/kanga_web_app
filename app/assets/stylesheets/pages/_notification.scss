@@ -9,11 +9,16 @@
   margin-right:8px;
   position: absolute;
   background-color: #EAEAF4;
-  opacity: 0.97;
+  opacity: 0.9;
   border-color: white;
   border-radius: 8px;
   width: 95%;
-  height:80px;
+  height:100px;
+
+  opacity:0;
+  animation: 200ms linear messageMove;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
 .notification-icon {
@@ -27,22 +32,29 @@
 .notification-title {
   color: black;
   opacity: 0.70;
-  margin-top: -24px;
+  margin-top: -17px;
   margin-left: 50px;
 }
 
 .notification-text{
   font-family: Helvetica Neue;
   color: black;
-  margin-left: 15px;
+  margin-left: 19px;
+  margin-top: -10px;
   opacity: 0.95;
 }
 
 .notification-time {
   color: black;
   opacity: 0.60;
-  margin-top: -80px;
-  margin-left: 305px;
+  margin-top: -92px;
+  margin-left: 345px;
+}
+.notification-kanga {
+  margin-top: -8px;
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .notification-symbol {
@@ -54,7 +66,47 @@
   border-radius: 50%;
   background-color: red;
   color: white;
-  margin-top: 215px;
-  margin-left: 276px;
+  margin-top: 225px;
+  margin-left: 77px;
   text-align: center;
+
+  opacity:0;
+  animation: 200ms linear iconMove;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
+
+@keyframes iconMove {
+    from{
+    animation-timing-function: ease-out;
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes messageMove{
+    from{
+  opacity: 0.2;
+  }
+
+  to{
+  margin-top: 240px;
+  margin-left:8px;
+  margin-right:8px;
+  position: absolute;
+  background-color: #EAEAF4;
+  opacity: 0.9;
+  }
+
+}
+
+
+
+
+
+
+
+
+

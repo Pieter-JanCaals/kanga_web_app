@@ -41,10 +41,18 @@
 }
 
 .back-to-drinks {
-  text-align: right;
+  height: 50px;
+  text-align: center;
+  background-color: #2A272F;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 40px;
 
   & a {
-  color: $action;
+    font-size: 20px;
+    color: $action;
   }
 }
 

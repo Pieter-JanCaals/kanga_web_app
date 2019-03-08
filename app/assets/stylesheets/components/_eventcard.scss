@@ -2,10 +2,19 @@
   height:260px;
 }
 
+.event_cards:hover{
+  height: 280px;
+  transition: height 0.3s ease;
+}
+
 .gradient{
   background-image: linear-gradient(to bottom right, rgba(14,21,85,0.7), rgba(147,43,119,0.7));
   height: 100%;
   padding:15px;
+}
+
+div.gradient:hover{
+  background-image: linear-gradient(to bottom right, rgba(14,21,85,0.5), rgba(147,43,119,0.5))
 }
 
 .gradient p {

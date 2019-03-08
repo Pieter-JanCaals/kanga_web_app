@@ -1,5 +1,5 @@
 <% drinks.each do |drink| %>
-  <% order_drink = OrderDrink.find_by(order: order, drink: drink) || OrderDrink.new %>
+  <% order_drink = OrderDrink.find_or_create_by(order: order, drink: drink) %>
   <div class="drink">
     <div class="drink-content">
       <div class="card">
@@ -33,11 +33,9 @@
         </div>
 
         <div class="card_price text-right">
-          <div class="col-sm-2">
-            <% if params[:id].present? %>
-              <% if current_page?(controller: "orders", action: "show") %>
-                <%= humanized_money_with_symbol(order_drink.price) %>
-              <% end %>
+          <div class="col-sm-2 <%= ((params[:id].present? && current_page?(controller: "orders", action: "show")) || (controller_name == "order_drinks" && action_name == "update")) ? "checkout-price" : "" %>">
+            <% if params[:id].present? && (current_page?(controller: "orders", action: "show") || (controller_name == "order_drinks" && action_name == "update" && request.referrer.match(/\/orders\/\d+/)))%>
+              <%= humanized_money_with_symbol(order_drink.price) %>
             <% else %>
               <%= humanized_money_with_symbol(drink.price) %>
             <% end %>
@@ -45,6 +43,8 @@
         </div>
       </div>
     </div>
+
+<!-- order_drinks -->
 
     <div class="hidden-order-btns", style="display: none">
       <div class="card_under">
