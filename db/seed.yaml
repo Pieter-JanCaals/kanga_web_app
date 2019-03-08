@@ -201,3 +201,22 @@ users:
 
   - email: "user5@kanga.life"
     password: "lewagon"
+
+jazz_fest_best_sellers:
+  - drink: "Molson Ex"
+    count: 22
+
+  - drink: "Sauvignon Blanc"
+    count: 18
+
+  - drink: "Becks"
+    count: 14
+
+  - drink: "Rum"
+    count: 10
+
+  - drink: "Punch in the Face"
+    count: 8
+
+  - drink: "Chloe Rosé"
+    count: 4

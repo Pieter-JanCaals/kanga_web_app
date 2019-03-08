@@ -20,6 +20,7 @@ Bar.destroy_all
 Category.destroy_all
 User.destroy_all
 Event.destroy_all
+BestSeller.destroy_all
 message_done
 
 
@@ -79,6 +80,29 @@ seed["drinks"].each do |drink|
 end
 message_done
 
+# -- Creating the best-sellers --
+message_creating("best-sellers")
+events_hash.each do |event_key, event_value|
+  if event_key == "Montreal Jazz Fest"
+    seed["jazz_fest_best_sellers"].each do |best_seller|
+      BestSeller.create!(
+        event: event_value,
+        drink: drinks_hash[best_seller["drink"]],
+        count: best_seller["count"]
+        )
+    end
+  else
+    popular = drinks_hash.values.sample(6)
+    popular.each do |best_seller|
+      BestSeller.create!(
+        event: event_value,
+        drink: best_seller,
+        count: rand(30)
+        )
+    end
+  end
+end
+message_done
 
 # -- Creating the bars --
 message_creating("bars")
@@ -146,6 +170,3 @@ message_done
 
 # -- All done! --
 puts "Finished!!!"
-
-
-#
