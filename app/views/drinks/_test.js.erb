@@ -2,7 +2,8 @@ const toggleDisplay = (element) => {
   if (element.style.display === "block") {
     element.style.display = "none";
   } else {
-    element.style.display = "block"
+    element.style.display = "block";
+
   }
 }
 
@@ -49,6 +50,7 @@ const initDrinkCategoryButton = () => {
       drink.addEventListener("click", () => {
         console.debug("test3")
         toggleDisplay(drink.parentElement.querySelector('.hidden-order-btns'));
+
       });
     })
   }
