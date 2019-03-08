@@ -1,80 +1,84 @@
 <%= render 'shared/navbar', event: nil, header: "Summary" %>
+<div class="banner" style="background-image:url(<%= @event.photo unless @event.nil? %>)"></div>
+  <div class="main_container">
+    <div class="body_container">
+    <div class="main_container <%= @order.status == 'confirmed' ? 'confirm' : '' %>">
 
-<br>
-<br>
-<br>
 
-<div class="main_container <%= @order.status == 'confirmed' ? 'confirm' : '' %>">
-
-  <div class="summary-header-container">
-      <p><%= @order.event.name %></p>
-      <p> <%= @order.format_confirmed_at %></p>
+  <div class="header_title">
+    <h3 class="drink-title" style="font-weight: 300;">Order Summary<h3>
   </div>
+      <div class="summary-header-container">
+          <p><%= @order.event.name %></p>
+          <p> <%= @order.format_confirmed_at %></p>
+      </div>
 
-<br>
+      <div class="summary-container">
+        <div class="border-bottom summary-page">
+          <% @order.order_drinks.each do |order_drink| %>
+            <div class="drink-summary">
+              <div class="drink_summary_amount_name">
+                <p><%= order_drink.amount %></p>
+                <p><%= order_drink.drink.name %></p>
+              </div>
+             <p><%= humanized_money_with_symbol(order_drink.price) %></p>
+            </div>
+          <% end %>
+        </div>
 
-  <div class="summary-container">
-    <div class="border-bottom summary-page">
-      <% @order.order_drinks.each do |order_drink| %>
-        <div class="drink-summary">
-          <div class="drink_summary_amount_name">
-            <p><%= order_drink.amount %></p>
-            <p><%= order_drink.drink.name %></p>
+        <div class="receip-container">
+          <div class="row">
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5>SUBTOTAL</h5>
+            </div>
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
+            </div>
           </div>
-         <p><%= humanized_money_with_symbol(order_drink.price) %></p>
-        </div>
-      <% end %>
-    </div>
 
-    <div class="receip-container">
-      <div class="row">
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5>SUBTOTAL</h5>
-        </div>
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.total_no_tax) %></h5>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5>TAXES</h5>
+            </div>
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5>TAXES</h5>
-        </div>
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.tax) %></h5>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5>TIP</h5>
+            </div>
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5>TIP</h5>
+          <div class="row">
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5>GRAND TOTAL</h5>
+            </div>
+            <div class="col-xs-6 no-margin-between-elements">
+              <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.grand_total) %></h5>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.tip_amount) %></h5>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5>GRAND TOTAL</h5>
+        <div class="receip-container-payment">
+          <div class="payment no-margin-between-elements">
+            <h5>Payment</h5>
+            <div class="payment no-margin-between-elements">
+              <img src="/visa.jpg" alt="Visa logo" width="50">
+              <p>**** **** **** 1881</p>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-6 no-margin-between-elements">
-          <h5 class="text-right" id="total-no-tax"><%= humanized_money_with_symbol(@order.grand_total) %></h5>
-        </div>
-      </div>
-    </div>
 
-    <div class="receip-container-payment">
-      <div class="payment no-margin-between-elements">
-        <h5>Payment</h5>
-        <div class="payment no-margin-between-elements">
-          <img src="/visa.jpg" alt="Visa logo" width="50">
-          <p>**** **** **** 1881</p>
-        </div>
+
       </div>
     </div>
-
-  <%= link_to "Back to confirmation", order_path(@order) %>
-
   </div>
 </div>
+      <div class="confirm_tab">
+        <p class="sum_btm_font"><%= link_to "Back to confirmation", order_path(@order) %></p>
+      </div>
