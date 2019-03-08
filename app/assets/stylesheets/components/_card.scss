@@ -76,6 +76,13 @@
   margin-right: auto;
 }
 
+.drink-plus-btn:hover{
+   animation: 200ms linear pinkBtn;
+  animation-fill-mode: forwards;
+  animation-delay: 0.1s;
+}
+
+
 .checkout-tip {
   display: flex;
 
@@ -86,6 +93,21 @@
     width: 40px;
     margin-left: 10px;
     margin-top: 0px;
+  }
+
+  @keyframes pinkBtn{
+    from{
+      color:#c4c4c4;
+      border:2px solid #c4c4c4;
+      animation-timing-function: ease-out;
+    }
+
+    to{
+    color: $action;
+    border:2px solid $action;
+    animation-timing-function: ease-out;
+
+    }
   }
 
   .drink-minus-btn {
