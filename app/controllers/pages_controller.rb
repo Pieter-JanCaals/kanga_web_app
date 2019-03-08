@@ -21,11 +21,15 @@ class PagesController < ApplicationController
 
       @markers =
         [
-          { lng: @confirmed_order.event.longitude, lat: @confirmed_order.event.latitude },
+          {
+            lng: @confirmed_order.event.longitude,
+            lat: @confirmed_order.event.latitude,
+            image_url: helpers.asset_url('map_user_icon.png')
+          },
           {
             lng: @confirmed_order.bar.longitude, lat: @confirmed_order.bar.latitude,
             infoWindow: render_to_string(partial: "events/infowindow", locals: { bar: @confirmed_order.bar }),
-            image_url: helpers.asset_url('logo.png')
+            image_url: helpers.asset_url('map_closest_bar_icon.png')
           }
         ]
       @event = @confirmed_order.event

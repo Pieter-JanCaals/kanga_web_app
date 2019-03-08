@@ -49,6 +49,7 @@ const addUserToMap = (map, user) => {
 }
 
 const initMapbox = () => {
+  console.log("init called")
   const eta = document.querySelector("#eta");
 
   const mapElement = document.getElementById('map');
