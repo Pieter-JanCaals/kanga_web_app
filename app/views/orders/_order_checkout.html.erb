@@ -8,9 +8,10 @@
     </div>
 
   </div>
-
-  <div class="back-to-drinks">
+<div class="sum_cont">
+  <div class="summary">
     <%= link_to "Add more drinks", event_drinks_path(@order.bar.event) %>
+  </div>
   </div>
 
   <%= simple_form_for @order do |f| %>

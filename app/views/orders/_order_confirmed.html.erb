@@ -14,16 +14,17 @@
 <div class="header_title">
   <h1 id="drink-title">We will let you know when your order is ready</h1>
 </div>
-
-<div class="summary">
-<%= link_to "Order summary", summary_order_path(@order) %>
+<div class="sum_cont">
+  <div class="summary">
+    <%= link_to "Order summary", summary_order_path(@order) %>
+  </div>
 </div>
 
 <div class="confirm-map-box">
   <div class="text_center">
-    <p>Present this QR code upon pick up</p>
+    <p style="font-size:18px;">Present this QR code upon pick up</p>
     <div id="qr_code">
-      <%= link_to notification_path do %>
+      <%= link_to confirmation_2_path do %>
       <%= raw @qr.as_html %>
       <% end %>
     </div>

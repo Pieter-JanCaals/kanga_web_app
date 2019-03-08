@@ -39,7 +39,7 @@
     </div>
     <div class="bottom_margin"></div>
 
-    <%= link_to 'Complete Order', orders_complete_path(@confirmed_order), method: :post %>
+    <div class="confirm_tab_secret"><%= link_to '.', orders_complete_path(@confirmed_order), method: :post %></div>
   </div>
 </div>
 

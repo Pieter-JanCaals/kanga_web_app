@@ -1,15 +1,22 @@
 .summary-container {
-  background: rgb(38, 38, 38);
   padding: 1px 30px 15px 15px;
 }
+
+.sum_cont{
+width:100%;
+content-align:right;
+margin-top:5px;
+}
+
 .summary {
-  display: flex;
-  background-color: black;
+  width:40%;
+  background-color: $header;
   color: white;
-  justify-content: center;
   opacity: 0.7;
-  height: 34px;
-  align-items: center;
+  height: 38px;
+  text-align:center;
+  padding-top:5px;
+  border-radius: 2px;
   a {
     color: white;
     text-decoration: none;
