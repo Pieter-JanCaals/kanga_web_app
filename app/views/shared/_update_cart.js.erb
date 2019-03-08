@@ -13,9 +13,9 @@ if (document.getElementById('drink-title')) {
 }
 
 if (document.getElementById('order_tip')) {
-    document.querySelectorAll('.checkout-price').forEach(function(element) {
-      element.innerHTML = "<%= j humanized_money_with_symbol(@order_drink.price) %>";
-    });
+    // document.querySelectorAll('.checkout-price').forEach(function(element) {
+      // element.innerHTML = "<%#= j humanized_money_with_symbol(@order_drink.price) %>";
+    // });
   document.getElementById('total-no-tax').innerText = "<%= j humanized_money_with_symbol(@current_order.total_no_tax) %>"
   document.getElementById('tax').innerText = "<%= j humanized_money_with_symbol(@current_order.tax) %>"
   document.getElementById('tip-amount').innerText = "$" + Math.round(document.getElementById('total-no-tax').innerText.substr(1) + document.getElementById('tax').innerText.substr(1) * (document.getElementById('order_tip').value / 100)) / 100;
@@ -30,6 +30,5 @@ if (document.getElementById('confirm_tab')) {
       document.getElementById('confirm_tab').classList.add('grey_button');
     }
   }
-
 }
 
