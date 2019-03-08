@@ -13,7 +13,7 @@
   border-color: white;
   border-radius: 8px;
   width: 95%;
-  height:100px;
+  height:80px;
 
   opacity:0;
   animation: 200ms linear messageMove;
@@ -32,29 +32,22 @@
 .notification-title {
   color: black;
   opacity: 0.70;
-  margin-top: -17px;
+  margin-top: -24px;
   margin-left: 50px;
 }
 
 .notification-text{
   font-family: Helvetica Neue;
   color: black;
-  margin-left: 19px;
-  margin-top: -10px;
+  margin-left: 15px;
   opacity: 0.95;
 }
 
 .notification-time {
   color: black;
   opacity: 0.60;
-  margin-top: -92px;
-  margin-left: 345px;
-}
-.notification-kanga {
-  margin-top: -8px;
-  margin-left: 20px;
-  text-decoration: none;
-  color: black;
+  margin-top: -80px;
+  margin-left: 305px;
 }
 
 .notification-symbol {
@@ -92,7 +85,7 @@
   }
 
   to{
-  margin-top: 240px;
+  margin-top: 30px;
   margin-left:8px;
   margin-right:8px;
   position: absolute;
