@@ -213,7 +213,6 @@
 //////////////////////////////////MAP
 
 .map_bg{
-  background-image: url('eta_map.png');
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -247,6 +246,10 @@
   font-size:30px;
 }
 
+.map {
+  height: 102px;
+  transition: height 400ms;
+}
 
 .hide {
   display: none;
@@ -257,11 +260,11 @@
   border-bottom-left-radius: 5px;
 }
 
-#map_open{
+.map_open{
   border-left: solid 15px $action;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  transition: height 400ms ease-in;
+  height: 400px;
 }
 
 // #map_close{
