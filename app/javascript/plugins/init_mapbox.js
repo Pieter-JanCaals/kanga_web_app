@@ -11,13 +11,13 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const element = document.createElement('div');
     element.className = 'marker';
-    //element.style.backgroundImage = `url(${marker.image_url})`;
-    //element.style.backgroundRepeat = 'no-repeat';
-    //element.style.backgroundSize = 'contain';
+    element.style.backgroundImage = `url(${marker.image_url})`;
+    element.style.backgroundRepeat = 'no-repeat';
+    element.style.backgroundSize = 'contain';
     element.style.width = '70px';
     element.style.height = '70px';
 
-    new mapboxgl.Marker()// add element if you want custom marker
+    new mapboxgl.Marker(element)// add element if you want custom marker
     .setLngLat([marker.lng, marker.lat])
     .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
     .setHTML(marker.infoWindow))
@@ -39,10 +39,6 @@ const addUserToMap = (map, coordinates) => {
   // } else {
   //   alert("Geolocation is not supported by this browser.")
   // }
-}
-
-const removeMarkersFromMap = () => {
-  $('.mapboxgl-marker').remove();
 }
 
 const initMapbox = () => {

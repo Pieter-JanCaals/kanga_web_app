@@ -19,7 +19,7 @@ class DrinksController < ApplicationController
         {
           lng: bar.longitude,
           lat: bar.latitude,
-          infoWindow: render_to_string(partial: "events/infowindow", locals: { bar: bar }),
+          infoWindow: render_to_string(partial: "events/infowindow", locals: { bar: bar })
           #image_url: helpers.asset_url('logo.png')
         }
     end
