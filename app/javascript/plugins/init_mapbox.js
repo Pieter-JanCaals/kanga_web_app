@@ -1,6 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
-const fitMapToMarkers = (map, markers, coorUser) => {
+const fitMapToMarkers = (map, markers, user) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   bounds.extend([ coorUser.lng - 0.00009, coorUser.lat ]);
@@ -14,8 +14,8 @@ const addMarkersToMap = (map, markers) => {
     element.style.backgroundImage = `url(${marker.image_url})`;
     element.style.backgroundRepeat = 'no-repeat';
     element.style.backgroundSize = 'contain';
-    element.style.width = '70px';
-    element.style.height = '70px';
+    element.style.width = '30px';
+    element.style.height = '30px';
 
     new mapboxgl.Marker(element)// add element if you want custom marker
     .setLngLat([marker.lng, marker.lat])
@@ -25,13 +25,20 @@ const addMarkersToMap = (map, markers) => {
   })
 }
 
-const addUserToMap = (map, coordinates) => {
+const addUserToMap = (map, user) => {
   // if (navigator.geolocation) {
-    const popup = new mapboxgl.Popup().setHTML("<div>You are here!</div>");
+    const element = document.createElement('div');
+    // element.className = 'marker';
+    element.style.backgroundImage = `url(${user.image_url})`;
+    element.style.backgroundRepeat = 'no-repeat';
+    element.style.backgroundSize = 'contain';
+    element.style.width = '42px';
+    element.style.height = '42px';
+    const popup = new mapboxgl.Popup().setHTML("<div style='color: black'>You are here!</div>");
     // navigator.geolocation.getCurrentPosition((position) => {
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(element)
       // .setLngLat([coordinates.lng - 0.00009, coordinates.lat])
-      .setLngLat([coordinates.lng + 0.00229, coordinates.lat + 0.00030])
+      .setLngLat([user.lng + 0.00270, user.lat + 0.00021])
       .setPopup(popup)
       .addTo(map);
       console.debug("user added to map")
@@ -56,13 +63,13 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v9',
-      center: [markers[0].lng + 0.00129, markers[0].lat + 0.00010],
+      center: [markers[0].lng + 0.0017, markers[0].lat - 0.0004],
       zoom: 16
     });
-    const coorUser = markers.shift();
+    const user = markers.shift();
 
     addMarkersToMap(map, markers);
-    addUserToMap(map, coorUser);
+    addUserToMap(map, user);
     // fitMapToMarkers(map, markers, coorUser);
 
     container.addEventListener("click", () => {
@@ -70,10 +77,10 @@ const initMapbox = () => {
       overlay_map_color.classList.toggle('overlay-map-height');
       document.querySelector('.overlay-map-color p').classList.toggle('p-open');
       if (container.classList.contains('map_open')) {
-        map.setCenter([coorUser.lng + 0.00229, coorUser.lat + 0.00030]);
+        map.setCenter([user.lng + 0.00229, user.lat + 0.00030]);
       } else {
         setTimeout(() => {
-          map.setCenter([coorUser.lng + 0.00129, coorUser.lat + 0.00010])
+          map.setCenter([user.lng + 0.0017, user.lat - 0.0004])
           map.setZoom(16);
         }, 800)
       }
@@ -83,10 +90,10 @@ const initMapbox = () => {
       overlay_map_color.classList.toggle('overlay-map-height');
       document.querySelector('.overlay-map-color p').classList.toggle('p-open');
       if (container.classList.contains('map_open')) {
-        map.setCenter([coorUser.lng + 0.00229, coorUser.lat + 0.00030]);
+        map.setCenter([user.lng + 0.00229, user.lat + 0.00030]);
       } else {
         setTimeout(() => {
-          map.setCenter([coorUser.lng + 0.00129, coorUser.lat + 0.00010])
+          map.setCenter([user.lng + 0.0017, user.lat - 0.0004])
           map.setZoom(16);
         }, 800)
       }
