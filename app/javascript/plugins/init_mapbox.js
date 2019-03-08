@@ -60,7 +60,7 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v9',
-      center: [markers[0].lng - 0.0007, markers[0].lat - 0.0009],
+      center: [markers[0].lng + 0.00129, markers[0].lat + 0.00010],
       zoom: 16
     });
     const coorUser = markers.shift();
@@ -74,10 +74,10 @@ const initMapbox = () => {
       overlay_map_color.classList.toggle('overlay-map-height');
       document.querySelector('.overlay-map-color p').classList.toggle('p-open');
       if (container.classList.contains('map_open')) {
-        map.setCenter(coorUser);
+        map.setCenter([coorUser.lng + 0.00229, coorUser.lat + 0.00030]);
       } else {
         setTimeout(() => {
-          map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+          map.setCenter([coorUser.lng + 0.00129, coorUser.lat + 0.00010])
           map.setZoom(16);
         }, 800)
       }
@@ -87,10 +87,10 @@ const initMapbox = () => {
       overlay_map_color.classList.toggle('overlay-map-height');
       document.querySelector('.overlay-map-color p').classList.toggle('p-open');
       if (container.classList.contains('map_open')) {
-        map.setCenter(coorUser);
+        map.setCenter([coorUser.lng + 0.00229, coorUser.lat + 0.00030]);
       } else {
         setTimeout(() => {
-          map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+          map.setCenter([coorUser.lng + 0.00129, coorUser.lat + 0.00010])
           map.setZoom(16);
         }, 800)
       }
