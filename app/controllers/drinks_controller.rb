@@ -11,7 +11,7 @@ class DrinksController < ApplicationController
       @drinks = @event.popular_drinks
     end
 
-    @current_order = Order.find_by(user: current_user, status: "pending") || new_order(bar)
+    @current_order = Order.where(user: current_user, status: "pending").find { |order| order.bar.event == @event } || new_order(bar)
 
     @bars = [{ lng: @event.longitude, lat: @event.latitude }]
     @event.bars.each do |bar|
