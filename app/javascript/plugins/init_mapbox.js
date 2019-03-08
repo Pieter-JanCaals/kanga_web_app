@@ -41,24 +41,60 @@ const addUserToMap = (map, coordinates) => {
   // }
 }
 
+const removeMarkersFromMap = () => {
+  $('.mapboxgl-marker').remove();
+}
+
 const initMapbox = () => {
+  const eta = document.querySelector("#eta");
+
   const mapElement = document.getElementById('map');
+  const container = document.querySelector('.map_container');
+  const overlay_map_color = document.querySelector('.overlay-map-color');
+
 
   let markers = JSON.parse(mapElement.dataset.markers);
 
-  if (mapElement) {
-    console.debug("map found")
+  if (mapElement && eta) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/light-v9',
-      center: [markers[0].lng, markers[0].lat]
+      center: [markers[0].lng - 0.0007, markers[0].lat - 0.0009],
+      zoom: 16
     });
     const coorUser = markers.shift();
 
-    addUserToMap(map, coorUser);
     addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers, coorUser);
+    addUserToMap(map, coorUser);
+    // fitMapToMarkers(map, markers, coorUser);
+
+    container.addEventListener("click", () => {
+      container.classList.toggle('map_open');
+      overlay_map_color.classList.toggle('overlay-map-height');
+      document.querySelector('.overlay-map-color p').classList.toggle('p-open');
+      if (container.classList.contains('map_open')) {
+        map.setCenter(coorUser);
+      } else {
+        setTimeout(() => {
+          map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+          map.setZoom(16);
+        }, 800)
+      }
+    })
+    eta.addEventListener("click", () => {
+      container.classList.toggle('map_open');
+      overlay_map_color.classList.toggle('overlay-map-height');
+      document.querySelector('.overlay-map-color p').classList.toggle('p-open');
+      if (container.classList.contains('map_open')) {
+        map.setCenter(coorUser);
+      } else {
+        setTimeout(() => {
+          map.setCenter([coorUser.lng - 0.0007, coorUser.lat - 0.0009])
+          map.setZoom(16);
+        }, 800)
+      }
+    })
   }
 };
 
