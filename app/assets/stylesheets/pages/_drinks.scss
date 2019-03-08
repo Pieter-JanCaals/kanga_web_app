@@ -247,25 +247,30 @@
 }
 
 .map {
-  height: 102px;
-  transition: height 400ms;
-}
-
-.hide {
-  display: none;
-  height: 0;
-  overflow: hidden;
-  transition: height 400ms ease-in-out;
-  border-bottom-right-radius: 5px;
+  border-left: solid 15px $action;
   border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 96px;
+  transition: height 1s ease-in-out;
 }
 
 .map_open{
   border-left: solid 15px $action;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  height: 400px;
+  margin-top: -70;
+  height: 300px;
 }
+
+.hide {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: height 1s ease-in-out;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 
 // #map_close{
 //   transition: height 400ms ease-out;

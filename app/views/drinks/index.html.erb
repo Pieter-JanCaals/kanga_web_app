@@ -5,21 +5,21 @@
   <div class="banner" style="background-image:url(<%= @event.photo unless @event.nil? %>)">
   </div>
   <div class="body_container">
-    <div class="map" id="map" style="height: 100px; width: 100%" data-markers="<%= @bars.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map_style">
-      <div id="eta">
-        <div class="map_bg">
-          <div class="map_card">
-            <div class="col-sm-3">
-              <p>Wait Time</p>
-              <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
-            </div>
-            <div class="col-sm-6" style="padding-right: 50px;">
-              <p>Location</p>
-              <p style="padding-top: 10px;"><%= @event.closest_bar.name %></p>
-            </div>
-            <div class="col-sm-3">
-              <%= image_tag 'ping.png', height:50, class: 'map_ping' %>
-            </div>
+    <div class="map" id="map" style="margin-top: -50px; max-height: 300px; width: 100%" data-markers="<%= @bars.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" class="map_style">
+    </div>
+    <div id="eta">
+      <div class="map_bg">
+        <div class="map_card">
+          <div class="col-sm-3">
+            <p>Wait Time</p>
+            <p><strong class="eta_btn"><%= @event.closest_bar.eta %> </strong>min</p>
+          </div>
+          <div class="col-sm-6" style="padding-right: 50px;">
+            <p>Location</p>
+            <p style="padding-top: 10px;"><%= @event.closest_bar.name %></p>
+          </div>
+          <div class="col-sm-3">
+            <%= image_tag 'ping.png', height:50, class: 'map_ping' %>
           </div>
         </div>
       </div>

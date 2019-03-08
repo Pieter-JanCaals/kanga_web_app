@@ -41,12 +41,13 @@ const addUserToMap = (map, coordinates) => {
 }
 
 const initMapbox = () => {
+  const eta = document.querySelector("#eta");
+
   const mapElement = document.getElementById('map');
 
   let markers = JSON.parse(mapElement.dataset.markers);
 
-  if (mapElement) {
-    console.debug("map found")
+  if (mapElement && eta) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
@@ -56,8 +57,19 @@ const initMapbox = () => {
     const coorUser = markers.shift();
 
     addUserToMap(map, coorUser);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers, coorUser);
+    // fitMapToMarkers(map, markers, coorUser);
+
+    eta.addEventListener("click", () => {
+      document.querySelector('.mapboxgl-canvas').setAttribute("height", "300px");
+      document.querySelector('.mapboxgl-canvas').setAttribute("style", "height:300px");
+      mapElement.classList.toggle('map_open');
+
+      setTimeout(() => {
+        console.log("inside timeout")
+        addMarkersToMap(map, markers);
+        fitMapToMarkers(map, markers, coorUser);
+      }, 2000);
+    })
   }
 };
 
