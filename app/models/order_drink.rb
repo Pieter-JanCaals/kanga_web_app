@@ -12,6 +12,10 @@ class OrderDrink < ApplicationRecord
     drink.price * amount
   end
 
+  def event_best_sellers
+    order.bar.event.popular_drinks
+  end
+
   private
 
   def destroy_if_empty

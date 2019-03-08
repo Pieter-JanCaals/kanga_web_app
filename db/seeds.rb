@@ -83,11 +83,11 @@ message_done
 # -- Creating the best-sellers --
 message_creating("best-sellers")
 events_hash.each do |event_key, event_value|
-  if seed["best_sellers"].include?(event_key)
+  if seed["best_sellers"].key?(event_key)
     seed["best_sellers"][event_key].each do |best_seller|
       BestSeller.create!(
         event: event_value,
-        drink: drinks_hash[best_sellers["drink"]],
+        drink: drinks_hash[best_seller["drink"]],
         count: best_seller["count"]
         )
     end
