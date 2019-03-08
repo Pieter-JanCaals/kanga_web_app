@@ -30,7 +30,8 @@ const addUserToMap = (map, coordinates) => {
     const popup = new mapboxgl.Popup().setHTML("<div>You are here!</div>");
     // navigator.geolocation.getCurrentPosition((position) => {
       new mapboxgl.Marker()
-      .setLngLat([coordinates.lng - 0.00009, coordinates.lat])
+      // .setLngLat([coordinates.lng - 0.00009, coordinates.lat])
+      .setLngLat([coordinates.lng + 0.00229, coordinates.lat + 0.00030])
       .setPopup(popup)
       .addTo(map);
       console.debug("user added to map")
