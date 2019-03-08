@@ -34,7 +34,7 @@ const addUserToMap = (map, user) => {
     element.style.backgroundSize = 'contain';
     element.style.width = '42px';
     element.style.height = '42px';
-    const popup = new mapboxgl.Popup().setHTML("<div style='color: black'>You are here!</div>");
+    const popup = new mapboxgl.Popup({ offset: 25 }).setHTML("<div style='color: black'>You are here!</div>");
     // navigator.geolocation.getCurrentPosition((position) => {
       new mapboxgl.Marker(element)
       // .setLngLat([coordinates.lng - 0.00009, coordinates.lat])
@@ -73,18 +73,22 @@ const initMapbox = () => {
     // fitMapToMarkers(map, markers, coorUser);
 
     container.addEventListener("click", () => {
-      container.classList.toggle('map_open');
-      overlay_map_color.classList.toggle('overlay-map-height');
-      document.querySelector('.overlay-map-color p').classList.toggle('p-open');
+
       if (container.classList.contains('map_open')) {
-        map.setCenter([user.lng + 0.00229, user.lat + 0.00030]);
       } else {
-        setTimeout(() => {
-          map.setCenter([user.lng + 0.0017, user.lat - 0.0004])
-          map.setZoom(16);
-        }, 800)
+        container.classList.toggle('map_open');
+        overlay_map_color.classList.toggle('overlay-map-height');
+        document.querySelector('.overlay-map-color p').classList.toggle('p-open');
+        map.setCenter([user.lng + 0.00229, user.lat + 0.00030]);
       }
+      // else {
+      //   setTimeout(() => {
+      //     map.setCenter([user.lng + 0.0017, user.lat - 0.0004])
+      //     map.setZoom(16);
+      //   }, 800)
+      // }
     })
+
     eta.addEventListener("click", () => {
       container.classList.toggle('map_open');
       overlay_map_color.classList.toggle('overlay-map-height');
