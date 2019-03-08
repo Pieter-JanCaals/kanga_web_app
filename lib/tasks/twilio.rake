@@ -1,7 +1,7 @@
 namespace :twilio do
   task :send => :environment do
     from = '+14507002052' # Your Twilio number
-    to = '+33664832605' # Your mobile phone number
+    to = '+15145850083' # Your mobile phone number
 
     TwilioClient.messages.create(
     from: from,

@@ -70,6 +70,21 @@ drinks:
     category: "Beer"
     price: 1000
 
+  - name: "Boldwin IPA"
+    prep_time: 1
+    category: "Beer"
+    price: 0
+
+  - name: "Boldwin Pale Ale"
+    prep_time: 1
+    category: "Beer"
+    price: 0
+
+  - name: "Boldwin Witbier"
+    prep_time: 1
+    category: "Beer"
+    price: 0
+
 
   - name: "Blue Lagoon"
     prep_time: 1
@@ -201,3 +216,34 @@ users:
 
   - email: "user5@kanga.life"
     password: "lewagon"
+
+
+best_sellers:
+  Montreal Jazz Fest:
+    - drink: "Molson Ex"
+      count: 22
+
+    - drink: "Sauvignon Blanc"
+      count: 18
+
+    - drink: "Becks"
+      count: 14
+
+    - drink: "Rum"
+      count: 10
+
+    - drink: "Punch in the Face"
+      count: 8
+
+    - drink: "Chloe Rosé"
+      count: 4
+
+  Le Wagon Demo Day:
+    - drink: "Boldwin IPA"
+      count: 22
+
+    - drink: "Boldwin Witbier"
+      count: 18
+
+    - drink: "Boldwin Witbier"
+      count: 14
